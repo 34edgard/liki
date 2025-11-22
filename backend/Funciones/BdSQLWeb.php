@@ -11,7 +11,7 @@ public static function bdSQLWeb(){
     
 
 $tablas = file_get_contents("./sql/tablas.sql");
-$registros = file_get_contents("./sql/nt.sql");
+$registros = file_get_contents("./sql/registros.sql");
 
 //1255667
 $con = new ConsultasBD();

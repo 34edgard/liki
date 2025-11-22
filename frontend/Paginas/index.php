@@ -4,7 +4,7 @@ $op = ["op"=>0];
 
 
 $config = [
-    "tituloPagina"=>"República del Uruguay",
+    "tituloPagina"=>"App Liki",
     "estilos"=>['bootstrap.min','estilos'],
     "estilosD"=>['estilos'],
     

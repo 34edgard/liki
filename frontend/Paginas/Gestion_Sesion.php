@@ -6,7 +6,7 @@ $op = ["op"=>9];
 
 
 $config = [
-    "tituloPagina"=>'APP Uruguay - Iniciar Sesión',
+    "tituloPagina"=>'APP Liki',
     "estilos"=>['bootstrap.min','estilos'],
     "estilosD"=>['estilos'],
     "scripts"=>['color-modes','script','htmx','bootstrap.bundle.min'],

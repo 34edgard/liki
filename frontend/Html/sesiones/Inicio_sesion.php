@@ -3,7 +3,7 @@
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card p-4 p-md-5 shadow-lg custom-card">
                         <div class="card-body text-center">
-                            <h2 class="mb-4 custom-heading">Bienvenidos a la APP Uruguay</h2>
+                            <h2 class="mb-4 custom-heading">Bienvenidos a la APP Liki</h2>
                             <p class="mb-4 text-muted">Ingrese sus credenciales para continuar</p>
     
                             <form
