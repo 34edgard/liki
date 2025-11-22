@@ -44,7 +44,7 @@ CREATE TABLE roles (
   nombre_rol VARCHAR(30) NOT NULL
 );
 
-
+ 
 CREATE TABLE usuario (
   id_usuario INTEGER PRIMARY KEY AUTOINCREMENT,
   cedula INTEGER NOT NULL,

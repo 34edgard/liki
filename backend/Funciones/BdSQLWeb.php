@@ -17,7 +17,7 @@ $registros = file_get_contents("./sql/nt.sql");
 $con = new ConsultasBD();
 
 //print($tablas);
-/*
+
 $tables = explode(';',$tablas);
 foreach($tables as $t){
     
@@ -32,12 +32,10 @@ foreach($rs as $rds){
 
 $con->ejecutarConsulta($rds);
 }
-CREATE TABLE tipo_parentesco (
-  id_tipo_parentesco INTEGER PRIMARY KEY AUTOINCREMENT,
-  nombre VARCHAR(30) NOT NULL
-);
 
-*/
+
+
+
 
 //$con->ejecutarConsulta("INSERT INTO tipo_parentesco (nombre) VALUES ('representante'),('madre'),('padre')");
 
