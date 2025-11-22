@@ -1,0 +1,42 @@
+<?php
+//crear un archivo con este código 
+const puerto = "";
+const usuario_BD = "";
+const contraceña_BD = "";
+const nombre_BD = "";
+const MODO_SANITIZACION = "ESTRICTO";
+const DSN = "sqlite:app-uruguay.db";
+//const DSN = "mysql:host=".puerto.";dbname=".nombre_BD.";charset=utf8";
+
+
+
+
+const DB_DRIVER = 'sqlite'; // 'mysql', 'mariadb', 'sqlite', 'pgsql'  
+const DB_HOST = 'localhost';  
+const DB_PORT = 3306;  
+const DB_NAME = 'app-uruguay';  
+const DB_USER = 'root';  
+const DB_PASSWORD = 'root';  
+const DB_CHARSET = 'utf8mb4';  
+  
+// Configuración de migraciones  
+const MIGRATION_TABLE = 'migrations';  
+const MIGRATION_PATH = __DIR__ . '/sql/migrations/';  
+const MIGRATION_AUTO_RUN = false; // Ejecutar automáticamente en producción
+
+
+
+
+
+
+
+
+const ERROR_RESPONSE_TYPE =  'html'; // 'json, html, xml'  
+const ERROR_LOG_ENABLED = true;  
+const ERROR_LOG_PATH = __DIR__ . '/logs/errors.log';  
+const ERROR_SHOW_DETAILS = false; // false en producción  
+const ERROR_LOG_LEVEL = 'ERROR'; // 'DEBUG, INFO, WARNING, ERROR, CRITICAL'  
+const ERROR_LANGUAGE = 'es'; // 'es , 'en'  
+const ERROR_SEND_EMAIL = false;  
+const ERROR_EMAIL_TO = 'admin@example.com';  
+const ERROR_HTTP_CODES = true; //

@@ -6,7 +6,10 @@ if (php_sapi_name() !== 'cli') {
 }
 
 // Función para generar un modelo
-include "./CodigoPHP/.consola/index.php";
+include "./conf.php";
+include "./backend/autoload.php";
+
+use Liki\Consola\GeneradorCodigo;
 
 // Comprobación de los argumentos de la línea de comandos
 if ($argc < 3) {
@@ -19,11 +22,11 @@ $nombre = $argv[2];
 
 switch ($tipo) {
     case 'modelo':
-        generateModel($nombre);
+        GeneradorCodigo::generateModel($nombre);
         break;
 
     case 'controlador':
-        generateController($nombre);
+        GeneradorCodigo::generateController($nombre);
         break;
 
     default:
