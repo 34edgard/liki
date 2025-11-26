@@ -9,6 +9,7 @@ use PDOException;
 class ConexionesBD implements ConexionesBaseDatos {
     
     public function crearConexion(): ?PDO {
+        
         try {
             $conexion = new PDO(DSN, usuario_BD, contraceña_BD);
             $conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);

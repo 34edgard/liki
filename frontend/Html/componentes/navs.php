@@ -14,8 +14,8 @@ $menu = 'componentes/menu-desplegable';
         Plantilla::HTML($menu, [
             'title' => 'Reportes',
             'items' => [
-                ['label' => 'option1', 'hx_get' => '/frontend/Html/Reportes/Matricula.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick' => "option1','Matricula"],
-                ['label' => 'option2', 'hx_post' => '/frontend/Html/Reportes/Planilla.php', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click',
+                ['label' => 'option1', 'hx_get' => '/Reportes/Matricula', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick' => "option1','Matricula"],
+                ['label' => 'option2', 'hx_post' => '/Reportes/Planilla', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click',
                 'onclick_title' => "Reportes','Planilla"],
               
             ]

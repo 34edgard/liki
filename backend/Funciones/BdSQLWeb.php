@@ -17,7 +17,7 @@ $registros = file_get_contents("./sql/registros.sql");
 $con = new ConsultasBD();
 
 //print($tablas);
-
+/*
 $tables = explode(';',$tablas);
 foreach($tables as $t){
     
@@ -35,7 +35,7 @@ $con->ejecutarConsulta($rds);
 
 
 
-
+*/
 
 //$con->ejecutarConsulta("INSERT INTO tipo_parentesco (nombre) VALUES ('representante'),('madre'),('padre')");
 

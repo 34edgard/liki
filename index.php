@@ -21,14 +21,19 @@ use Liki\Database\MigrationRunner;
 
 
 
-
 Ruta::get('/migracion',function(){
     
   $d = new  MigrationRunner();
-    
+    $d->run();
 });
 
-
+Ruta::get('/{html}/src',function($p){
+   // print($p[0]);
+   // include __DIR__.'/frontend/Html/'.$p[0].'.php';
+  //if(!file_exists('./frontend/Html/'.$p[0].'.php')) echo 'sexo';
+   Plantilla::HTML($p[0]);
+///echo 'sexooo';
+});
 
 
 Ruta::get('/testing/rutas',function(){

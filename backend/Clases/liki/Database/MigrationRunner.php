@@ -2,9 +2,9 @@
 
 namespace Liki\Database;
 
-
+use Liki\Files\File;
 use Liki\Database\ConsultasBD;  
-  
+//use glob;
 class MigrationRunner {  
     private $connection;  
     private $migrationTable;  
@@ -36,7 +36,11 @@ class MigrationRunner {
             echo "Ejecutando migración: {$migration}\n";  
             $this->executeMigration($migration, $batch);  
         }  
-          
+         $r = $this->getExecutedMigrations();
+        foreach($r as $m){
+            $this->executeMigration($m,$batch);
+        }
+        print_r($r);
         echo "Migraciones completadas.\n";  
     }  
       
@@ -56,7 +60,7 @@ public  function rollback($steps = 1) {
     }  
       
     private function getPendingMigrations() {  
-        $files = glob($this->migrationPath . '*.php');  
+        $files = File::glob($this->migrationPath . '*.php');  
         $executed = $this->getExecutedMigrations();  
           
         $pending = [];  
@@ -73,9 +77,12 @@ public  function rollback($steps = 1) {
 }
 
 private function getExecutedMigrations() {  
-        $stmt = $this->connection->query(  
+
+ 
+      $stmt = $this->connection->query(  
             "SELECT migration FROM {$this->migrationTable} ORDER BY id"  
         );  
+        
         return $stmt->fetchAll(\PDO::FETCH_COLUMN);  
     }  
       
@@ -118,7 +125,7 @@ private function getNextBatchNumber() {
     }  
       
     private function getLastBatches($steps) {  
-        $stmt = $this->connection->query(  
+        $stmt = $this->connection->conexion->query(  
             "SELECT DISTINCT batch FROM {$this->migrationTable} ORDER BY batch DESC LIMIT {$steps}"  
         );  
         return $stmt->fetchAll(\PDO::FETCH_COLUMN);  

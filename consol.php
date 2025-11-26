@@ -10,28 +10,54 @@ include "./conf.php";
 include "./backend/autoload.php";
 
 use Liki\Consola\GeneradorCodigo;
+use Liki\Database\MigrationRunner;
+  
+
+$comandos = [
+    'modelo'=>[GeneradorCodigo::class,'generateModel'],
+    'controlador'=>[GeneradorCodigo::class,'generateController'],
+    'likiClass'=>[GeneradorCodigo::class,'generateClassLiki'],
+    'migracion-run'=>[MigrationRunner::class,'run'],
+    'liki-grup'=>[GeneradorCodigo::class,'generateGrupoLiki'],
+    'app-grup'=>[GeneradorCodigo::class,'generateGrupoApp'],
+    'func-grup'=>[GeneradorCodigo::class,'generateGrupoFunc'],
+    ];
+
+
 
 // Comprobación de los argumentos de la línea de comandos
-if ($argc < 3) {
-    echo "Uso: php script.php [modelo|controlador] [nombre]\n";
+if ($argc < 2) {
+  
+    echo "Uso: php consol.php [comando] [nombre] [extras]\n";
+    
+    echo "comandos: \n\n ";
+    foreach($comandos as $nombre => $comando){
+        echo ' -'.$nombre."\n";
+    }
     exit(1);
 }
 
 $tipo = $argv[1];
 $nombre = $argv[2];
-
-switch ($tipo) {
-    case 'modelo':
-        GeneradorCodigo::generateModel($nombre);
-        break;
-
-    case 'controlador':
-        GeneradorCodigo::generateController($nombre);
-        break;
-
-    default:
-        echo "Tipo inválido. Usa 'modelo' o 'controlador'.\n";
-        exit(1);
+$extras = [];
+foreach($argv as $id => $arg){
+    if($id <= 2) continue;
+$extras[] = $arg;
 }
+
+//print_r($estras);
+function comandoExec(callable $comando,$nombre,$extras){
+    
+  if(count($extras) == 0)  $comando($nombre);
+  if(count($extras) > 0) $comando($nombre,$extras);
+}
+ 
+if(isset($comandos[$tipo])){
+ comandoExec($comandos[$tipo],$nombre,$extras);
+    
+}else{
+    echo "el comando '$tipo' no existe";
+}
+
 
 ?>
