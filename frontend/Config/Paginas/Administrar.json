@@ -1,0 +1,11 @@
+{
+    "tituloPagina": "Administración",
+    "estilos": ["bootstrap.min","estilos" ],
+    "estilosD": ["estilos"],
+    "scripts": ["color-modes","chart.umd","CambiarTitulo","htmx","bootstrap.bundle.min"],
+    "contenidos": [
+        {"componente": "estructura/Header","configuracion": {"op": 6}},
+        {"componente": "usuario/Ajustes","configuracion": {"op": 6}}
+        
+    ]
+}

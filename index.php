@@ -15,9 +15,25 @@ use App\Personas\Usuario;
 use Funciones\BdSQLWeb;
 use Liki\ErrorHandler;
 use Liki\Database\MigrationRunner;
+use Liki\Config\ConfigManager;
+use Liki\SQL\Consultar;
 
 
-
+Ruta::get('/s',function(){
+    $sql = new Consultar();
+    $sql->addJoin('INNER', 'correo', 'usuario.id_correo = correo.id_correo');
+    $p= [];
+  echo  $sql->generar_sql([
+      "tabla"=>'prueva',
+      "campos"=>['c1','c2'],
+    "join" => [
+        'type' => 'inert',
+        'table' => 'culo',
+        'on' => 'on prueva.c1 = 0'
+    ]
+    ]
+  ,$p);
+});
 
 
 
@@ -109,6 +125,31 @@ Ruta::get('/bdSQLWeb',[
     BdSQLWeb::class,'bdSQLWeb']);
 
 
+
+
+
+
+
+Ruta::get('/admin/paginas/{nombre}', function($p) {  
+    $nombrePagina = $p[0];  
+    $config = ConfigManager::cargarConfig($nombrePagina);  
+      
+    // Mostrar formulario de edición  
+    Plantilla::HTML('admin/editor-pagina', [  
+        'nombrePagina' => $nombrePagina,  
+        'config' => $config,  
+        'componentesDisponibles' => []
+    ]);  
+});  
+  
+Ruta::post('/admin/paginas/{nombre}/guardar', function($p) {  
+    $nombrePagina = $p[0];  
+    $config = json_decode($_POST['config'], true);  
+    ConfigManager::guardarConfig($nombrePagina, $config);  
+      
+    // Redirigir con mensaje de éxito  
+    header('Location: /admin/paginas?success=1');  
+});
 
 
 

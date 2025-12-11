@@ -7,7 +7,7 @@ use Liki\SQL\Registrar;
 use Liki\SQL\Editar;
 use Liki\SQL\Eliminar;
 use Liki\SQL\Consultar;
-
+use Exception;
 class Tabla{
       protected  $tabla ;
       public $Consultas_BD;

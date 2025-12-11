@@ -1,8 +1,10 @@
 <?php
 use Liki\Plantillas\Plantilla;
 use Liki\Cache\CacheManager;
-
+use Liki\Config\ConfigManager;
 // Uso
+
+
 $cache = new CacheManager();
 $data = $cache->get('App liki');
 
@@ -12,22 +14,8 @@ if (!$data) {
 }
 
 
-$op = ["op"=>0];
 
-
-$config = [
-    "tituloPagina"=>"App liki",
-    "estilos"=>['bootstrap.min','estilos'],
-    "estilosD"=>['estilos'],
-    
-    "scripts"=>['color-modes','htmx','bootstrap.bundle.min'],
-    "contenidos"=>[
-        ["componente"=>'estructura/Header',"configuracion"=>$op],
-        ["componente"=>'Inicio',"configuracion"=>$op],
-       
-    ]
-];
-
+$config = cargarConfig::cargarConfig('Index');
 
 Plantilla::HTML('estructura/pagina',$config);
 
