@@ -1,5 +1,5 @@
 <?php
-//namespace Funciones\ManejoUsuarios;
+
 use App\DatosExtra\Rol;
 use Liki\Plantillas\Plantilla;
 

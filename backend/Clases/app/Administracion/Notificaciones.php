@@ -2,7 +2,7 @@
 
 namespace App\Admini;
 use Liki\Database\Tabla;
-use Liki\ExecFunc;
+use Liki\DelegateFunction;
 
 class Notificaciones extends Tabla{
   

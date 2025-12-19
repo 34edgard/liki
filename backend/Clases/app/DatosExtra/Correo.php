@@ -2,7 +2,7 @@
 
 namespace App\DatosExtra;
 use Liki\Database\Tabla;
-use Liki\ExecFunc;
+use Liki\DelegateFunction;
 
 class Correo extends Tabla{
   
@@ -11,6 +11,6 @@ class Correo extends Tabla{
   }
   public static function optenerEmail($id){
    // echo $id.'aqui';
-     echo ExecFunc::exec('ManejoUsuarios/ConsultarCorreo',$id);
+     echo DelegateFunction::exec('ManejoUsuarios/ConsultarCorreo',$id);
   }
 }

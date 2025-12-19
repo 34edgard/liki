@@ -19,21 +19,6 @@ use Liki\Config\ConfigManager;
 use Liki\SQL\Consultar;
 
 
-Ruta::get('/s',function(){
-    $sql = new Consultar();
-    $sql->addJoin('INNER', 'correo', 'usuario.id_correo = correo.id_correo');
-    $p= [];
-  echo  $sql->generar_sql([
-      "tabla"=>'prueva',
-      "campos"=>['c1','c2'],
-    "join" => [
-        'type' => 'inert',
-        'table' => 'culo',
-        'on' => 'on prueva.c1 = 0'
-    ]
-    ]
-  ,$p);
-});
 
 
 

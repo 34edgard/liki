@@ -2,7 +2,7 @@
 
 namespace App\Administracion;
 use Liki\Database\Tabla;
-use Liki\ExecFunc;
+use Liki\DelegateFunction;
 
 class Horarios extends Tabla{
   

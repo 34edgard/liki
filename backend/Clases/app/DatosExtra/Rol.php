@@ -1,7 +1,7 @@
 <?php
 namespace App\DatosExtra;
 use Liki\Database\Tabla;
-use Liki\ExecFunc;
+use Liki\DelegateFunction;
 
 class Rol extends Tabla{
   
@@ -10,7 +10,7 @@ class Rol extends Tabla{
   }
   
   public static function consultar_rol(){
-      ExecFunc::exec('ManejoUsuarios/ConsultarRol');
+      DelegateFunction::exec('ManejoUsuarios/ConsultarRol');
   }
 }
 

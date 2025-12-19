@@ -3,7 +3,7 @@
 namespace Liki;
 
 
-class ExecFunc{
+class DelegateFunction{
     
     
     public static function exec($name = '',$parametros=[],$funcionesExtra =[]){

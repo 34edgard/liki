@@ -48,6 +48,60 @@ después se debe abrir en el navegador la ruta 'http/localhost/HelloWorld'
 
 
 
+# como liki interactua con la base de datos
+
+en la carpeta app se definen los controladores
+que extienden de la clase tabla la cual posee operaciones crud
+basicas a las cuales se les pasa un arry con la siguiente estructura 
+el indice tabla se define en el constructor del controlador y no es nesesario definir a la hora de aser las consultas
+
+
+>[ 
+    "tabla"=>'nombre',
+    "campos"=>['campo1','campo2'],
+    "valores"=>['valor1','valor2'],
+    "where"=>[
+        ["campo"=>'nombre','operador'=>'=',"valor"=>$valor]
+    ]
+]
+
+la ventaja de esta sintaxis es que si se identa bien facilita 
+entender como funciona una consulta con solo verla ademas de enseñar 
+que es importante identar bien el codigo
+
+apesar de ser una sintaxis muy verbosa se puede usar una alternatiba pero solo para operaciones simples
+y para operaciones mas complejas se usaria la ya mensionada 
+
+sintaxis alternativa
+
+> use Liki\SQL\LikiQueryBuilder;
+
+$sqlArray = LikiQueryBuilder::parse("
+campos: campo1 , campo2 ;
+valores: valor1 , valor2 ;
+"where": {
+    campo: nombre , operador: = , valor: $valor 
+} ";
+
+esta sintaxis es mas limpia pero no cuenta con todas las caracter de la otra sintaxis
+la eleccion de cual usar queda a conveniencia del programador 
+
+
+## metodo para consultar
+> $user = new user();
+$user->consultar();
+
+## metodo para registrar
+>
+
+
+## metodo para editar
+>
+
+## metodo para eliminar
+>
+
+
 
 # liki y su editor integrado
 
