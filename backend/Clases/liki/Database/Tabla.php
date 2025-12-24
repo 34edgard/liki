@@ -15,9 +15,10 @@ class Tabla{
       public $registrar;
       public $editar;
       public $eliminar;
-    
+      public $consultaArray;
     public function __construct(string $tabla){
       $this->tabla = $tabla;
+      $this->consultaArray['tabla'] = $tabla;
       $this->Consultas_BD = new ConsultasBD;
       $this->consultar = new Consultar;
       $this->registrar = new Registrar;
@@ -89,5 +90,90 @@ class Tabla{
       }
 
  }
+
+
+public function campos(array $campos){
+    $this->consultaArray['campos'] = $campos;
+    return $this;
+}
+public function valores(array $valores){
+    $this->consultaArray['valores'] = $valores;
+    return $this;
+}
+
+public function tabla(string $tabla = ''){
+    if($tabla == '' ) $tabla = $this->tabla;
+    $this->consultaArray['tabla'] = $tabla;
+    return $this;
+}
+
+public function limit(int $limit, int $offset=0 ){
+       if($limit == 0) return $this;
+       $this->consultaArray['limit'] = $limit;
+       $this->consultaArray['offset'] = $offset;
+    
+       return $this;
+}
+
+public function orderBy(string $campo ,string $direccion ='DESC' ){
+    $this->consultaArray['orderBy']['campo'] = $campo;
+    $this->consultaArray['orderBy']['direccion'] = $direccion;
+        
+   return $this;
+    
+}
+
+public function join($tipo,$campo,$where){
+    $this->consultar->addJoin($tipo, $campo,$where);
+    return $this;
+}
+
+
+public function reset(){
+     $tabla = $this->consultaArray['tabla'] ?? $this->tabla;
+     $this->consultaArray = [];
+     $this->tabla($tabla);
+     return $this;
+}
+
+
+public function where(array $where){
+      $Nwhere =[];
+      foreach($where as $name => $valor){
+          $Nwhere[] = [
+              "campo"=>$name,
+              "operador"=>'=',
+              "valor"=>$valor
+          ];
+      }
+    return $Nwhere;
+}
+
+public function get(array $where = []){
+  $Nwhere = $this->where($where);
+    $this->consultaArray['where'] = $Nwhere;
+   // print_r($this->consultaArray);
+  return  $this->consultar($this->consultaArray);
+}
+
+public function post(array $valores){
+     $this->consultaArray['valores'] = $valores;
+     
+    $this->registrar($this->consultaArray);
+}
+
+public function put(array $where = []){
+      $Nwhere = $this->where($where);
+     $this->consultaArray['where'] = $Nwhere;
+     
+    $this->editar($this->consultaArray);
+}
+public function delete(array $where = []){
+      $Nwhere = $this->where($where);
+    $this->consultaArray['where'] = $Nwhere;
+    
+    
+    $this->eliminar($this->consultaArray);
+}
     
 }

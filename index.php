@@ -6,21 +6,21 @@ include "./backend/autoload.php";
 
 
 
-use Liki\Testing\TestingRutas;
+
 use Liki\Routing\Ruta;
+use Liki\Routing\RutasGrup;
 use Liki\Plantillas\Plantilla;
 use Liki\Sesion;
 use App\DatosExtra\Rol;
 use App\Personas\Usuario;
-use Funciones\BdSQLWeb;
+
 use Liki\ErrorHandler;
 use Liki\Database\MigrationRunner;
 use Liki\Config\ConfigManager;
 use Liki\SQL\Consultar;
 
 
-
-
+RutasGrup::init();
 
 Ruta::get('/migracion',function(){
     
@@ -37,12 +37,7 @@ Ruta::get('/{html}/src',function($p){
 });
 
 
-Ruta::get('/testing/rutas',function(){
-    TestingRutas::procesar_testing();
-    
-    // Mostrar interfaz de testing
-    TestingRutas::mostrar_rutas_disponibles();
-});
+
 
 
 
@@ -106,8 +101,6 @@ Ruta::post('/usuario/editar',[Usuario::class,'editar_usuario'],['EditarUsuario',
 
 
 
-Ruta::get('/bdSQLWeb',[
-    BdSQLWeb::class,'bdSQLWeb']);
 
 
 
