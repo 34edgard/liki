@@ -11,26 +11,36 @@ use Exception;
 class Tabla{
       protected  $tabla ;
       public $Consultas_BD;
-      public $consultar;
-      public $registrar;
-      public $editar;
-      public $eliminar;
-      public $consultaArray;
-    public function __construct(string $tabla){
-      $this->tabla = $tabla;
-      $this->consultaArray['tabla'] = $tabla;
-      $this->Consultas_BD = new ConsultasBD;
-      $this->consultar = new Consultar;
-      $this->registrar = new Registrar;
-      $this->editar = new Editar;
-      $this->eliminar = new Eliminar;
-          
-    }
+        public $consultaArray;
+        
+        
+        private static $instance = null;  
+            private static $connection = null;  
+              
+            public static function conf(string $modelClass): self {  
+                if (self::$instance === null) {  
+                    self::$instance = new self();  
+                    self::$connection = new ConsultasBD(); // Única conexión  
+                }  
+                  
+                // Obtener nombre de tabla del modelo  
+                $model = new $modelClass();  
+                self::$instance->tabla = $model->getTableName();  
+                self::$instance->consultaArray['tabla'] = self::$instance->tabla;  
+                  
+                return self::$instance;  
+            }  
+        
+        
+    public function __construct(){
+      
+   $this->Consultas_BD = new ConsultasBD;
+   }
     
     public function registrar(array $datos){
       $datos['tabla'] = $this->tabla;
       $parametrosRegistro = [];
-      $sql = $this->registrar->generar_sql($datos,$parametrosRegistro);
+      $sql = Registrar::generar_sql($datos,$parametrosRegistro);
      try{
          
       $this->Consultas_BD->ejecutarConsulta($sql,$parametrosRegistro);
@@ -45,7 +55,7 @@ class Tabla{
       $parametrosConsulta = [];
     
       try{
-      $sql = $this->consultar->generar_sql($datos,$parametrosConsulta);
+      $sql = Consultar::generar_sql($datos,$parametrosConsulta);
     
       return  $this->Consultas_BD->consultarRegistro($sql,$parametrosConsulta);
            }catch(Exception $e){
@@ -59,7 +69,8 @@ class Tabla{
       $datos['limit'] = 1;
       $parametrosConsultaId = [];
       try{
-      $sql = $this->consultar->generar_sql($datos,$parametrosConsultaId);
+        
+      $sql = Consultar::generar_sql($datos,$parametrosConsultaId);
       return $this->Consultas_BD->consultarRegistro($sql,$parametrosConsultaId);
           }catch(Exception $e){
               echo "Error: ". $e->getMessage();
@@ -71,7 +82,7 @@ class Tabla{
       $parametrosEdicion = [];        
       
     try{
-      $sql = $this->editar->generar_sql($datos,$parametrosEdicion);
+      $sql = Editar::generar_sql($datos,$parametrosEdicion);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEdicion);
        }catch(Exception $e){
            echo "Error: ". $e->getMessage();
@@ -83,7 +94,7 @@ class Tabla{
       $datos['tabla'] = $this->tabla; 
       $parametrosEliminar = [];
     try{
-      $sql = $this->eliminar->generar_sql($datos, $parametrosEliminar);
+      $sql = Eliminar::generar_sql($datos, $parametrosEliminar);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEliminar);
       }catch(Exception $e){
           echo "Error: ". $e->getMessage();
@@ -130,9 +141,9 @@ public function join($tipo,$campo,$where){
 
 
 public function reset(){
-     $tabla = $this->consultaArray['tabla'] ?? $this->tabla;
+     
      $this->consultaArray = [];
-     $this->tabla($tabla);
+    
      return $this;
 }
 
@@ -153,13 +164,17 @@ public function get(array $where = []){
   $Nwhere = $this->where($where);
     $this->consultaArray['where'] = $Nwhere;
    // print_r($this->consultaArray);
-  return  $this->consultar($this->consultaArray);
+  $resul =  $this->consultar($this->consultaArray);
+$this->reset();
+return $resul;
 }
 
 public function post(array $valores){
      $this->consultaArray['valores'] = $valores;
      
     $this->registrar($this->consultaArray);
+    
+    $this->reset();
 }
 
 public function put(array $where = []){
@@ -167,6 +182,7 @@ public function put(array $where = []){
      $this->consultaArray['where'] = $Nwhere;
      
     $this->editar($this->consultaArray);
+       $this->reset();
 }
 public function delete(array $where = []){
       $Nwhere = $this->where($where);
@@ -174,6 +190,7 @@ public function delete(array $where = []){
     
     
     $this->eliminar($this->consultaArray);
+       $this->reset();
 }
     
 }

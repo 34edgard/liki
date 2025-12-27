@@ -1,7 +1,7 @@
 <?php
-// namespace Funciones\ManejoUsuarios;
-use App\Personas\Usuario;
 
+use App\Personas\Usuario;
+use Liki\Database\Tabla;
 return new class {
   
   
@@ -9,14 +9,9 @@ return new class {
     
     extract( $p);
   //  print_r($_GET);
-    $usuarios = new Usuario();
 
-    $usuarios->eliminar(["campos" => ["cedula"], 
-      "where"=>[
-        ["campo"=>'cedula',"operador"=>'=',
-      "valor" => $ci]
-      ]
-    ]);
+
+Tabla::conf(Usuario::class)->delete(['cedula'=> $ci]);
    $f[0]();
   }
 };

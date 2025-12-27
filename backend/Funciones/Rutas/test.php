@@ -6,8 +6,7 @@ use Liki\Routing\Ruta;
 
 
 
-return new class{
-    public static function run(){
+return  function (){
         
      Ruta::get('/testing/rutas',function(){
            TestingRutas::procesar_testing();
@@ -19,5 +18,5 @@ return new class{
         
         
         
-    }
+    
 };

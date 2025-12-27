@@ -239,7 +239,12 @@ return $valor;
     
     
 
-
+public static function group( string $ruta, bool $condicion = false){
+       if($condicion) return;
+    
+       $f = include CONTOLLER_PATH.'Rutas/'.$ruta.'.php';
+    $f();
+}
 
 
 // Agregar este método a la clase Ruta

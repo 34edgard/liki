@@ -7,6 +7,7 @@ use App\DatosExtra\Correo;
 use Liki\Routing\ControlInterfaz;
 use Liki\Plantillas\Plantilla;
 use Liki\ErrorHandler;
+use Liki\Database\Tabla;
 
 class Sesion{
     public static function cerrar_sesion(){
@@ -37,15 +38,10 @@ class Sesion{
     
     
     private static function validar_datosDB($correo, $contraseña) {
-      $PA = new Usuario();
-      $correoElectronico = new Correo();
-     
-     $id_correo = $correoElectronico->consultar(  [
-          "campos" => ["email","id_correo"],
-            "where"=>[
-      ["campo"=>'email',"operador"=>'=',"valor"=>$correo]
-      ]
-      ]);
+      
+      
+     $id_correo = Tabla::conf(Correo::class)->campos(["email","id_correo"])
+            ->get(['email'=>$correo]);
     
     
     $id_correo = $id_correo[0]['id_correo'];
@@ -65,12 +61,9 @@ class Sesion{
     
     
       
-      $arreglo = $PA->consultar([
-        "campos" => ["cedula", "contrasena", "id_rol", "nombres","id_correo"],
-        "where"=>[
-          ["campo"=>'id_correo',"operador"=>'=',"valor"=>$id_correo]
-        ]
-      ]);
+      $arreglo = Tabla::conf(Usuario::class)
+             ->campos( ["cedula", "contrasena", "id_rol", "nombres","id_correo"])
+             ->get(['id_correo'=>$id_correo]);
     
       
     if (!isset($arreglo[0]) ) {

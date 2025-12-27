@@ -1,7 +1,9 @@
 <?php
-//namespace Funciones\ManejoUsuarios;
+
 use App\Personas\Usuario;
 use Liki\Plantillas\Plantilla;
+
+use Liki\Database\Tabla;
 
 
 return new class {
@@ -9,16 +11,16 @@ return new class {
     session_start();
    
     extract($p);
-    $datos = [
-      "campos" => ["cedula", "nombres", "apellidos", "id_correo", "estado"],
-    ];
-
+   
+    
+    Tabla::conf(Usuario::class)->campos(["cedula", "nombres", "apellidos", "id_correo", "estado"]);
+    $where =[];
     if ($_SESSION["id_rol"] == 2) {
-      $datos["valor"] = $_SESSION["ci"];
+      $where = ['cedula'=>$_SESSION["ci"]];
     }
 
-    $usuarios = new Usuario();
-    $lista_usuarios = $usuarios->consultar($datos);
+   
+    $lista_usuarios = Tabla::conf(Usuario::class)->get($where);
 
     foreach ($lista_usuarios as $usuario) {
       

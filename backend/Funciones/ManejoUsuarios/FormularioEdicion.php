@@ -1,10 +1,10 @@
 <?php
 
-//namespace Funciones\ManejoUsuarios;
+
 use App\Personas\Usuario;
 use App\DatosExtra\Correo;
 use Liki\Plantillas\Plantilla;
-      
+use Liki\Database\Tabla;
 return new class {
 
  public static function run($p){
@@ -14,19 +14,13 @@ if(!isset($formularioEdicion)) return;
    
    session_start();
    //formularioEdicion
-   $campos =["campos"=>['cedula','nombres','apellidos','id_rol','usuario','id_correo'],
-     "where"=>[
-       ["campo"=>'cedula',"operador"=>'=',
-   "valor"=>$formularioEdicion]
-     ]
-   ];
-   $datos = (new Usuario)->consultar($campos)[0];
-   $datos['correo'] = (new Correo)->consultar([
-    "campos"=>['email'],
-    "where"=>[
-        ['campo'=>'id_correo','operador'=>'=','valor'=>$datos['id_correo']]
-    ]
-])[0]['email'];
+   $datos = Tabla::conf(Usuario::class)->campos(['cedula','nombres','apellidos','id_rol','usuario','id_correo'])
+           ->get( ['cedula'=>$formularioEdicion] )[0];
+        
+        //print_r($datos);
+        
+      $datos['correo'] = Tabla::conf(Correo::class)->campos(['email'])
+      ->get(['id_correo'=>$datos['id_correo'] ])[0]['email'];
   // print_r($datos);
    Plantilla::HTML("EditarUsuario",$datos);
   }

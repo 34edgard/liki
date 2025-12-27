@@ -1,8 +1,8 @@
 <?php
-//namespace Funciones\ManejoUsuarios;
+
 use App\Personas\Usuario;
 use Liki\Plantillas\Plantilla;
-
+use Liki\Database\Tabla;
 
 
 return new class {
@@ -10,14 +10,10 @@ return new class {
     
     extract($p);
 
-    $datos = ["campos" => ["cedula", "estado"], 
-      "where"=>[
-        ["campo"=>'cedula',"operador"=>'=',"valor"=>$ci]
-      ]
-      ];
-
-    $usuarios = new Usuario();
-    $estadoActual = $usuarios->consultar($datos);
+    
+ 
+    $estadoActual = Tabla::conf(Usuario::class)->campos(["cedula", "estado"])
+                              ->get(['cedula'=>$ci]);
    
    $estado = "activo";
    $estilo = "success";
@@ -26,8 +22,10 @@ return new class {
       $estilo = "secondary";
     } 
 
-    $datos["valores"] = [$ci, $estado];
-    $usuarios->editar($datos);
+    
+    Tabla::conf(Usuario::class)->campos(["cedula", "estado"])
+             ->valores([$ci, $estado])
+             ->put(['cedula'=>$ci]);
 
 Plantilla::HTML('componentes/button',[
     "contenido"=>$estado,

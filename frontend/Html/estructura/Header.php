@@ -1,7 +1,7 @@
 <?php
-use Funciones\enunciado as e;
+
 use Liki\Plantillas\Plantilla;
-$titulo =  e::enunciado($op) ?? "";
+$titulo =  $op ?? "";
 
 // $op should be set before calling Enunciado() if it's used for the initial title
 // For demonstration, let's assume $op is 'login' if not logged in

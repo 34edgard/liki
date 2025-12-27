@@ -1,46 +1,34 @@
 <?php
-
-//namespace Funciones\ManejoUsuarios;
 use App\Personas\Usuario;
 use App\DatosExtra\Correo;
-
+use Liki\Database\Tabla;
 
 return new class {
   public static function run($p,$f) {
     
     extract($p);
-    $usuarios = new Usuario();
-    $correoUsuario = new Correo();
-$datosActuales = [
-  "campos" => ["cedula", "nombres", "apellidos", "id_rol","usuario"],
-  "valores" => [$ci, $nombre, $apellido, $rol, $nombre_usuario],
-  "where"=>[
-    ["campo"=>'cedula',"operador"=>'=', "valor" => $ci]
-  ]
-];
+    
+    
 
-$id_correo = $usuarios->consultar([
-    "campos"=>['id_correo'],
-       "where"=>[
-           ["campo"=>'cedula',"operador"=>'=',"valor"=>$ci]
-       ]
-])[0]['id_correo'];
+  $campos =["cedula", "nombres", "apellidos", "id_rol","usuario"];
+  $valores =[$ci, $nombre, $apellido, $rol, $nombre_usuario];
+  
+$id_correo = Tabla::conf(Usuario::class)->campos(['id_correo'])
+                       ->get(['cedula'=>$ci])[0]['id_correo'];
 
-$nuevoCorreo = [
-    "campos"=>['email'],
-    "valores"=>[$correo],
-    "where"=>[
-        ["campo"=>'id_correo',"operador"=>'=',"valor"=>$id_correo]
-    ]
-];
+
  if ($contraseña != "") {
       $contraseña_hash = password_hash($contraseña, PASSWORD_DEFAULT);
-    $datosActuales["campos"][] = "contrasena";
-    $datosActuales["valores"][] = $contraseña_hash;
+    $campos[] = "contrasena";
+    $valores[] = $contraseña_hash;
     } 
     
-    $usuarios->editar($datosActuales);
-    $correoUsuario->editar($nuevoCorreo);
+    Tabla::conf(Usuario::class)->campos($campos)
+             ->valores($valores)
+             ->put(['cedula'=>$ci]);
+    Tabla::conf(Correo::class)->campos(['email'])
+                  ->valores([$correo])
+                  ->put(['id_correo'=>$id_correo]);
     
   
     

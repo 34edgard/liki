@@ -1,28 +1,31 @@
 <?php
 
-//namespace Funciones\ManejoUsuarios;
+
 use Liki\Plantillas\Plantilla;
 use App\Personas\Usuario;
-
+use Liki\Database\Tabla;
 
 return new class {
    public static function run() {
     session_start();
-    $datos = [
-      "campos" => ["cedula", "nombres", "apellidos", "id_correo", "estado"],
-    ];
+  
+    
+   Tabla::conf(Usuario::class)->campos(["cedula", 
+    "nombres", 
+    "apellidos", 
+    "id_correo", 
+    "estado"]);
+    
+    $where = [];
 
     if ($_SESSION["id_rol"] == 2) {
-      $datos["where"] = [[
-    "campo"=>'cedula',
-    "operador"=>'=',
-    "valor"=> $_SESSION["cedula"]
-    ]];
+      $where = ['cedula'=> $_SESSION["cedula"] ];
     }
+$lista_usuarios = Tabla::conf(Usuario::class)->get($where);
+    
 
-    $usuarios = new Usuario;
-    $lista_usuarios = $usuarios->consultar($datos);
-    foreach ($lista_usuarios as $usuario) {
+    
+  foreach ($lista_usuarios as $usuario) {
         //print_r($usuario);
      Plantilla::HTML("usuario/lista-usuarios",$usuario);
     }

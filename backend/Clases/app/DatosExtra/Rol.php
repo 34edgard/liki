@@ -1,9 +1,10 @@
 <?php
 namespace App\DatosExtra;
-use Liki\Database\Tabla;
+use Liki\Modelo;
+
 use Liki\DelegateFunction;
 
-class Rol extends Tabla{
+class Rol extends Modelo{
   
   public function __construct(){
     parent::__construct('roles');

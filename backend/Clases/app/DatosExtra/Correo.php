@@ -1,10 +1,10 @@
 <?php
 
 namespace App\DatosExtra;
-use Liki\Database\Tabla;
+use Liki\Modelo;
 use Liki\DelegateFunction;
 
-class Correo extends Tabla{
+class Correo extends Modelo{
   
   public function __construct(){
     parent::__construct('correo');

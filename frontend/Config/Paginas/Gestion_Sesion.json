@@ -4,8 +4,8 @@
     "estilosD": ["estilos"],
     "scripts": ["color-modes","script","htmx","bootstrap.bundle.min"],
     "contenidos": [
-        {"componente": "estructura/Header","configuracion": {"op": 9}},
-        {"componente": "sesiones/Inicio_sesion","configuracion": {"op": 9}}
+        {"componente": "estructura/Header","configuracion": {"op": "APP Liki"}},
+        {"componente": "sesiones/Inicio_sesion","configuracion": {"op": "APP Liki"}}
         
     ]
 }

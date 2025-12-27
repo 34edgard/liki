@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Administracion;
-use Liki\Database\Tabla;
+use Liki\Modelo;
 use Liki\DelegateFunction;
 
-class Configuracion extends Tabla{
+class Configuracion extends Modelo{
   
   public function __construct(){
     parent::__construct('configuracion');

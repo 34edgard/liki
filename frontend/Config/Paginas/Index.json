@@ -5,7 +5,7 @@
     
     "scripts": ["color-modes","htmx","bootstrap.bundle.min"],
     "contenidos":[
-        {"componente": "estructura/Header","configuracion":{"op": 0} },
-        {"componente":"Inicio","configuracion":{"op":0}}
+        {"componente": "estructura/Header","configuracion":{"op": "App liki index"} },
+        {"componente":"Inicio","configuracion":{"op": "App liki index"}}
        ]
 }

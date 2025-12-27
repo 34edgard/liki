@@ -1,20 +1,12 @@
 <?php
 
-
 use App\DatosExtra\Correo;
-use Liki\SQL\LikiQueryBuilder;
+use Liki\Database\Tabla;
 return new class {
 public static function run($id_correo){
-
-
-$sql = LikiQueryBuilder::parse("
-campos: id_correo , email;
-where: {
-    campo: id_correo , operador: = , valor: $id_correo
-}");
-
-$email = (new Correo())->consultar($sql);
-    return $email[0]['email'];
     
+    
+  return  Tabla::conf(Correo::class)->campos(["id_correo", "email"])
+          ->get(['id_correo'=>$id_correo])[0]["email"];
 }
 };

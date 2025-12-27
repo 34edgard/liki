@@ -5,9 +5,9 @@ use Liki\SQL\SentenciasSql;
 
 class Editar extends SentenciasSql implements iSql {
     // Ahora recibe $parametros por referencia
-    public function generar_sql(array $propiedades, array &$parametros): string {
+    public static function generar_sql(array $propiedades, array &$parametros): string {
         // Reinicia los parámetros para esta consulta específica
-        $this->parametros = [];
+        self::$parametros = [];
         if (empty($propiedades['tabla'])) {
             throw new Exception('Seleccione una tabla');
         }
@@ -15,26 +15,26 @@ class Editar extends SentenciasSql implements iSql {
             throw new Exception('Los valores no coinciden con los campos');
         }
 
-        $this->sql = "UPDATE ";
-        $this->añadirTabla($propiedades['tabla']);
-        $this->sql .= " SET ";
+        self::$sql = "UPDATE ";
+        self::añadirTabla($propiedades['tabla']);
+        self::$sql .= " SET ";
 
         $setParts = [];
         foreach ($propiedades['campos'] as $index => $campo) {
-            $paramName = $this->añadirParametro("update_val_" . str_replace('.', '_', $campo) . "_" . uniqid(), $propiedades['valores'][$index]);
+            $paramName = self::añadirParametro("update_val_" . str_replace('.', '_', $campo) . "_" . uniqid(), $propiedades['valores'][$index]);
             $setParts[] = "`$campo` = $paramName";
         }
-        $this->sql .= implode(", ", $setParts);
+        self::$sql .= implode(", ", $setParts);
 
         // Cláusula WHERE
         if (isset($propiedades['where']) && is_array($propiedades['where'])) {
-            $this->añadirWhere($propiedades['where']);
+            self::añadirWhere($propiedades['where']);
         }
 
         // Pasa los parámetros generados por referencia
-        $parametros = $this->parametros;
+        $parametros = self::$parametros;
 
-        return $this->sql;
+        return self::$sql;
     }
 }
 

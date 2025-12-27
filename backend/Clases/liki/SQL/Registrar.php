@@ -7,9 +7,9 @@ use Liki\SQL\SentenciasSql;
 
 class Registrar extends SentenciasSql implements iSql {
     // Ahora recibe $parametros por referencia
-    public function generar_sql(array $propiedades, array &$parametros): string {
+    public static function generar_sql(array $propiedades, array &$parametros): string {
         // Reinicia los parámetros para esta consulta específica
-        $this->parametros = [];
+        self::$parametros = [];
         if (empty($propiedades['tabla'])) {
             throw new Exception('Seleccione una tabla');
         }
@@ -20,24 +20,24 @@ class Registrar extends SentenciasSql implements iSql {
             throw new Exception('La cantidad de campos no coincide con la cantidad de valores');
         }
 
-        $this->sql = "INSERT INTO ";
-        $this->añadirTabla($propiedades['tabla']);
-        $this->sql .= " (";
+        self::$sql = "INSERT INTO ";
+        self::añadirTabla($propiedades['tabla']);
+        self::$sql .= " (";
         // Añadir campos (nombres de columnas, no se parametrizan)
-        $this->añadirPropiedades($propiedades, 'campos');
-        $this->sql .= ") VALUES (";
+        self::añadirPropiedades($propiedades, 'campos');
+        self::$sql .= ") VALUES (";
 
         $marcadores = [];
         foreach ($propiedades['valores'] as $index => $valor) {
-            $marcadores[] = $this->añadirParametro("insert_val_" . $index . "_" . uniqid(), $valor);
+            $marcadores[] = self::añadirParametro("insert_val_" . $index . "_" . uniqid(), $valor);
         }
-        $this->sql .= implode(", ", $marcadores);
-        $this->sql .= ")";
+        self::$sql .= implode(", ", $marcadores);
+        self::$sql .= ")";
 
         // Pasa los parámetros generados por referencia
-        $parametros = $this->parametros;
+        $parametros = self::$parametros;
 
-        return $this->sql;
+        return self::$sql;
     }
 }
 

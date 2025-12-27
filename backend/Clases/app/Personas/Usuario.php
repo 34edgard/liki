@@ -1,9 +1,9 @@
 <?php
 namespace App\Personas;
-use Liki\Database\Tabla;
+use Liki\Modelo;
 use Liki\DelegateFunction;
 
-class Usuario extends Tabla{
+class Usuario extends Modelo{
   public function __construct(){
     parent::__construct('usuario');
   }

@@ -3,11 +3,10 @@
 use Funciones\BdSQLWeb;
 use Liki\Routing\Ruta;
 
-return new class{
-    public static function run(){
+return  function (){
         Ruta::get('/bdSQLWeb',[BdSQLWeb::class,'bdSQLWeb']);
         /*
          * resto de endpoints
          */
-    }
+    
 };
