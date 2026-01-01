@@ -45,8 +45,30 @@ function(){
 
 después se debe abrir en el navegador la ruta 'http/localhost/HelloWorld'
 
+La clase rutas posee metodos de agrupacion como gruop o prefix para agrupar rutas de formas diferentes
 
 
+
+## group 
+
+group nos permite agrupar rutas pero en un archivo separado dentro de la carpeta funciones/rutas pertiendonos
+trabajar con un grupo de rutas como si fuera un modulo aparte ademos que podemlos desactivar un grupo de rutas 
+pasando como segundo parametro una condicion o valor booleano que si es true desactiva las rutas, esto reduce el tamaño del index
+ademas de reducir los conflictos en el control de versiones a la hora de trabajar con barios programadores 
+
+>Ruta::group('nombre',condicion);
+
+
+## prefix
+
+este permite agrupar las rutas por prefijos 
+
+
+> Ruta::prefix('/bdSQLWeb',function(){
+  Ruta::get('/tablas',[BdSQLWeb::class,'bdSQLWeb']);          
+                  
+},[lista de midelware],
+[lista De Funciones que se agregaran a las rutas ]);    
 
 # como liki interactua con la base de datos
 
@@ -86,20 +108,27 @@ valores: valor1 , valor2 ;
 esta sintaxis es mas limpia pero no cuenta con todas las caracter de la otra sintaxis
 la eleccion de cual usar queda a conveniencia del programador 
 
+ambas syntaxis solo se recomienda usarse para aprender como funcionan las clase Tabla o para
+practicar la logica de sql, la syntaxis que se recomienda usar para ser mas productivos 
+es la siguiente donde se usa el metodo estatico conf de la clase Tabla pasandole una clase 
+para configurarla, despues se usan metodos de encadenamiento con nombres similares a los 
+de las otras syntaxis 
 
 ## metodo para consultar
-> $user = new user();
-$user->consultar();
+> Tabla::conf(user::class)->campos(['nombre'])->get();
 
 ## metodo para registrar
->
+> Tabla::conf(user::class)->campos(['nombre'])->post([$nombre]);
 
 
-## metodo para editar
->
+
+## metodo para edita
+>Tabla::conf(user::class)->campos(['nombre'])->valores([$nombre])->put(['id' => $id]);r
+
 
 ## metodo para eliminar
->
+>Tabla::conf(user::class)->delete(['id'=>$id]);
+
 
 
 

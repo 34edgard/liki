@@ -74,6 +74,9 @@ class TestingRutas {
                 .url-pattern { color: #6c757d; font-family: monospace; }
             </style>
         </head>
+        
+        <script src=\"/frontend/js/htmx.js\"></script>
+        
         <body>
             <div class='container'>
                 <h1>Testing de Rutas Disponibles</h1>
@@ -81,7 +84,7 @@ class TestingRutas {
         
         foreach ($rutas as $index => $ruta) {
             $metodo_class = strtoupper($ruta['method']);
-            echo "<div class='ruta-item' onclick=\"mostrarFormulario('$index')\">
+            echo "<div class='ruta-item' hx-target=\"#lista-rutas\" hx-get=\"/testing/rutas/formulario?accion=mostrar_formulario&ruta_index=$index\">
                     <span class='metodo $metodo_class'>{$ruta['method']}</span>
                     <strong>{$ruta['url_pattern']}</strong>
                     <div class='url-pattern'>Regex: {$ruta['regex_pattern']}</div>
@@ -95,23 +98,7 @@ class TestingRutas {
             </div>
             
             <script>
-                function mostrarFormulario(index) {
-                    // Ocultar lista y mostrar formulario
-                    document.getElementById('lista-rutas').classList.add('hidden');
-                    const formularioDiv = document.getElementById('formulario-test');
-                    formularioDiv.classList.remove('hidden');
-                    
-                    // Cargar formulario via AJAX
-                    const xhr = new XMLHttpRequest();
-                    xhr.open('POST', '', true);
-                    xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-                    xhr.onload = function() {
-                        if (xhr.status === 200) {
-                            formularioDiv.innerHTML = xhr.responseText;
-                        }
-                    };
-                    xhr.send('accion=mostrar_formulario&ruta_index=' + index);
-                }
+                
                 
                 function volverALista() {
                     document.getElementById('lista-rutas').classList.remove('hidden');

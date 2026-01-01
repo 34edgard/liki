@@ -2,7 +2,7 @@
 
 namespace Liki\Routing;
 use Liki\ErrorHandler;
-
+use Exception;
 
 set_exception_handler(function($exception){
       ErrorHandler::getInstance()->handle(
@@ -239,13 +239,46 @@ return $valor;
     
     
 
-public static function group( string $ruta, bool $condicion = false){
+public static function group( string $ruta, bool $condicion = false, array $middlewares = []){
+        $urlFile = CONTOLLER_PATH.'Rutas/'.$ruta.'.php';
        if($condicion) return;
-    
-       $f = include CONTOLLER_PATH.'Rutas/'.$ruta.'.php';
+        if(!file_exists($urlFile))            
+         throw new Exception('el archivo de rutas '.$urlFile.' no existe');
+        
+        
+        foreach($middlewares as $middleware){
+          if( $middleware()) return;
+        }
+        
+        
+       $f = include $urlFile;
     $f();
 }
 
+
+
+public static function prefix(string $prefijo, callable $agregarRutas, array $middlewares =[], array $Funciones = []){
+    foreach($middlewares as $middleware){
+      if( $middleware()) return;
+    }
+    
+   $nRutas = count(self::$routes);
+   $agregarRutas();
+
+foreach(self::$routes as $index => $rutas ){
+    
+    if($index < $nRutas ) continue;
+    
+    
+    self::$routes[$index]['url_pattern'] = $prefijo.$rutas['url_pattern'];
+    self::$routes[$index]['regex_pattern'] = self::compile_route_pattern($prefijo.$rutas['url_pattern']);// Compila el patrón para regex
+     foreach($Funciones as $Funcion) {
+    self::$routes[$index]['funcion_extra'][] = $Funcion;
+     }
+ 
+
+}
+}
 
 // Agregar este método a la clase Ruta
 public static function obtener_rutas(): array {

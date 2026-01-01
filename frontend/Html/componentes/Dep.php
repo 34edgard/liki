@@ -10,7 +10,7 @@
                 <div class="panel-title">Herramientas de Desarrollo</div>
             </div>
             
-            <div class="tabs-container">
+            <div class="tabs-container table-responsive">
                 <div class="tab active" data-tab="editor">
                     <i class="fas fa-code"></i> Editor
                 </div>
@@ -23,6 +23,9 @@
                 <div class="tab" data-tab="chat">
                     <i class="fas fa-robot"></i> Chat con IA
                 </div>
+                   <div class="tab" data-tab="terminal">
+                       <i class="fas fa-vial"></i> Terminal
+                   </div>
             </div>
             
             <div class="tab-content">
@@ -46,7 +49,7 @@
                 
                 <!-- Database Tab -->
                 <div 
-                hx-get="/bdSQLWeb"
+                hx-get="/bdSQLWeb/tablas"
                 hx-trigger="load"
                 class="tab-pane" id="database">
                     
@@ -70,6 +73,16 @@
                         </div>
                     </div>
                 </div>
+                
+                
+                  <!-- terminal Tab -->
+                  <div 
+                  hx-get="/Terminal/"
+                  hx-trigger="load"
+                  class="tab-pane active" id="terminal">
+                      
+                  
+                  </div>
             </div>
         </div>
     </div>

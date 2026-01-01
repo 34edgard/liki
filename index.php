@@ -13,15 +13,15 @@ use Liki\ErrorHandler;
 
 use Liki\Config\ConfigManager;
 
-Ruta::group('test');
-Ruta::group('BdSqlWeb');
-
+Ruta::group('toolsDep');
 
 
 
 
 Ruta::get('/{html}/src',function($p){
-   Plantilla::HTML($p[0]);
+    //echo 'fff';
+    $url = str_replace('_','/',$p[0]);
+   Plantilla::HTML($url);
 
 });
 

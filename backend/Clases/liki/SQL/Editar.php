@@ -1,6 +1,6 @@
 <?php
 namespace Liki\SQL;
-
+use Exception;
 use Liki\SQL\SentenciasSql;
 
 class Editar extends SentenciasSql implements iSql {
