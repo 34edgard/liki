@@ -77,9 +77,9 @@
                 
                   <!-- terminal Tab -->
                   <div 
-                  hx-get="/Terminal/"
+                  hx-get="/Terminal/interfaz"
                   hx-trigger="load"
-                  class="tab-pane active" id="terminal">
+                  class="tab-pane " id="terminal">
                       
                   
                   </div>

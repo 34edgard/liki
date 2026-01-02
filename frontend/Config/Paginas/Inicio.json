@@ -2,10 +2,11 @@
     "tituloPagina": "Inicio",
     "estilos": ["bootstrap.min","estilos"],
     "estilosD": ["estilos"],
-    "scripts": ["NiñosPorSexo","color-modes","chart.umd","htmx","bootstrap.bundle.min","CambiarTitulo"],
+    "scripts": ["NiñosPorSexo","sw-simple","color-modes","chart.umd","htmx","bootstrap.bundle.min","CambiarTitulo"],
     "contenidos": [
         {"componente": "estructura/Header","configuracion": {"op": "Inicio"}},
-        {"componente": "Bienvenida","configuracion": {"op": "Inicio"}}
+        {"componente": "Bienvenida","configuracion": {"op": "Inicio"}},
+        {"componente": "estructura/sw","configuracion": {"op": "Inicio"}}
         
     ]
 }

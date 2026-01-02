@@ -3,7 +3,7 @@
 use Liki\Testing\TestingRutas;
 use Liki\Routing\Ruta;
 
-
+use Liki\Plantillas\Plantilla;
 use Funciones\BdSQLWeb;
 
 
@@ -31,6 +31,22 @@ return  function (){
    Ruta::get('/tablas',[BdSQLWeb::class,'bdSQLWeb']);          
                    
  });      
+        
+        Ruta::prefix('/Terminal',function(){
+          Ruta::get('/interfaz',function(){
+              Plantilla::HTML('componentes/Terminal');
+          });          
+          Ruta::get('/exec',function($p){
+          // echo
+        
+        
+        $comando = escapeshellcmd($p['comando']);
+        $resultado = shell_exec($comando);
+        echo $resultado;
+         
+       // include "./consol.php";
+          },['comando']);                    
+        });   
         
         
         

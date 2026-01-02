@@ -1,8 +1,8 @@
 <?php
 
 // Asegúrate de que el archivo sea ejecutable desde la consola
-if (php_sapi_name() !== 'cli') {
-    die("Este script debe ejecutarse desde la línea de comandos.\n");
+if (php_sapi_name() !== 'cli' || true) {
+   die("Este script debe ejecutarse desde la línea de comandos.\n");
 }
 
 // Función para generar un modelo
