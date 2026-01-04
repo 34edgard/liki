@@ -1,6 +1,6 @@
 <?php
 
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 $titulo =  $op ?? "";
 
 // $op should be set before calling Enunciado() if it's used for the initial title
@@ -20,12 +20,12 @@ $titulo =  $op ?? "";
 
     <?php if (isset($_SESSION["nombres"])): ?>
        
-        <?php Plantilla::HTML('componentes/navs'); ?>
+        <?php Flow::html('componentes/navs'); ?>
     <?php endif; ?>
 
 </header>
 
-<?php Plantilla::HTML('componentes/modo-oscuro'); // Assuming this component exists ?>
+<?php Flow::html('componentes/modo-oscuro'); // Assuming this component exists ?>
 
 <main id="main" class="container">
   

@@ -1,12 +1,12 @@
 <?php
 
 
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 return new class {
   
   public static function run($p){
   
-Plantilla::HTML('usuario/ConfirmarEliminacion',$p);
+Flow::html('usuario/ConfirmarEliminacion',$p);
 
 
 }

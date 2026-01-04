@@ -3,7 +3,7 @@
 
 use App\Personas\Usuario;
 use App\DatosExtra\Correo;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Database\Tabla;
 return new class {
 
@@ -22,7 +22,7 @@ if(!isset($formularioEdicion)) return;
       $datos['correo'] = Tabla::conf(Correo::class)->campos(['email'])
       ->get(['id_correo'=>$datos['id_correo'] ])[0]['email'];
   // print_r($datos);
-   Plantilla::HTML("EditarUsuario",$datos);
+   Flow::html("EditarUsuario",$datos);
   }
 
   

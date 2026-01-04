@@ -1,7 +1,7 @@
 <?php
-//namespace Funciones\ManejoUsuarios;
+
 use App\DatosExtra\Rol;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Database\Tabla;
 
 return new class {
@@ -12,7 +12,7 @@ return new class {
     
     $roles = Tabla::conf(Rol::class)->campos(['id_rol','nombre_rol'])->get();
      foreach ($roles as $dato){
-        Plantilla::HTML("componentes/option",[
+        Flow::html("componentes/option",[
             "value"=>$dato['id_rol'],
             "contenido"=>$dato['nombre_rol']
         ]);

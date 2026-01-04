@@ -2,14 +2,20 @@
 
 namespace Liki\Plantillas;
 
-class Plantilla {
+class Flow {
     
     // Configuración de rutas base
     private static $basePaths = [
         'html' => './frontend/Html/',
         'js' => './frontend/js/',
-        'paginas' => './frontend/Paginas/'
+        'page' => './frontend/Paginas/',
+        'css' => './frontend/css/'
     ];
+    
+    
+    
+    
+    
     
     // Extensión por defecto
     private static $defaultExtension = '.php';
@@ -17,22 +23,41 @@ class Plantilla {
     /**
      * Renderiza una plantilla HTML
      */
-    public static function HTML(string $nombre, array $datos = []): void {
+    public static function html(string $nombre, array $datos = []): void {
         self::render('html', $nombre, $datos);
     }
+    
+    
+    
+    
+     public static function json(array $datos, int $httpCode = 200): void {  
+            header('Content-Type: application/json');  
+            http_response_code($httpCode);  
+            echo json_encode($datos, JSON_PRETTY_PRINT);  
+            exit;  
+        }  
+          
+        public static function css(string $nombre, array $variables = []): void {  
+            header('Content-Type: text/css');  
+            // Procesar CSS con variables dinámicas  
+            self::render('css', $nombre, $variables);
+            
+       }  
+    
+    
     
     /**
      * Renderiza una plantilla JavaScript
      */
-    public static function JS(string $nombre, array $datos = []): void {
+    public static function js(string $nombre, array $datos = []): void {
         self::render('js', $nombre, $datos);
     }
     
     /**
      * Renderiza una página completa
      */
-    public static function paginas(string $nombre, array $datos = []): void {
-        self::render('paginas', $nombre, $datos);
+    public static function page(string $nombre, array $datos = []): void {
+        self::render('page', $nombre, $datos);
     }
     
     /**
@@ -109,7 +134,7 @@ class Plantilla {
      * Método para incluir partials/reutilizables
      */
     public static function incluir(string $partial, array $datos = []): void {
-        self::HTML($partial, $datos);
+        self::html($partial, $datos);
     }
     
     /**

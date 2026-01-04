@@ -1,7 +1,7 @@
 <?php
 
 use App\Personas\Usuario;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 
 use Liki\Database\Tabla;
 
@@ -24,7 +24,7 @@ return new class {
 
     foreach ($lista_usuarios as $usuario) {
       
-  Plantilla::HTML("usuario/lista-usuarios",$usuario);
+  Flow::html("usuario/lista-usuarios",$usuario);
     }
   }
 };

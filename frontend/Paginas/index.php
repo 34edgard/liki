@@ -1,5 +1,5 @@
 <?php
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Cache\CacheManager;
 use Liki\Config\ConfigManager;
 // Uso
@@ -17,5 +17,5 @@ if (!$data) {
 
 $config = cargarConfig::cargarConfig('Index');
 
-Plantilla::HTML('estructura/pagina',$config);
+Flow::html('estructura/pagina',$config);
 

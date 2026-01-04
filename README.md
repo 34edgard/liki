@@ -32,6 +32,10 @@ PHP v7.4 (mínima) o PHP v8.2.0 o mayor (recomendada)
 ## Estructura del proyecto:
 Explicar brevemente frontend/ y backend/
 
+
+## sistema de plantillas llamado Flow template
+
+
 ## Ejemplo de uso básico: 
 Un "Hello World" o componente simple
 

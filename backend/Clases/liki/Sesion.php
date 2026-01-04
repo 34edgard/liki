@@ -5,7 +5,7 @@ namespace Liki;
 use App\Personas\Usuario;
 use App\DatosExtra\Correo;
 use Liki\Routing\ControlInterfaz;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\ErrorHandler;
 use Liki\Database\Tabla;
 
@@ -70,7 +70,7 @@ class Sesion{
         
         
         
-        Plantilla::HTML('sesiones/alert',[
+        Flow::html('sesiones/alert',[
             'mensaje'=>'el usuario o la contraseña son incorrectas '
         ]);
         return [false];
@@ -82,7 +82,7 @@ class Sesion{
     
     
     
-     Plantilla::HTML('sesiones/alert',[
+     Flow::html('sesiones/alert',[
             'mensaje'=>'el usuario o la contraseña son incorrectos'
         ]);
        return [false];

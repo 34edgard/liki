@@ -1,5 +1,5 @@
 <?php
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 // This component handles the main navigation when logged in
 
 $menu = 'componentes/menu-desplegable';
@@ -11,7 +11,7 @@ $menu = 'componentes/menu-desplegable';
 
     <li>
         <?php
-        Plantilla::HTML($menu, [
+        Flow::html($menu, [
             'title' => 'Reportes',
             'items' => [
                 ['label' => 'option1', 'hx_get' => '/Reportes_Matricula/src', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick' => "option1','Matricula"],

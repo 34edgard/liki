@@ -1,6 +1,6 @@
 <?php
 
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Routing\ValidarSesion;
 
 use Liki\Config\ConfigManager;
@@ -11,7 +11,7 @@ $config = ConfigManager::cargarConfig('Administrar');
 
 
 
-Plantilla::HTML('estructura/pagina',$config);
+Flow::html('estructura/pagina',$config);
 
 
 

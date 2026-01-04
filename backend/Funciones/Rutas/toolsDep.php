@@ -3,7 +3,7 @@
 use Liki\Testing\TestingRutas;
 use Liki\Routing\Ruta;
 
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Funciones\BdSQLWeb;
 
 
@@ -34,7 +34,7 @@ return  function (){
         
         Ruta::prefix('/Terminal',function(){
           Ruta::get('/interfaz',function(){
-              Plantilla::HTML('componentes/Terminal');
+              Flow::html('componentes/Terminal');
           });          
           Ruta::get('/exec',function($p){
           // echo

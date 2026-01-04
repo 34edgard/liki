@@ -1,7 +1,7 @@
 <?php
 
 use App\Personas\Usuario;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Database\Tabla;
 
 
@@ -27,7 +27,7 @@ return new class {
              ->valores([$ci, $estado])
              ->put(['cedula'=>$ci]);
 
-Plantilla::HTML('componentes/button',[
+Flow::html('componentes/button',[
     "contenido"=>$estado,
     "estilo"=>$estilo,
     "hx"=>[

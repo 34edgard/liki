@@ -3,7 +3,7 @@
 
 use App\DatosExtra\Correo;
 use App\Personas\Usuario;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Database\Tabla;
 
 return new class {
@@ -30,11 +30,11 @@ return new class {
     ->post([$cedula, $nombre, $apellido,$usuario, $rol,$id_correo,$contraseña_hash ]);
  
     
-    Plantilla::HTML('componentes/h1',[
+    Flow::html('componentes/h1',[
         "contenido"=>'el usuario fue creado correctamente'
     ]);
     
-    Plantilla::HTML('componentes/htmx',[
+    Flow::html('componentes/htmx',[
         "hx"=>['trigger'=>'load',"target"=>'#usuarios',"url"=>'/usuario/list']
     ]);
     

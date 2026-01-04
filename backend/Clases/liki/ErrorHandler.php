@@ -2,7 +2,7 @@
 
 namespace Liki;
 
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 
 
 class ErrorHandler {  
@@ -77,10 +77,11 @@ class ErrorHandler {
             case 'json':  
                 header('Content-Type: application/json');  
                 echo json_encode($response);  
+            //    Flow::json($response,$response['error_code']);
                 break;  
                   
             case 'html':  
-                Plantilla::HTML('errores/error', $response);  
+                Flow::html('errores/error', $response);  
                 break;  
                   
             case 'xml':  

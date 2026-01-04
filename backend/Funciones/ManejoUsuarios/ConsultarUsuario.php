@@ -1,7 +1,7 @@
 <?php
 
 
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use App\Personas\Usuario;
 use Liki\Database\Tabla;
 
@@ -27,7 +27,7 @@ $lista_usuarios = Tabla::conf(Usuario::class)->get($where);
     
   foreach ($lista_usuarios as $usuario) {
         //print_r($usuario);
-     Plantilla::HTML("usuario/lista-usuarios",$usuario);
+     Flow::html("usuario/lista-usuarios",$usuario);
     }
   }
 };

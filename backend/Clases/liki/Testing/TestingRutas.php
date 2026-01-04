@@ -78,7 +78,7 @@ class TestingRutas {
         <script src=\"/frontend/js/htmx.js\"></script>
         
         <body>
-            <div class='container'>
+            <div class='container' id='testinWeb'>
                 <h1>Testing de Rutas Disponibles</h1>
                 <div id='lista-rutas'>";
         
@@ -100,10 +100,7 @@ class TestingRutas {
             <script>
                 
                 
-                function volverALista() {
-                    document.getElementById('lista-rutas').classList.remove('hidden');
-                    document.getElementById('formulario-test').classList.add('hidden');
-                }
+                
             </script>
             </body>
             </html>";
@@ -126,7 +123,7 @@ class TestingRutas {
         echo "<h2>Probar Ruta: <span class='metodo $metodo'>{$ruta['method']}</span> {$ruta['url_pattern']}</h2>";
         
         // Botón para volver
-        echo "<button type='button' class='back-btn' onclick='volverALista()'>← Volver a la lista</button>";
+        echo "<button type='button' class='back-btn' hx-get='/' hx-target='#testinWeb'>← Volver a la lista</button>";
         
         // Formulario principal
         echo "<form id='form-test' method='POST' action='' style='margin-top: 20px;'>";

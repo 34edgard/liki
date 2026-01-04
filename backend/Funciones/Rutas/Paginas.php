@@ -2,7 +2,7 @@
 
 
 use Liki\Routing\Ruta;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 
 
 
@@ -12,22 +12,22 @@ return  function (){
    
    Ruta::get('/',function(){
        
-     Plantilla::paginas('Gestion_Sesion');
+     Flow::page('Gestion_Sesion');
      
    });
    
    Ruta::get('/index.php',function(){
    
-   Plantilla::paginas('Gestion_Sesion');
+   Flow::page('Gestion_Sesion');
    
    });
    
    
    Ruta::get('/inicio',function(){
-    Plantilla::paginas('inicio');
+    Flow::page('inicio');
    });
    
    Ruta::get('/Administrar',function(){
-     Plantilla::paginas('Administrar');
+     Flow::page('Administrar');
    }); 
 };

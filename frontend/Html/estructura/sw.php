@@ -3,7 +3,7 @@
     // Registrar Service Worker
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/frontend/js/sw.js')
+        navigator.serviceWorker.register('/frontend/js/sw-simple.js')
           .then(registration => {
             console.log('Service Worker registrado:', registration.scope);
             

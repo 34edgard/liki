@@ -6,7 +6,7 @@ include "./backend/autoload.php";
 
 
 use Liki\Routing\Ruta;
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 use Liki\Sesion;
 
 use Liki\ErrorHandler;
@@ -21,7 +21,7 @@ Ruta::group('toolsDep');
 Ruta::get('/{html}/src',function($p){
     //echo 'fff';
     $url = str_replace('_','/',$p[0]);
-   Plantilla::HTML($url);
+   Flow::html($url);
 
 });
 
@@ -56,7 +56,7 @@ Ruta::get('/admin/paginas/{nombre}', function($p) {
     $config = ConfigManager::cargarConfig($nombrePagina);  
       
     // Mostrar formulario de edición  
-    Plantilla::HTML('admin/editor-pagina', [  
+    Flow::html('admin/editor-pagina', [  
         'nombrePagina' => $nombrePagina,  
         'config' => $config,  
         'componentesDisponibles' => []

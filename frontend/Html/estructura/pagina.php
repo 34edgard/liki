@@ -1,5 +1,5 @@
 <?php
-use Liki\Plantillas\Plantilla;
+use Liki\Plantillas\Flow;
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +35,7 @@ foreach($estilosD as $estiloD): ?>
 
 <?php foreach($contenidos as $contenido){
 
-Plantilla::HTML($contenido['componente'],$contenido['configuracion']);
+Flow::html($contenido['componente'],$contenido['configuracion']);
 
  } ?>
 
