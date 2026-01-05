@@ -13,7 +13,7 @@ use Liki\ErrorHandler;
 
 use Liki\Config\ConfigManager;
 
-Ruta::group('toolsDep');
+Ruta::group('liki/toolsDep');
 
 
 
@@ -26,7 +26,7 @@ Ruta::get('/{html}/src',function($p){
 });
 
 
-Ruta::group('Paginas');
+Ruta::group('app/Paginas');
 
 
 
@@ -42,7 +42,7 @@ Ruta::post('/iniciar/sesion',[Sesion::class,'iniciar_sesion'],['Inicio_secion','
 //Gestion_Usuario
 
 
-Ruta::group('Usuario');
+Ruta::group('app/Usuario');
 
 
 

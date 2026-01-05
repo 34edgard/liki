@@ -6,6 +6,7 @@ spl_autoload_register(function ($class) {
 'Liki\\' => __DIR__ .'/Clases/liki/',
 'App\\' => __DIR__.'/Clases/app/',
 'Funciones\\' => __DIR__.'/Funciones/',
+'Middleware\\'=>__DIR__.'/Funciones/Middleware/',
 'Librerias\\' => __DIR__.'/Librerias/'
 ];
 
