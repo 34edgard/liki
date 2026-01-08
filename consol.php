@@ -1,7 +1,7 @@
 <?php
 
 // Asegúrate de que el archivo sea ejecutable desde la consola
-if (php_sapi_name() !== 'cli' || true) {
+if (php_sapi_name() !== 'cli' ) {
    die("Este script debe ejecutarse desde la línea de comandos.\n");
 }
 
@@ -11,7 +11,7 @@ include "./backend/autoload.php";
 
 use Liki\Consola\GeneradorCodigo;
 use Liki\Database\MigrationRunner;
-  
+use Liki\Consola\db;
 
 $comandos = [
     'modelo'=>[GeneradorCodigo::class,'generateModel'],
@@ -21,6 +21,8 @@ $comandos = [
     'liki-grup'=>[GeneradorCodigo::class,'generateGrupoLiki'],
     'app-grup'=>[GeneradorCodigo::class,'generateGrupoApp'],
     'func-grup'=>[GeneradorCodigo::class,'generateGrupoFunc'],
+    'db:import'=>[db::class,'import'],
+    'db:export'=>[db::class,'exportDatabase']
     ];
 
 
@@ -38,7 +40,7 @@ if ($argc < 2) {
 }
 
 $tipo = $argv[1];
-$nombre = $argv[2];
+$nombre = $argv[2] ?? '';
 $extras = [];
 foreach($argv as $id => $arg){
     if($id <= 2) continue;

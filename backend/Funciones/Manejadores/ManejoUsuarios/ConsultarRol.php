@@ -2,7 +2,7 @@
 
 use App\DatosExtra\Rol;
 use Liki\Plantillas\Flow;
-use Liki\Database\Tabla;
+use Liki\Database\FlowDB;
 
 return new class {
   public static function run($p,$f){
@@ -10,7 +10,7 @@ return new class {
     
     
     
-    $roles = Tabla::conf(Rol::class)->campos(['id_rol','nombre_rol'])->get();
+    $roles = FlowDB::conf(Rol::class)->campos(['id_rol','nombre_rol'])->get();
      foreach ($roles as $dato){
         Flow::html("componentes/option",[
             "value"=>$dato['id_rol'],

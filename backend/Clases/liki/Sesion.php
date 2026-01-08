@@ -7,7 +7,7 @@ use App\DatosExtra\Correo;
 use Liki\Routing\ControlInterfaz;
 use Liki\Plantillas\Flow;
 use Liki\ErrorHandler;
-use Liki\Database\Tabla;
+use Liki\Database\FlowDB;
 
 class Sesion{
     public static function cerrar_sesion(){
@@ -40,7 +40,7 @@ class Sesion{
     private static function validar_datosDB($correo, $contraseña) {
       
       
-     $id_correo = Tabla::conf(Correo::class)->campos(["email","id_correo"])
+     $id_correo = FlowDB::conf(Correo::class)->campos(["email","id_correo"])
             ->get(['email'=>$correo]);
     
     
@@ -61,7 +61,7 @@ class Sesion{
     
     
       
-      $arreglo = Tabla::conf(Usuario::class)
+      $arreglo = FlowDB::conf(Usuario::class)
              ->campos( ["cedula", "contrasena", "id_rol", "nombres","id_correo"])
              ->get(['id_correo'=>$id_correo]);
     

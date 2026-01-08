@@ -1,7 +1,7 @@
 <?php
 
 use App\Personas\Usuario;
-use Liki\Database\Tabla;
+use Liki\Database\FlowDB;
 return new class {
   
   
@@ -11,7 +11,7 @@ return new class {
   //  print_r($_GET);
 
 
-Tabla::conf(Usuario::class)->delete(['cedula'=> $ci]);
+FlowDB::conf(Usuario::class)->delete(['cedula'=> $ci]);
    $f[0]();
   }
 };

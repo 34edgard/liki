@@ -10,48 +10,14 @@ use Liki\Database\ConsultasBD;
 class BdSQLWeb{
 
 public static function bdSQLWeb(){
+    $con = new ConsultasBD();
+
+
+    $sql['sqlite']= "SELECT name FROM sqlite_master WHERE type='table' ";
+    $sql['mysql']='SHOW TABLES';
     
 
-$tablas = file_get_contents("./sql/tablas.sql");
-$registros = file_get_contents("./sql/registros.sql");
-
-//1255667
-$con = new ConsultasBD();
-
-//print($tablas);
-/*
-$tables = explode(';',$tablas);
-foreach($tables as $t){
-    
-
-$con->ejecutarConsulta($t);
-}
-
-
-$rs = explode(';',$registros);
-foreach($rs as $rds){
-    
-
-$con->ejecutarConsulta($rds);
-}
-
-
-
-*/
-
-//$con->ejecutarConsulta("INSERT INTO tipo_parentesco (nombre) VALUES ('representante'),('madre'),('padre')");
-
-
-
-
-$res = $con->consultarRegistro("SELECT name FROM sqlite_master WHERE type='table' ");
-//$res = $con->consultarRegistro("SELECT COUNT(sexo) FROM estudiante WHERE sexo = 'masculino' AND  ");
-/*foreach($res as $r){
-    print_r($r);
-    echo "<hr >";
-}
-
-*/
+$res = $con->consultarRegistro($sql[],[]);
 
 $i=1;
 foreach($res as $a => $t){

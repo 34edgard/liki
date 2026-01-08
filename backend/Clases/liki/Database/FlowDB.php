@@ -8,7 +8,7 @@ use Liki\SQL\Editar;
 use Liki\SQL\Eliminar;
 use Liki\SQL\Consultar;
 use Exception;
-class Tabla{
+class FlowDB{
       protected  $tabla ;
       public $Consultas_BD;
         public $consultaArray;

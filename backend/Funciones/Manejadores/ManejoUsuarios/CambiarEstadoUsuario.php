@@ -2,7 +2,7 @@
 
 use App\Personas\Usuario;
 use Liki\Plantillas\Flow;
-use Liki\Database\Tabla;
+use Liki\Database\FlowDB;
 
 
 return new class {
@@ -12,7 +12,7 @@ return new class {
 
     
  
-    $estadoActual = Tabla::conf(Usuario::class)->campos(["cedula", "estado"])
+    $estadoActual = FlowDB::conf(Usuario::class)->campos(["cedula", "estado"])
                               ->get(['cedula'=>$ci]);
    
    $estado = "activo";
@@ -23,7 +23,7 @@ return new class {
     } 
 
     
-    Tabla::conf(Usuario::class)->campos(["cedula", "estado"])
+    FlowDB::conf(Usuario::class)->campos(["cedula", "estado"])
              ->valores([$ci, $estado])
              ->put(['cedula'=>$ci]);
 

@@ -44,6 +44,34 @@ class Ruta implements Rutas_Server {
         return true;
     }
 
+
+public static function validar_parametros2(array $reglas, array $parametros_recibidos): array {  
+    $errores = [];  
+      
+    foreach ($reglas as $campo => $regla) {  
+        $reglas_array = explode('|', $regla);  
+          
+        foreach ($reglas_array as $r) {  
+            if ($r === 'required' && !isset($parametros_recibidos[$campo])) {  
+                $errores[$campo][] = "El campo $campo es requerido";  
+            }  
+            if ($r === 'email' && isset($parametros_recibidos[$campo]) && !filter_var($parametros_recibidos[$campo], FILTER_VALIDATE_EMAIL)) {  
+                $errores[$campo][] = "El campo $campo debe ser un email válido";  
+            }  
+            if (strpos($r, 'min:') === 0 && isset($parametros_recibidos[$campo])) {  
+                $min = substr($r, 4);  
+                if (strlen($parametros_recibidos[$campo]) < $min) {  
+                    $errores[$campo][] = "El campo $campo debe tener al menos $min caracteres";  
+                }  
+            }  
+        }  
+    }  
+      
+    return $errores;  
+
+}
+
+
     /**
      * Valida si el método de la solicitud actual coincide con el método dado.
      *
@@ -108,11 +136,11 @@ return $datos_limpios;
 private static function aplicar_sanitizacion(string $valor): string {
 switch (MODO_SANITIZACION){
 case 'ESTRICTO':
-// Elimina todo código HTML/JS  
+// Elimina todo código HTML/JS  
 return htmlspecialchars(strip_tags($valor), ENT_QUOTES, 'UTF-8');
 
 case'MODERADO':
-// Solo escapa caracteres peligrosos  
+// Solo escapa caracteres peligrosos  
  return htmlspecialchars($valor,ENT_QUOTES,'UTF-8');
 
 default:

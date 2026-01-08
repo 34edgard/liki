@@ -9,7 +9,7 @@ public static function  generateModel($name,$file='') {
     print_r($name);
     $template = "<?php \n\n  return new class { \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
     \n\n};";
-    file_put_contents("./backend/Funciones/$file$name.php", $template);
+    file_put_contents("./backend/Funciones/Manejadores/$file$name.php", $template);
     echo "Modelo '$name' creado.\n";
 }
 
@@ -45,7 +45,7 @@ public static function generateGrupoApp($name,$extras) {
 
 public static function generateGrupoFunc($name,$extras) {
 
-   mkdir("./backend/Funciones/$name");
+   mkdir("./backend/Funciones/Manejadores/$name");
    foreach($extras as $extra){
     self::generateModel($extra,$name.'/');
    }
@@ -61,5 +61,14 @@ public static function generateGrupoLiki($name,$extras) {
    echo "grupo de clases liki creados en '${name}' creado.\n";
 }
 
+
+
+
+
+public static function generateMiddleware($name,$file = ''){
+    $template = "<?php\n\nnamespace Middleware;\n\nclass {$name} {\n public function handle() {\n // Lógica del middleware \n return false; // true para continuar, false para detener\n }\n}";
+file_put_contents("./backend/Funciones/Middleware/$file$name.php", $template);
+echo "Middleware '$name' creado.\n";
+}
 
 }

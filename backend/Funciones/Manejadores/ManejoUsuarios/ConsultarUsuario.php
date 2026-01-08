@@ -3,14 +3,14 @@
 
 use Liki\Plantillas\Flow;
 use App\Personas\Usuario;
-use Liki\Database\Tabla;
+use Liki\Database\FlowDB;
 
 return new class {
    public static function run() {
     session_start();
   
     
-   Tabla::conf(Usuario::class)->campos(["cedula", 
+   FlowDB::conf(Usuario::class)->campos(["cedula", 
     "nombres", 
     "apellidos", 
     "id_correo", 
@@ -21,7 +21,7 @@ return new class {
     if ($_SESSION["id_rol"] == 2) {
       $where = ['cedula'=> $_SESSION["cedula"] ];
     }
-$lista_usuarios = Tabla::conf(Usuario::class)->get($where);
+$lista_usuarios = FlowDB::conf(Usuario::class)->get($where);
     
 
     
