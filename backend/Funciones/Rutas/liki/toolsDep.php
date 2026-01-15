@@ -6,6 +6,15 @@ use Liki\Routing\Ruta;
 use Liki\Plantillas\Flow;
 use Funciones\BdSQLWeb;
 
+use Liki\Consola\GeneradorCodigo;
+use Liki\Database\MigrationRunner;
+use Liki\Consola\db;
+
+function comandoExec(callable $comando,$nombre,$extras){
+   
+ if(count($extras) == 0)  $comando($nombre);
+ if(count($extras) > 0) $comando($nombre,$extras);
+}
 
 
 return  function (){
@@ -38,13 +47,35 @@ return  function (){
           });          
           Ruta::get('/exec',function($p){
           // echo
+        extract($p);
+        
+        if (strpos($comando, '\\') === 0) {
+            // Comando de sistema: remover \ y ejecutar con shell_exec
+            $comando = substr($comando, 1);
+            $output = shell_exec($comando);
+        } else {  
         
         
-        $comando = escapeshellcmd($p['comando']);
-        $resultado = shell_exec($comando);
-        echo $resultado;
-         
-       // include "./consol.php";
+        $comandos = [
+        'modelo'=>[GeneradorCodigo::class,'generateModel'],
+        'controlador'=>[GeneradorCodigo::class,'generateController'],
+        'likiClass'=>[GeneradorCodigo::class,'generateClassLiki'],
+        'migracion-run'=>[MigrationRunner::class,'run'],
+        'liki-grup'=>[GeneradorCodigo::class,'generateGrupoLiki'],
+        'app-grup'=>[GeneradorCodigo::class,'generateGrupoApp'],
+        'func-grup'=>[GeneradorCodigo::class,'generateGrupoFunc'],
+        'db:import'=>[db::class,'import'],
+        'db:export'=>[db::class,'exportDatabase']
+        ];
+        
+        
+            // Comando de Liki: parsear y ejecutar desde $comandos  
+            $parts = explode(' ', $comando);  
+            $tipo = $parts[0];  
+            if (isset($comandos[$tipo])) {  
+                comandoExec($comandos[$tipo], $parts[1] ?? '', array_slice($parts, 2));  
+            }  
+        }
           },['comando']);                    
         });   
         

@@ -28,6 +28,16 @@ foreach($estilosD as $estiloD): ?>
     <link rel="stylesheet" href="/frontend/css/<?= $estiloD ?>.php">
     <?php endforeach; ?>
 
+
+
+<script>
+<?php
+    $scriptsD = $scriptsDinamocos ?? [];
+foreach($scriptsD as $scriptD): ?>
+<?php Flow::js($scriptD); ?>
+<?php endforeach; ?>
+</script>
+
 </head>
 <body>
 
@@ -40,13 +50,9 @@ Flow::html($contenido['componente'],$contenido['configuracion']);
  } ?>
 
 
-<?php
 
-     $scriptsD = $scriptsDinamocos ?? [];
-     
- foreach($scriptsD as $scriptD): ?>
-<script src="/frontend/js/<?= $scriptD ?>.php"></script>
-<?php endforeach; ?>
+
+
 
 <?php foreach($scripts as $script): ?>
 <script src="/frontend/js/<?= $script ?>.js"></script>

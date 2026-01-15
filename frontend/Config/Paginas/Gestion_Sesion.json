@@ -1,7 +1,7 @@
 {
     "tituloPagina": "APP Liki",
     "estilos": ["bootstrap.min","estilos"],
-    "estilosD": ["estilos"],
+    "scriptsDinamocos": ["LoadComponets"],
     "scripts": ["color-modes","script","htmx","bootstrap.bundle.min"],
     "contenidos": [
         {"componente": "estructura/Header","configuracion": {"op": "APP Liki"}},

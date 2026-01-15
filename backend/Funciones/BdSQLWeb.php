@@ -17,7 +17,7 @@ public static function bdSQLWeb(){
     $sql['mysql']='SHOW TABLES';
     
 
-$res = $con->consultarRegistro($sql[],[]);
+$res = $con->consultarRegistro($sql[DB_DRIVER],[]);
 
 $i=1;
 foreach($res as $a => $t){

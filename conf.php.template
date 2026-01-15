@@ -5,9 +5,9 @@ const usuario_BD = "root";
 const contraceña_BD = "root";
 const nombre_BD = "app";
 const MODO_SANITIZACION = "ESTRICTO";
-const DSN = "sqlite:./sql/bd/app.db";
+const DSN = "sqlite:./DataBase/bd/app.db";
 
-//const DSN = "sqlite:./sql/bd/test.db";
+//const DSN = "sqlite:./DataBase/bd/test.db";
 
 
 //const DSN = "mysql:host=".puerto.";dbname=".nombre_BD.";charset=utf8";
@@ -25,7 +25,7 @@ const DB_CHARSET = 'utf8mb4';
   
 // Configuración de migraciones  
 const MIGRATION_TABLE = 'migrations';  
-const MIGRATION_PATH = __DIR__ . '/sql/migrations/';  
+const MIGRATION_PATH = __DIR__ . '/DataBase/migrations/';  
 const MIGRATION_AUTO_RUN = false; // Ejecutar automáticamente en producción
 
 

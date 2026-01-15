@@ -21,6 +21,9 @@ interface Rutas_Server {
     public static function post(string $url_pattern, callable $funcion, array $parametros_extra = []);
     public static function put(string $url_pattern, callable $funcion, array $parametros_extra = []);
     public static function delete(string $url_pattern, callable $funcion, array $parametros_extra = []);
+    public static function patch(string $url_pattern, callable $funcion, array $parametros_extra = []);
+    public static function options(string $url_pattern, callable $funcion, array $parametros_extra = []);
+    public static function head(string $url_pattern, callable $funcion, array $parametros_extra = []);
     public static function dispatch(): void;
 }
 
@@ -183,6 +186,30 @@ return $valor;
         self::add_route('DELETE', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
     }
 
+
+
+
+   /**
+        * Registra una ruta para solicitudes PATCH.
+        */
+       public static function patch(string $url_pattern, callable $funcion, array $parametros_esperados = [], array $funcion_extra = []): void {
+           self::add_route('PATCH', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
+       }
+   /**
+    * Registra una ruta para solicitudes OPTIONS.
+    */
+   public static function options(string $url_pattern, callable $funcion, array $parametros_esperados = [], array $funcion_extra = []): void {
+       self::add_route('OPTIONS', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
+   }
+
+/**
+ * Registra una ruta para solicitudes HEAD.
+ */
+public static function head(string $url_pattern, callable $funcion, array $parametros_esperados = [], array $funcion_extra = []): void {
+    self::add_route('HEAD', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
+}
+
+
     /**
      * Procesa la solicitud entrante y despacha a la función de callback correspondiente.
      */
@@ -192,8 +219,10 @@ return $valor;
 
         // Manejar datos de entrada para PUT/DELETE
         $input_data = [];
-        if (in_array($request_method, ['PUT', 'DELETE'])) {
+        if (in_array($request_method, ['PUT','DELETE', 'PATCH', 'OPTIONS', 'HEAD']) ){
+            
             parse_str(file_get_contents("php://input"), $input_data);
+            
         } elseif ($request_method === 'POST') {
             $input_data = $_POST;
         } elseif ($request_method === 'GET') {

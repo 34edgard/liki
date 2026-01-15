@@ -123,7 +123,7 @@ class TestingRutas {
         echo "<h2>Probar Ruta: <span class='metodo $metodo'>{$ruta['method']}</span> {$ruta['url_pattern']}</h2>";
         
         // Botón para volver
-        echo "<button type='button' class='back-btn' hx-get='/' hx-target='#testinWeb'>← Volver a la lista</button>";
+        echo "<button type='button' class='back-btn' hx-get='/testing/rutas' hx-target='#testinWeb'>← Volver a la lista</button>";
         
         // Formulario principal
         echo "<form id='form-test' method='POST' action='' style='margin-top: 20px;'>";
