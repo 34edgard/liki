@@ -6,9 +6,9 @@ use Liki\Routing\Ruta;
 use Liki\Plantillas\Flow;
 use Funciones\BdSQLWeb;
 
-use Liki\Consola\GeneradorCodigo;
-use Liki\Database\MigrationRunner;
-use Liki\Consola\db;
+use Liki\DelegateFunction;
+
+
 
 function comandoExec(callable $comando,$nombre,$extras){
    
@@ -56,24 +56,17 @@ return  function (){
         } else {  
         
         
-        $comandos = [
-        'modelo'=>[GeneradorCodigo::class,'generateModel'],
-        'controlador'=>[GeneradorCodigo::class,'generateController'],
-        'likiClass'=>[GeneradorCodigo::class,'generateClassLiki'],
-        'migracion-run'=>[MigrationRunner::class,'run'],
-        'liki-grup'=>[GeneradorCodigo::class,'generateGrupoLiki'],
-        'app-grup'=>[GeneradorCodigo::class,'generateGrupoApp'],
-        'func-grup'=>[GeneradorCodigo::class,'generateGrupoFunc'],
-        'db:import'=>[db::class,'import'],
-        'db:export'=>[db::class,'exportDatabase']
-        ];
+        $comandos = DelegateFunction::loadData('Tools/Terminal');
+        
         
         
             // Comando de Liki: parsear y ejecutar desde $comandos  
             $parts = explode(' ', $comando);  
-            $tipo = $parts[0];  
-            if (isset($comandos[$tipo])) {  
-                comandoExec($comandos[$tipo], $parts[1] ?? '', array_slice($parts, 2));  
+            $tipoAccion = explode(':',$parts[0]);  
+            $tipo = $tipoAccion[0];
+             $accion = $tipoAccion[1];
+            if (isset($comandos[$tipo][$accion])) {  
+                comandoExec($comandos[$tipo][$accion], $parts[1] ?? '', array_slice($parts, 2));  
             }  
         }
           },['comando']);                    

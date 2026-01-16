@@ -30,13 +30,13 @@ foreach($estilosD as $estiloD): ?>
 
 
 
-<script>
+
 <?php
     $scriptsD = $scriptsDinamocos ?? [];
 foreach($scriptsD as $scriptD): ?>
-<?php Flow::js($scriptD); ?>
+<script src='/<?= $scriptD ?>/js'></script>
 <?php endforeach; ?>
-</script>
+
 
 </head>
 <body>

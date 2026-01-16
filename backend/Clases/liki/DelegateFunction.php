@@ -12,4 +12,9 @@ class DelegateFunction{
       return  $class::run($parametros,$funcionesExtra);
     }
     
+    public static function loadData($name = ''){
+       // echo CONTOLLER_PATH.$name.'.php'.'<br />';
+        return include CONTOLLER_PATH.'/'.$name.'.php';
+  
+    }
 }

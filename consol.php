@@ -9,21 +9,9 @@ if (php_sapi_name() !== 'cli' ) {
 include "./conf.php";
 include "./backend/autoload.php";
 
-use Liki\Consola\GeneradorCodigo;
-use Liki\Database\MigrationRunner;
-use Liki\Consola\db;
+use Liki\DelegateFunction;
 
-$comandos = [
-    'modelo'=>[GeneradorCodigo::class,'generateModel'],
-    'controlador'=>[GeneradorCodigo::class,'generateController'],
-    'likiClass'=>[GeneradorCodigo::class,'generateClassLiki'],
-    'migracion-run'=>[MigrationRunner::class,'run'],
-    'liki-grup'=>[GeneradorCodigo::class,'generateGrupoLiki'],
-    'app-grup'=>[GeneradorCodigo::class,'generateGrupoApp'],
-    'func-grup'=>[GeneradorCodigo::class,'generateGrupoFunc'],
-    'db:import'=>[db::class,'import'],
-    'db:export'=>[db::class,'exportDatabase']
-    ];
+$comandos = DelegateFunction::loadData('Tools/Terminal');
 
 
 
@@ -34,12 +22,16 @@ if ($argc < 2) {
     
     echo "comandos: \n\n ";
     foreach($comandos as $nombre => $comando){
-        echo ' -'.$nombre."\n";
+        foreach($comando as $accion => $accionExec ){
+        echo ' -'.$nombre.':'.$accion."\n";
+        }
     }
     exit(1);
 }
 
-$tipo = $argv[1];
+$comando = explode(':',$argv[1]);
+$tipo = $comando[0];
+$accion = $comando[1];
 $nombre = $argv[2] ?? '';
 $extras = [];
 foreach($argv as $id => $arg){
@@ -54,11 +46,11 @@ function comandoExec(callable $comando,$nombre,$extras){
   if(count($extras) > 0) $comando($nombre,$extras);
 }
  
-if(isset($comandos[$tipo])){
- comandoExec($comandos[$tipo],$nombre,$extras);
+if(isset($comandos[$tipo][$accion])){
+ comandoExec($comandos[$tipo][$accion],$nombre,$extras);
     
 }else{
-    echo "el comando '$tipo' no existe";
+    echo "el comando '$tipo:$accion' no existe";
 }
 
 

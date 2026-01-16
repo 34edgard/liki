@@ -48,12 +48,7 @@
                 </div>
             </div>
         </div>
-        <mi-app>
-        
-        
-        </mi-app>
-        
-        
+    
          
         
       <div id="caja"></div>
