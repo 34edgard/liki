@@ -1,5 +1,5 @@
 <?php
-namespace App\DatosExtra;
+namespace App\Controladores\DatosExtra;
 use Liki\Modelo;
 
 use Liki\DelegateFunction;

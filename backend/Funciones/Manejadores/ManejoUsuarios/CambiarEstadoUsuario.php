@@ -1,6 +1,6 @@
 <?php
 
-use App\Personas\Usuario;
+use App\Controladores\Personas\Usuario;
 use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
 

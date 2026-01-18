@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Admini;
+namespace App\Controladores\Administracion;
 use Liki\Modelo;
 use Liki\DelegateFunction;
 

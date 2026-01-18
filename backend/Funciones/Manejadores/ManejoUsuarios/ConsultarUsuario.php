@@ -2,7 +2,7 @@
 
 
 use Liki\Plantillas\Flow;
-use App\Personas\Usuario;
+use App\Controladores\Personas\Usuario;
 use Liki\Database\FlowDB;
 
 return new class {

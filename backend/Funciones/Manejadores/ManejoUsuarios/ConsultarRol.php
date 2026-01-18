@@ -1,15 +1,10 @@
 <?php
-
-use App\DatosExtra\Rol;
+use App\Controladores\DatosExtra\Rol;
 use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
 
 return new class {
-  public static function run($p,$f){
-    
-    
-    
-    
+  public static function run($p,$f){    
     $roles = FlowDB::conf(Rol::class)->campos(['id_rol','nombre_rol'])->get();
      foreach ($roles as $dato){
         Flow::html("componentes/option",[
@@ -17,7 +12,5 @@ return new class {
             "contenido"=>$dato['nombre_rol']
         ]);
     }
-    
   }
-  
 };

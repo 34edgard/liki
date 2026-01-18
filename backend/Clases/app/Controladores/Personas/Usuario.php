@@ -1,5 +1,5 @@
 <?php
-namespace App\Personas;
+namespace App\Controladores\Personas;
 use Liki\Modelo;
 use Liki\DelegateFunction;
 

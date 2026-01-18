@@ -1,8 +1,6 @@
 <?php
-
-
-use App\Personas\Usuario;
-use App\DatosExtra\Correo;
+use App\Controladores\Personas\Usuario;
+use App\Controladores\DatosExtra\Correo;
 use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
 return new class {
@@ -17,13 +15,10 @@ if(!isset($formularioEdicion)) return;
    $datos = FlowDB::conf(Usuario::class)->campos(['cedula','nombres','apellidos','id_rol','usuario','id_correo'])
            ->get( ['cedula'=>$formularioEdicion] )[0];
         
-        //print_r($datos);
-        
+
       $datos['correo'] = FlowDB::conf(Correo::class)->campos(['email'])
       ->get(['id_correo'=>$datos['id_correo'] ])[0]['email'];
-  // print_r($datos);
+
    Flow::html("EditarUsuario",$datos);
   }
-
-  
 };

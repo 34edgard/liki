@@ -1,6 +1,5 @@
 <?php
-
-use App\DatosExtra\Correo;
+use App\Controladores\DatosExtra\Correo;
 use Liki\Database\FlowDB;
 return new class {
 public static function run($id_correo){

@@ -1,16 +1,10 @@
 <?php
-
-
 use Liki\Routing\Ruta;
-use App\DatosExtra\Rol;
-use App\Personas\Usuario;
+use App\Controladores\DatosExtra\Rol;
+use App\Controladores\Personas\Usuario;
 
 
-
-
-return  function (){
-        
-     
+return  function (){    
      
      Ruta::post('/usuario/crear',[Usuario::class,'crear_usuario'],
      ['Crear_usuario','cedula','nombre','apellido','correo','usuario','rol','contraseña']);
@@ -36,8 +30,6 @@ return  function (){
      
      
      Ruta::post('/usuario/editar',[Usuario::class,'editar_usuario'],['EditarUsuario','ci','nombre','nombre_usuario','correo','apellido','contraseña','rol'],[[Usuario::class,'consultar_usuario']]);
-     
-     
-        
+           
     
 };

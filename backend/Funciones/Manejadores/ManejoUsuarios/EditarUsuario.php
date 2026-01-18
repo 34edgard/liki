@@ -1,6 +1,6 @@
 <?php
-use App\Personas\Usuario;
-use App\DatosExtra\Correo;
+use App\Controladores\Personas\Usuario;
+use App\Controladores\DatosExtra\Correo;
 use Liki\Database\FlowDB;
 
 return new class {

@@ -35,6 +35,21 @@ Explicar brevemente frontend/ y backend/
 
 ## sistema de plantillas llamado Flow template
 
+este sistema de plantillas posee metodos html, css, js, json y page que se pueden usar para construir
+la interfas web donde o responder de formas diferentes los metodo resiven dos parametros el nombre del componente
+y los datos de configuracion que segun el componente pueden ser requeridos o no, ademas de esto liki usa bootstrap, htmx, servis workers y web components para crear la interfas
+todo bootstrap se usa para tener componetes ya estilosados y responsibos, htmx se usa para aser peticiones al servido, paginacion y navegacion, servis worker se usan para cache inteligente
+y complementar a htmx dandole la posivilidad  de funcionar offline y los web components se usan para manejar la respuestas json pero todavia falta para que sean completamente funcionales por ahora solo 
+se implemento una forma de crear web componets de forma facil usando una tempete que se define usando el metodo Flow::js('WebComponentes/newComponet',$datos) esto se define dentro de frontend/js/LoadComponets.php
+ese archivo se puede usar para crear los web componets o se puede crear otros similares para usalos como un builders pero con php tambi se puede aser lo mismo con los archivos css y se les usaria de la siguente forma
+/nombreDelArchivo/js
+/nombreDelArchivo/css
+/nombreDelArchivo/html
+si el archivo esta dentro de una carpeta se usa "_" en ves de un "/"
+/carpeta_archivo/js
+
+
+
 
 ## Ejemplo de uso básico: 
 Un "Hello World" o componente simple
@@ -114,24 +129,24 @@ la eleccion de cual usar queda a conveniencia del programador
 
 ambas syntaxis solo se recomienda usarse para aprender como funcionan las clase Tabla o para
 practicar la logica de sql, la syntaxis que se recomienda usar para ser mas productivos 
-es la siguiente donde se usa el metodo estatico conf de la clase Tabla pasandole una clase 
+es la siguiente donde se usa el metodo estatico conf de la clase FlowDB pasandole una clase 
 para configurarla, despues se usan metodos de encadenamiento con nombres similares a los 
 de las otras syntaxis 
 
 ## metodo para consultar
-> Tabla::conf(user::class)->campos(['nombre'])->get();
+> FlowDB::conf(user::class)->campos(['nombre'])->get();
 
 ## metodo para registrar
-> Tabla::conf(user::class)->campos(['nombre'])->post([$nombre]);
+> FlowDB::conf(user::class)->campos(['nombre'])->post([$nombre]);
 
 
 
 ## metodo para edita
->Tabla::conf(user::class)->campos(['nombre'])->valores([$nombre])->put(['id' => $id]);r
+>FlowDB::conf(user::class)->campos(['nombre'])->valores([$nombre])->put(['id' => $id]);r
 
 
 ## metodo para eliminar
->Tabla::conf(user::class)->delete(['id'=>$id]);
+>FlowDB::conf(user::class)->delete(['id'=>$id]);
 
 
 

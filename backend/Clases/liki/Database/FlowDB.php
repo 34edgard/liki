@@ -151,11 +151,21 @@ public function reset(){
 public function where(array $where){
       $Nwhere =[];
       foreach($where as $name => $valor){
-          $Nwhere[] = [
-              "campo"=>$name,
-              "operador"=>'=',
-              "valor"=>$valor
-          ];
+        if(is_array($valor) && count($valor) == 2){
+            
+            $Nwhere[] = [
+                "campo"=>$name,
+                "operador"=>$valor[0],
+                "valor"=>$valor[1]
+            ];
+        }elseif(is_string($valor)){
+             $Nwhere[] = [
+                 "campo"=>$name,
+                 "operador"=>'=',
+                 "valor"=>$valor
+             ];
+        }
+         
       }
     return $Nwhere;
 }
