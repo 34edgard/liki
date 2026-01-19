@@ -17,7 +17,7 @@ class Sesion{
     }
     
     public static function cerrar_sesion(){
-        session_start();
+        self::init();
         session_unset();
         session_destroy();
         ControlInterfaz::cambiarPagina("");
