@@ -1,13 +1,13 @@
 <?php
 namespace Liki\Routing;
 use Liki\Routing\ControlInterfaz;
-
+use Liki\Sesion;
 class ValidarSesion{
 public static function validar_sesion($name = 'cedula'){
     
 
 if (session_id() == "") {
-  session_start();
+  Sesion::init();
   if (!isset($_SESSION[$name])) {
  //header("Location: ./");
  //$_SERVER['REQUEST_URI']='/';

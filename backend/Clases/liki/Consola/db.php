@@ -54,8 +54,8 @@ public static function import(){
             
             
         
-        $tablas = file_get_contents("./sql/sql/sqlite/tablas.sql");
-        $registros = file_get_contents("./sql/sql/sqlite/registros.sql");
+        $tablas = file_get_contents("./DataBase/sql/sqlite/tablas.sql");
+        $registros = file_get_contents("./DataBase/sql/sqlite/registros.sql");
         
         
         $con = new ConsultasBD();

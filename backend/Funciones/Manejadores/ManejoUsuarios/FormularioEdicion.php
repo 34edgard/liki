@@ -3,6 +3,7 @@ use App\Controladores\Personas\Usuario;
 use App\Controladores\DatosExtra\Correo;
 use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
+use Liki\Sesion;
 return new class {
 
  public static function run($p){
@@ -10,7 +11,7 @@ return new class {
     extract($p);
 if(!isset($formularioEdicion)) return;
    
-   session_start();
+   Sesion::init();
    //formularioEdicion
    $datos = FlowDB::conf(Usuario::class)->campos(['cedula','nombres','apellidos','id_rol','usuario','id_correo'])
            ->get( ['cedula'=>$formularioEdicion] )[0];

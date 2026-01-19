@@ -14,8 +14,8 @@ $menu = 'componentes/menu-desplegable';
         Flow::html($menu, [
             'title' => 'Reportes',
             'items' => [
-                ['label' => 'option1', 'hx_get' => '/Reportes_Matricula/src', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick' => "option1','Matricula"],
-                ['label' => 'option2', 'hx_get' => '/Reportes_Planilla/src', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click',
+                ['label' => 'option1', 'hx_get' => '/Reportes_Matricula/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click', 'onclick' => "option1','Matricula"],
+                ['label' => 'option2', 'hx_get' => '/Reportes_Planilla/html', 'hx_target' => '#main', 'hx_swap' => 'innerHTML', 'hx_trigger' => 'click',
                 'onclick_title' => "Reportes','Planilla"],
               
             ]

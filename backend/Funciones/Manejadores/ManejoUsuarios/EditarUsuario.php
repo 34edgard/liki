@@ -8,8 +8,6 @@ return new class {
     
     extract($p);
     
-    
-
   $campos =["cedula", "nombres", "apellidos", "id_rol","usuario"];
   $valores =[$ci, $nombre, $apellido, $rol, $nombre_usuario];
   

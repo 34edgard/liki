@@ -40,7 +40,28 @@ return  function (){
    Ruta::get('/tablas',[BdSQLWeb::class,'bdSQLWeb']);          
                    
  });      
+      
+    
+    
+    Ruta::prefix('/errors',function(){
+      Ruta::get('/',function(){
+        echo 'ssss';
+        $logs = file_get_contents('./logs/errors.log');
+        $logs = explode("\n",$logs);
+        foreach($logs as $log){
+            if($log === '') continue;
+            echo $log.'<hr />';
+        }
         
+      });          
+         Ruta::put('/borrar',function(){
+           file_put_contents('./logs/errors.log','');
+            $logs = file_get_contents('./logs/errors.log');
+            
+           print_r($logs);
+         });                 
+    });    
+      
         Ruta::prefix('/Terminal',function(){
           Ruta::get('/interfaz',function(){
               Flow::html('componentes/Terminal');

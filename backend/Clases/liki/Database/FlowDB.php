@@ -158,7 +158,7 @@ public function where(array $where){
                 "operador"=>$valor[0],
                 "valor"=>$valor[1]
             ];
-        }elseif(is_string($valor)){
+        }else{
              $Nwhere[] = [
                  "campo"=>$name,
                  "operador"=>'=',

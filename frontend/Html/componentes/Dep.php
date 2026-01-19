@@ -26,6 +26,9 @@
                    <div class="tab" data-tab="terminal">
                        <i class="fas fa-vial"></i> Terminal
                    </div>
+                  <div class="tab" data-tab="logs">
+                      <i class="fas fa-vial"></i> Logs
+                  </div>
             </div>
             
             <div class="tab-content">
@@ -37,6 +40,28 @@
                     
 
                 </div>
+                
+                
+                
+                <div 
+                hx-get="/errors/"
+                hx-trigger="load"
+                hx-target="#logs-contens"
+                class="tab-pane " id="logs">
+                <button class="btn btn-success"
+                hx-get="/errors/"
+                hx-trigger="click"
+                hx-target="#logs-contens"
+                >recargar</button>
+                
+                    <div
+                    class="container"
+                    id="logs-contens"
+                    >gggg</div>
+                
+                </div>
+                
+                
                 
                 <!-- Testing Tab -->
                 <div

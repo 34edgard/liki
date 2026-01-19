@@ -10,6 +10,12 @@ use Liki\ErrorHandler;
 use Liki\Database\FlowDB;
 
 class Sesion{
+    public static function init() {
+        if (session_status() === PHP_SESSION_NONE) {
+        session_start();
+    }
+    }
+    
     public static function cerrar_sesion(){
         session_start();
         session_unset();
@@ -21,7 +27,8 @@ class Sesion{
       $extras = func_get_args();
       extract( $extras[0]);
       // var_dump($extras);
-      session_start();
+     self::init();
+      
       $arreglo = self::validar_datosDB($correo, $contraseña);
       //return;
       if ($arreglo[0]) {

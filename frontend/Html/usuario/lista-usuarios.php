@@ -1,5 +1,5 @@
 <?php
-use App\DatosExtra\Correo;
+use App\Controladores\DatosExtra\Correo;
 $usuarioEstado = "activo";
 $estadoEstilo = "secondary";
   if ($estado == "activo") {

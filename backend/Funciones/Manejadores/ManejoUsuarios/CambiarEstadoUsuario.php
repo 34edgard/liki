@@ -1,16 +1,12 @@
 <?php
-
 use App\Controladores\Personas\Usuario;
 use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
 
 
 return new class {
-  public static function run($p) {
-    
+  public static function run($p) {  
     extract($p);
-
-    
  
     $estadoActual = FlowDB::conf(Usuario::class)->campos(["cedula", "estado"])
                               ->get(['cedula'=>$ci]);

@@ -1,14 +1,26 @@
 <?php
-
-
 use App\Controladores\DatosExtra\Correo;
 use App\Controladores\Personas\Usuario;
 use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
+use Liki\Validar;
 
 return new class {
   public static function run($p) {
+    $p['cedula'] = intval($p['cedula']);
+    $p['rol'] = intval($p['rol']);
     
+    Validar::ValidarArray($p,[
+     'cedula'=>'isInt',
+    'nombre'=>'isString',
+    'apellido'=>'isString',
+    'correo'=>'isString',
+    'usuario'=>'isString',
+    'rol'=>'isInt',
+    'contraseña'=>'isString'
+    ]);
+    
+       
     extract($p);
     
     FlowDB::conf(Correo::class)->campos(["email"])
