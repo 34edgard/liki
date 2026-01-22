@@ -1,18 +1,13 @@
- * {
-     margin: 0;
-     padding: 0;
-     box-sizing: border-box;
-     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
- }
  
  .body {
-     border-radius: 15px;
+     border-radius: 50%;
      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
      color: #fff;
      padding: 20px;
      position: relative;
+    overflow-y: auto;
  }
- 
+ /*
  .container {
      max-width: 1200px;
      margin: 0 auto;
@@ -71,7 +66,7 @@
      color: #b8b8d1;
      line-height: 1.6;
  }
- 
+ */
  /* Estilos para el botón flotante y panel */
  .floating-btn-container {
      position: fixed;
@@ -279,6 +274,7 @@
  
  .table-container {
      overflow-x: auto;
+     
  }
  
  table {
@@ -343,6 +339,7 @@
  @media (max-width: 1024px) {
      .expanded-panel {
          width: 90vw;
+        height: 60vh;
      }
  }
  
@@ -351,6 +348,7 @@
          width: 95vw;
          right: 2.5vw;
          bottom: 20px;
+        height: 60vh;
      }
      
      .floating-btn-container {
@@ -374,6 +372,7 @@
  
  @media (max-height: 700px) {
      .expanded-panel {
-         height: 60vh;
+         height: 80vh;
+        
      }
  }

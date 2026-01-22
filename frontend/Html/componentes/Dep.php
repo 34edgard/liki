@@ -34,9 +34,9 @@
             <div class="tab-content">
                 <!-- Editor Tab -->
                 <div 
-                hx-get="/pheditor.php"
-                hx-trigger="load"
+                
                 class="tab-pane active" id="editor">
+                <iframe src="/pheditor.php" style="width:100%; height:600px; border:none;"></iframe>
                     
 
                 </div>
@@ -53,11 +53,15 @@
                 hx-trigger="click"
                 hx-target="#logs-contens"
                 >recargar</button>
-                
+                 <button class="btn btn-danger"
+                hx-post="/errors/borrar"
+                hx-trigger="click"
+                hx-target="#logs-contens"
+                >borrar</button>
                     <div
                     class="container"
                     id="logs-contens"
-                    >gggg</div>
+                    ></div>
                 
                 </div>
                 

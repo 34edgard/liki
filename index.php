@@ -26,7 +26,9 @@ Ruta::group('app/Paginas');
 Ruta::group('app/sesiones');
 
 
-
+Ruta::get("/pheditor.php",function(){
+    include "./pheditro.php";
+});
 
 
 

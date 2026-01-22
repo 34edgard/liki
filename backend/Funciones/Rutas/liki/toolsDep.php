@@ -45,8 +45,12 @@ return  function (){
     
     Ruta::prefix('/errors',function(){
       Ruta::get('/',function(){
-        echo 'ssss';
+        
         $logs = file_get_contents('./logs/errors.log');
+        if ($logs === '') {
+        echo "no hay logs";
+        return;
+        }
         $logs = explode("\n",$logs);
         foreach($logs as $log){
             if($log === '') continue;
@@ -54,11 +58,11 @@ return  function (){
         }
         
       });          
-         Ruta::put('/borrar',function(){
+         Ruta::post('/borrar',function(){
            file_put_contents('./logs/errors.log','');
             $logs = file_get_contents('./logs/errors.log');
             
-           print_r($logs);
+           echo $logs."no hay logs";
          });                 
     });    
       

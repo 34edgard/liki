@@ -184,7 +184,9 @@ if (empty(PASSWORD) === false && (isset($_SESSION['pheditor_admin'], $_SESSION['
         die('Your session has expired.');
     }
 
-    die('<title>Pheditor</title><form  hx-post="/pheditor.php" hx-trigger="submit"><div style="text-align:center"><h1><a href="http://github.com/pheditor/pheditor" target="_blank" title="PHP file editor" style="color:#444;text-decoration:none" tabindex="3">Pheditor</a></h1>' . (isset($error) ? '<p style="color:#dd0000">' . $error . '</p>' : null) . '<input id="pheditor_password" name="pheditor_password" type="password" value="" placeholder="Password&hellip;" tabindex="1"><br><br><input type="submit" value="Login" tabindex="2"></div></form><script type="text/javascript">document.getElementById("pheditor_password").focus();</script>');
+    die('
+    <script src="/frontend/js/htmx.js"></script>
+    <title>Pheditor</title><form  hx-post="/pheditor.php" hx-trigger="submit"><div style="text-align:center"><h1><a href="http://github.com/pheditor/pheditor" target="_blank" title="PHP file editor" style="color:#444;text-decoration:none" tabindex="3">Pheditor</a></h1>' . (isset($error) ? '<p style="color:#dd0000">' . $error . '</p>' : null) . '<input id="pheditor_password" name="pheditor_password" type="password" value="" placeholder="Password&hellip;" tabindex="1"><br><br><input type="submit" value="Login" tabindex="2"></div></form><script type="text/javascript">document.getElementById("pheditor_password").focus();</script>');
 }
 
 if (isset($_GET['logout'])) {
@@ -544,68 +546,7 @@ if (isset($_GET['path'])) {
             }
             break;
 
-        case 'terminal':
-            if (in_array('terminal', $permissions) !== false && isset($_POST['command'], $_POST['dir'])) {
-                if (function_exists('shell_exec') === false) {
-                    echo json_error("shell_exec function is disabled\n");
-
-                    exit;
-                }
-
-                set_time_limit(15);
-
-                $command  = $_POST['command'];
-                $dir = $_POST['dir'];
-
-                if (strpos($command, '&') !== false || strpos($command, ';') !== false || strpos($command, '||') !== false) {
-                    echo json_error("Illegal character(s) in command (& ; ||)\n");
-
-                    exit;
-                }
-
-                $command_found = false;
-                $terminal_commands = explode(',', TERMINAL_COMMANDS);
-
-                foreach ($terminal_commands as $value) {
-                    $value = trim($value);
-
-                    if (strlen($command) >= strlen($value) && substr($command, 0, strlen($value)) == $value) {
-                        $command_found = true;
-
-                        break;
-                    }
-                }
-
-                if ($command_found === false) {
-                    foreach ($terminal_commands as $key => $value) {
-                        $commands[$key % 3] = isset($commands[$key % 3]) ? $commands[$key % 3] . "\t" . $value : $value;
-                    }
-
-                    echo json_error("<span class=\"text-danger\">Command not allowed</span>\n<span class=\"text-success\">Available commands:</span>\n" . implode("\n", $commands) . "\n");
-
-                    exit;
-                }
-
-                $output = shell_exec((empty($dir) ? null : 'cd ' . $dir . ' && ') . $command . ' && echo \ ; pwd');
-                $output = trim($output);
-
-                if (empty($output)) {
-                    $output = null;
-                    $dir = null;
-                } else {
-                    $output = explode("\n", $output);
-                    $dir = end($output);
-
-                    unset($output[count($output) - 1]);
-
-                    $output = implode("\n", $output);
-                    $output = trim($output) . "\n";
-                    $output = htmlspecialchars($output);
-                }
-
-                echo json_success('OK', ['result' => $output, 'dir' => $dir]);
-            }
-            break;
+        
     }
 
     exit;
@@ -796,62 +737,7 @@ $_SESSION['pheditor_token'] = bin2hex(random_bytes(32));
             min-width: 12rem;
         }
 
-        #terminal {
-            padding: 5px 10px;
-            border-radius: .25rem;
-        }
-
-        #terminal .toggle {
-            cursor: pointer;
-        }
-
-        #terminal pre {
-            background: black;
-            color: #ccc;
-            padding: 5px 10px 10px 10px;
-            border-radius: 5px 5px 0 0;
-            margin: 5px 0 0 0;
-            height: 200px;
-            overflow-y: auto;
-        }
-
-        #terminal input.command {
-            width: 100%;
-            background: #333;
-            color: #fff;
-            border: 0;
-            border-radius: 0 0 5px 5px;
-            margin-bottom: 5px;
-            padding: 5px;
-        }
-
-        #terminal .btn {
-            padding: .5rem .4rem;
-            font-size: .875rem;
-            line-height: .5;
-            border-radius: .2rem;
-        }
-
-        #terminal #prompt:fullscreen pre {
-            margin: 0;
-            border-radius: 0;
-        }
-
-        #terminal #prompt:fullscreen input.command {
-            border-radius: 0;
-        }
-
-        #terminal span.toggle i::before {
-            content: "\f107";
-        }
-
-        #terminal span.toggle.collapsed i::before {
-            content: "\f105";
-        }
-
-        #terminal span.command {
-            color: #eee;
-        }
+     
 
         .fa-file {
             color: #000;
@@ -2001,28 +1887,7 @@ $_SESSION['pheditor_token'] = bin2hex(random_bytes(32));
                 </div>
             </div>
 
-            <?php if (in_array('terminal', $permissions) !== false) : ?>
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-block">
-                            <div id="terminal">
-                                <div>
-                                    <button type="button" class="btn btn-light float-end ms-1 clear" style="display: none;">Clear</button>
-                                    <button type="button" class="btn btn-light float-end ms-1 copy" style="display: none;">Copy to clipboard</button>
-                                    <button type="button" class="btn btn-light float-end ms-1 fullscreen" style="display: none;">Full Screen</button>
-                                    <span class="toggle collapsed" data-bs-toggle="collapse" data-bs-target="#prompt"><i class="fa"></i> Terminal</span>
-                                    <div style="clear:both"></div>
-                                </div>
-                                <div id="prompt" class="collapse">
-                                    <pre></pre>
-                                    <input name="command" type="text" value="" class="command" autocomplete="off">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
-
+           
         </div>
 
     </div>
