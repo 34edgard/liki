@@ -1,5 +1,4 @@
 <?php
-
 namespace Liki\Testing;
 
 class TestingRutas {
@@ -10,74 +9,8 @@ class TestingRutas {
     public static function mostrar_rutas_disponibles(): void {
         $rutas = \Liki\Routing\Ruta::obtener_rutas();
         
-        echo "<!DOCTYPE html>
-        <html lang='es'>
-        <head>
-            <meta charset='UTF-8'>
-            <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-            <title>Testing de Rutas</title>
-            <style>
-                body { font-family: Arial, sans-serif; margin: 20px; background-color: #f5f5f5; }
-                .container { max-width: 800px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-                .ruta-item { 
-                    background: #f8f9fa; 
-                    margin: 10px 0; 
-                    padding: 15px; 
-                    border-left: 4px solid #007bff; 
-                    border-radius: 4px; 
-                    cursor: pointer;
-                    transition: background-color 0.2s;
-                }
-                .ruta-item:hover { background: #e9ecef; }
-                .metodo { 
-                    display: inline-block; 
-                    padding: 4px 8px; 
-                    border-radius: 4px; 
-                    color: white; 
-                    font-weight: bold; 
-                    margin-right: 10px; 
-                    font-size: 12px;
-                }
-                .GET { background: #28a745; }
-                .POST { background: #007bff; }
-                .PUT { background: #ffc107; color: black; }
-                .DELETE { background: #dc3545; }
-                .form-container { 
-                    margin-top: 20px; 
-                    padding: 20px; 
-                    background: #f8f9fa; 
-                    border-radius: 8px; 
-                    border: 1px solid #dee2e6;
-                }
-                .form-group { margin-bottom: 15px; }
-                label { display: block; margin-bottom: 5px; font-weight: bold; }
-                input, textarea, select { 
-                    width: 100%; 
-                    padding: 8px; 
-                    border: 1px solid #ced4da; 
-                    border-radius: 4px; 
-                    box-sizing: border-box;
-                }
-                button { 
-                    background: #007bff; 
-                    color: white; 
-                    padding: 10px 20px; 
-                    border: none; 
-                    border-radius: 4px; 
-                    cursor: pointer; 
-                    margin-right: 10px;
-                }
-                button:hover { background: #0056b3; }
-                .hidden { display: none; }
-                .back-btn { background: #6c757d; }
-                .back-btn:hover { background: #545b62; }
-                .url-pattern { color: #6c757d; font-family: monospace; }
-            </style>
-        </head>
-        
+        echo "
         <script src=\"/frontend/js/htmx.js\"></script>
-        
-        <body>
             <div class='container' id='testinWeb'>
                 <h1>Testing de Rutas Disponibles</h1>
                 <div id='lista-rutas'>";
@@ -95,15 +28,7 @@ class TestingRutas {
               <div id='formulario-test' class='form-container hidden'>
                   <!-- Aquí se cargará el formulario dinámicamente -->
               </div>
-            </div>
-            
-            <script>
-                
-                
-                
-            </script>
-            </body>
-            </html>";
+            </div>";
     }
     
     /**

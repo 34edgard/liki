@@ -244,7 +244,7 @@ public static function head(string $url_pattern, callable $funcion, array $param
                   
                 ErrorHandler::getInstance()->handle(
                      ErrorHandler::VALIDATION_ERROR,
-                     'Error: Faltan parámetros requeridos',
+                     'Error: Faltan parametros requeridos en la ruta '.$route['url_pattern'],
                     ['exception' => 'Faltan parámetros requeridos'],
                     400
                 );
@@ -287,7 +287,7 @@ public static function head(string $url_pattern, callable $funcion, array $param
         ErrorHandler::getInstance()->handle(
              ErrorHandler::ROUTE_NOT_FOUND,
              'Error: 404 Not Found',
-            ['exception' => '404 Not Found'],
+            ['exception' => '404 Not Founden no se encontro la ruta '.$request_uri ],
             404
         );
         
@@ -297,7 +297,7 @@ public static function head(string $url_pattern, callable $funcion, array $param
     
 
 public static function group( string $ruta, bool $condicion = false, array $middlewares = []){
-        $urlFile = CONTOLLER_PATH.'Rutas/'.$ruta.'.php';
+        $urlFile = CONTOLLER_PATH.'backend/Funciones/Rutas/'.$ruta.'.php';
        if($condicion) return;
         if(!file_exists($urlFile))            
          throw new Exception('el archivo de rutas '.$urlFile.' no existe');

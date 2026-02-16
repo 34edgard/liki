@@ -8,7 +8,7 @@ return new class {
   public static function run($p) {  
     extract($p);
  
-    $estadoActual = FlowDB::conf(Usuario::class)->campos(["cedula", "estado"])
+    $estadoActual = FlowDB::conf('Usuario')->campos(["cedula", "estado"])
                               ->get(['cedula'=>$ci]);
    
    $estado = "activo";
@@ -19,7 +19,7 @@ return new class {
     } 
 
     
-    FlowDB::conf(Usuario::class)->campos(["cedula", "estado"])
+    FlowDB::conf('Usuario')->campos(["cedula", "estado"])
              ->valores([$ci, $estado])
              ->put(['cedula'=>$ci]);
 

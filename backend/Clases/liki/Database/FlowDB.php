@@ -7,13 +7,16 @@ use Liki\SQL\Registrar;
 use Liki\SQL\Editar;
 use Liki\SQL\Eliminar;
 use Liki\SQL\Consultar;
+use Liki\DelegateFunction;
+use Liki\Validar;
 use Exception;
 class FlowDB{
       protected  $tabla ;
       public $Consultas_BD;
         public $consultaArray;
+        public $camposValidar =[];
         
-        
+        public array $joins = [];
         private static $instance = null;  
             private static $connection = null;  
               
@@ -24,9 +27,10 @@ class FlowDB{
                 }  
                   
                 // Obtener nombre de tabla del modelo  
-                $model = new $modelClass();  
-                self::$instance->tabla = $model->getTableName();  
-                self::$instance->consultaArray['tabla'] = self::$instance->tabla;  
+                $model = DelegateFunction::loadModel($modelClass);  
+                self::$instance->camposValidar = $model->campos ?? [];  
+                self::$instance->tabla = $model->tabla ?? '';  
+                self::$instance->consultaArray['tabla'] = $model->tabla;  
                   
                 return self::$instance;  
             }  
@@ -55,6 +59,7 @@ class FlowDB{
       $parametrosConsulta = [];
     
       try{
+       Consultar::setJoin($this->joins);
       $sql = Consultar::generar_sql($datos,$parametrosConsulta);
     
       return  $this->Consultas_BD->consultarRegistro($sql,$parametrosConsulta);
@@ -104,6 +109,9 @@ class FlowDB{
 
 
 public function campos(array $campos){
+   foreach ($campos as $id){
+    Validar::isInclude($this->camposValidar,$id);
+   }
     $this->consultaArray['campos'] = $campos;
     return $this;
 }
@@ -135,7 +143,14 @@ public function orderBy(string $campo ,string $direccion ='DESC' ){
 }
 
 public function join($tipo,$campo,$where){
-    $this->consultar->addJoin($tipo, $campo,$where);
+
+
+ 
+   $this->joins[] = [
+        'type' => strtoupper($tipo),
+        'table' => $campo,
+        'on' => $where
+    ];
     return $this;
 }
 
@@ -143,7 +158,7 @@ public function join($tipo,$campo,$where){
 public function reset(){
      
      $this->consultaArray = [];
-    
+    $this->joins =[];
      return $this;
 }
 

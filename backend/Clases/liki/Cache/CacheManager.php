@@ -3,11 +3,12 @@
 namespace Liki\Cache;
 
 
+
 class CacheManager {
     private $memcached;
     
     public function __construct() {
-        $this->memcached = new Memcached();
+        $this->memcached = new \Memcached();
         $this->memcached->addServer('localhost', 11211);
     }
     

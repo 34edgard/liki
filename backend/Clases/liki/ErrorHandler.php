@@ -1,9 +1,6 @@
 <?php
-
 namespace Liki;
-
 use Liki\Plantillas\Flow;
-
 
 class ErrorHandler {  
     private static $instance = null;  
@@ -33,7 +30,6 @@ class ErrorHandler {
         $this->logLevel = defined('ERROR_LOG_LEVEL') ? ERROR_LOG_LEVEL : 'ERROR';  
         $this->language = defined('ERROR_LANGUAGE') ? ERROR_LANGUAGE : 'es';  
     }  
-      
     public static function getInstance() {  
         if (self::$instance === null) {  
             self::$instance = new self();  
@@ -79,7 +75,6 @@ class ErrorHandler {
                 echo json_encode($response);  
             //    Flow::json($response,$response['error_code']);
                 break;  
-                  
             case 'html':  
                 Flow::html('errores/error', $response);  
                 break;  
@@ -92,10 +87,6 @@ class ErrorHandler {
           
         exit;  
     }  
-    
-    
-    
-    
     private function logError($errorCode, $message, $details) {  
         $logMessage = sprintf(  
             "[%s] Code: %d | Message: %s | Details: %s | User: %s | IP: %s\n",  
@@ -109,7 +100,6 @@ class ErrorHandler {
           
         error_log($logMessage, 3, $this->logPath);  
     }  
-      
     private function translateMessage($message) {  
         // Implementar traducciones según ERROR_LANGUAGE  
         return $message;  

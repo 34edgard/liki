@@ -77,8 +77,9 @@ class Flow {
         
         // Extraer variables de forma segura
         $variablesExtraidas = self::extraerVariables($datos);
-        extract($variablesExtraidas);
-        // Incluir la plantilla
+       // extract($variablesExtraidas);
+       extract($variablesExtraidas, EXTR_PREFIX_SAME, "data");
+     // Incluir la plantilla
         include $rutaArchivo;
     }
     

@@ -78,6 +78,7 @@ return  function (){
             // Comando de sistema: remover \ y ejecutar con shell_exec
             $comando = substr($comando, 1);
             $output = shell_exec($comando);
+            echo $output;
         } else {  
         
         
@@ -89,16 +90,11 @@ return  function (){
             $parts = explode(' ', $comando);  
             $tipoAccion = explode(':',$parts[0]);  
             $tipo = $tipoAccion[0];
-             $accion = $tipoAccion[1];
+             $accion = $tipoAccion[1] ?? '';
             if (isset($comandos[$tipo][$accion])) {  
                 comandoExec($comandos[$tipo][$accion], $parts[1] ?? '', array_slice($parts, 2));  
             }  
         }
           },['comando']);                    
         });   
-        
-        
-        
-        
-    
 };

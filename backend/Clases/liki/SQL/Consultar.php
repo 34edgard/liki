@@ -9,7 +9,7 @@ class Consultar extends SentenciasSql implements iSql {
     protected static array $having = [];
     protected static ?array $unionClause = null;
 
-    public static function addJoin(string $type, string $table, string $onCondition): self {
+    public static function addJoin(string $type, string $table, string $onCondition) {
         // Los JOINS generalmente no necesitan parámetros en la condición ON si los campos son fijos.
         // Si la condición ON puede variar por datos del usuario, necesitarías marcadores de posición aquí también.
         self::$joins[] = [
@@ -17,9 +17,14 @@ class Consultar extends SentenciasSql implements iSql {
             'table' => $table,
             'on' => $onCondition
         ];
-        return self::class;
+      //  return self::class;
     }
-
+public static function setJoin(array $joins) {
+    // Los JOINS generalmente no necesitan parámetros en la condición ON si los campos son fijos.
+    // Si la condición ON puede variar por datos del usuario, necesitarías marcadores de posición aquí también.
+    self::$joins = $joins;
+  //  return self::class;
+}
     public static function setGroupBy(array $columns): self {
         self::$groupBy = $columns;
         return self::class;
