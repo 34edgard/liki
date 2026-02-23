@@ -7,6 +7,24 @@
  * https://github.com/pheditor/pheditor
  * Release under MIT license
  */
+$rutas = file_get_contents('./logs/router.txt');
+$rutas .= "-------------\n";
+$rutas .= "url: ".$_SERVER['REQUEST_URI']."\n";
+$rutas .= "metodo: ".$_SERVER['REQUEST_METHOD']."\n";
+
+
+$parametro = '';
+
+foreach($_GET as $i => $p){
+    $parametro .=$i.' ';
+}
+foreach($_POST as $i => $p){
+    $parametro .=$i.' ';
+}
+$rutas .= "parametros: ". $parametro."\n\n";
+
+file_put_contents('./logs/router.txt',$rutas);
+
 
 define('PASSWORD', 'c7ad44cbad762a5da0a452f9e854fdc1e0e7a52a38015f23f3eab1d80b931dd472634dfac71cd34ebc35d16ab7fb8a90c81f975113d6c7538dc69dd8de9077ec');
 define('DS', DIRECTORY_SEPARATOR);
@@ -27,6 +45,8 @@ define('EDITOR_THEME', ''); // e.g. monokai
 define('DEFAULT_DIR_PERMISSION', 0755);
 define('DEFAULT_FILE_PERMISSION', 0644);
 define('LOCAL_ASSETS', false); // if true you should run `npm i` to download required libraries
+
+
 
 $asset_versions = [
     'bootstrap' => '5.3.3',

@@ -1,0 +1,640 @@
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: pheditor_password 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token password 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token dir 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php?path=%2Fnew-dir%2F
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file data 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php?path=%2Fnew-dir%2F
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token destination 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token path 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file data 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token path name 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token path name 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token path name 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file data 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token path name 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token path 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php?logout=03ea037a3146a350e5f082f930ab34fd9ee829d9ee306621af0567a87b6dad51
+metodo: GET
+parametros: logout 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: pheditor_password 
+
+-------------
+url: /pheditor
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor
+metodo: POST
+parametros: pheditor_password 
+
+-------------
+url: /pheditor
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor
+metodo: GET
+parametros: 
+
+-------------
+url: 
+metodo: 
+parametros: 
+
+-------------
+url: /pheditor
+metodo: GET
+parametros: 
+
+-------------
+url: /index.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php?path=%2Flogs%2F
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php?path=%2Ffrontend%2F
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file data 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file data 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: action token file 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+

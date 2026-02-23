@@ -18,24 +18,29 @@ public static function bdSQLWeb(){
     
 
 $res = $con->consultarRegistro($sql[DB_DRIVER],[]);
-
+$arrayTablas =[];
 $i=1;
-foreach($res as $a => $t){
+foreach($res as   $tabla){
     
-    echo $i.'-'.$t['name'].'<br />';
+ foreach($tabla as $t){
+   echo $i.'-'.$t.'<br />';
+  $arrayTablas[]=$t;
     $i++;
+ }
 }
 
-//print_r($res);
+//
 
  
  
  
-foreach($res as $tabla){
-    
-    $registroTabla = $con->consultarRegistro('SELECT * FROM '.$tabla['name']);
-    echo "<h1>{$tabla['name']}</h1><hr />";
-    echo "<table border='1'> ";
+foreach($arrayTablas as $tabla){
+ //  foreach($tabla as $id => $nombre) 
+       
+   
+    $registroTabla = $con->consultarRegistro('SELECT * FROM '.$tabla);
+    echo "<h1>{$tabla}</h1><hr />";
+    echo "<table border='1' class='table'> ";
     
     echo "<tr>";
     //print_r($registroTabla);
@@ -60,8 +65,8 @@ foreach($res as $tabla){
 
     echo " </table>";
 
-    
-}
+ }
+
 
 }
 

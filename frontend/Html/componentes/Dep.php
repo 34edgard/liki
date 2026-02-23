@@ -29,6 +29,12 @@
                   <div class="tab" data-tab="logs">
                       <i class="fas fa-vial"></i> Logs
                   </div>
+                 <div class="tab" data-tab="rendimiento">
+                     <i class="fas fa-vial"></i> rendimiento
+                 </div>
+                
+                
+                
             </div>
             
             <div class="tab-content">
@@ -44,17 +50,17 @@
                 
                 
                 <div 
-                hx-get="/errors/"
+                hx-get="/rs/"
                 hx-trigger="load"
                 hx-target="#logs-contens"
                 class="tab-pane " id="logs">
                 <button class="btn btn-success"
-                hx-get="/errors/"
+                hx-get="/rs/"
                 hx-trigger="click"
                 hx-target="#logs-contens"
                 >recargar</button>
                  <button class="btn btn-danger"
-                hx-post="/errors/borrar"
+                hx-post="/rs/borrar"
                 hx-trigger="click"
                 hx-target="#logs-contens"
                 >borrar</button>
@@ -67,6 +73,38 @@
                 
                 
                 
+                
+                
+                
+                
+                
+                 <div 
+                 hx-get="/rendimiento/"
+                 hx-trigger="load"
+                 hx-target="#rendimiento-contens"
+                 class="tab-pane " id="rendimiento">
+                 <button class="btn btn-success"
+                 hx-get="/rendimiento/"
+                 hx-trigger="click"
+                 hx-target="#rendimiento-contens"
+                 >recargar</button>
+                  <button class="btn btn-danger"
+                 hx-post="/rendimiento/borrar"
+                 hx-trigger="click"
+                 hx-target="#rendimiento-contens"
+                 >borrar</button>
+                     <div
+                     class="container"
+                     id="rendimiento-contens"
+                     ></div>
+                 
+                 </div>
+                 
+                 
+                 
+                 
+                 
+                 
                 <!-- Testing Tab -->
                 <div
                 hx-get="/testing/rutas"

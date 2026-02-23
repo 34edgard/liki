@@ -9,6 +9,10 @@ use Liki\Plantillas\Flow;
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="generator" content="Hugo 0.88.1">
     <link rel="shortcut icon" href="/frontend/Img/Logo.jpg" type="image/x-icon" />
+
+    
+        <link rel="manifest" href="/frontend/Config/manifest.json">
+    
   <title>
     <?= $tituloPagina ?>
   </title>
@@ -20,20 +24,19 @@ use Liki\Plantillas\Flow;
 
  <?php 
 
-     $estilosD = $estilosDinamocos ?? [];
-     
-foreach($estilosD as $estiloD): ?>
+   
+foreach($estilosD ?? [] as $estiloD): ?>
        
 
-    <link rel="stylesheet" href="/frontend/css/<?= $estiloD ?>.php">
+    <link rel="stylesheet" href="/<?= $estiloD ?>/css">
     <?php endforeach; ?>
 
 
 
 
 <?php
-    $scriptsD = $scriptsDinamocos ?? [];
-foreach($scriptsD as $scriptD): ?>
+ 
+foreach($scriptsD ?? [] as $scriptD): ?>
 <script src='/<?= $scriptD ?>/js'></script>
 <?php endforeach; ?>
 

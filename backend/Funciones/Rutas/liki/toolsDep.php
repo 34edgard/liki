@@ -43,7 +43,7 @@ return  function (){
       
     
     
-    Ruta::prefix('/errors',function(){
+    Ruta::prefix('/rs',function(){
       Ruta::get('/',function(){
         
         $logs = file_get_contents('./logs/errors.log');
@@ -63,8 +63,46 @@ return  function (){
             $logs = file_get_contents('./logs/errors.log');
             
            echo $logs."no hay logs";
-         });                 
-    });    
+         });  
+        
+        
+     
+                       
+    }); 
+    
+    Ruta::prefix('/rendimiento',function(){
+    
+       
+       Ruta::get('/',function(){
+       
+       $logs = file_get_contents('./logs/rendimiento.log');
+       if ($logs === '') {
+       echo "no hay metricas";
+       return;
+       }
+       $logs = explode("\n",$logs);
+       foreach($logs as $log){
+           if($log === '') continue;
+           echo $log.'<br />';
+       }
+       
+             });          
+        Ruta::post('/borrar',function(){
+          file_put_contents('./logs/rendimiento.log','');
+           $logs = file_get_contents('./logs/rendimiento.log');
+           
+          echo $logs."no hay metricas";
+        });  
+       
+       
+       
+       
+       
+    
+    
+    });
+    
+       
       
         Ruta::prefix('/Terminal',function(){
           Ruta::get('/interfaz',function(){

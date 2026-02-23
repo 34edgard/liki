@@ -1,5 +1,6 @@
 <?php
 // Asegúrate de que el archivo sea ejecutable desde la consola
+///siii 
 if (php_sapi_name() !== 'cli' ) {
    die("Este script debe ejecutarse desde la línea de comandos.\n");
 }

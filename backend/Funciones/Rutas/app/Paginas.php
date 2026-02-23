@@ -11,15 +11,15 @@ return  function (){
  
    
    Ruta::get('/',function(){
-       
+      
      Flow::page('Gestion_Sesion');
      
    });
    
    Ruta::get('/index.php',function(){
-   
-   Flow::page('Gestion_Sesion');
-   
+       
+     Flow::page('Gestion_Sesion');
+     
    });
    
    

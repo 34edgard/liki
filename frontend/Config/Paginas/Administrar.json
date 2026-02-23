@@ -1,12 +1,14 @@
 {
     "tituloPagina": "Administración",
     "estilos": ["dep","bootstrap.min","estilos" ],
-    "estilosD": ["estilos"],
+    "estilosD": ["linki"],
+    "scriptsD": ["linki"],
     "scripts": ["dep","color-modes","CambiarTitulo","htmx","bootstrap.bundle.min"],
     "contenidos": [
         {"componente": "estructura/Header","configuracion": {"op": "Administración"}},
         {"componente": "usuario/Ajustes","configuracion": {"op": "Administración"}} ,
-        {"componente": "componentes/Dep","configuracion": {"op": "Administración"}} 
-        
+        {"componente": "componentes/Dep","configuracion": {"op": "Administración"}} ,
+         {"componente": "componentes/linki","configuracion": {"op": "admi"}} 
+         
     ]
 }

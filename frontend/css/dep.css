@@ -3,7 +3,7 @@
      border-radius: 50%;
      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
      color: #fff;
-     padding: 20px;
+     padding: 10px;
      position: relative;
     overflow-y: auto;
  }
@@ -70,14 +70,14 @@
  /* Estilos para el botón flotante y panel */
  .floating-btn-container {
      position: fixed;
-     bottom: 30px;
+     bottom: 90px;
      right: 30px;
      z-index: 1000;
  }
  
  .floating-btn {
-     width: 70px;
-     height: 70px;
+     width: 50px;
+     height: 50px;
      border-radius: 50%;
      background: linear-gradient(135deg, #4361ee, #4cc9f0);
      color: white;
@@ -95,6 +95,7 @@
  
  .floating-btn:hover {
      transform: scale(1.1);
+    background:#111f ;
      box-shadow: 0 15px 30px rgba(67, 97, 238, 0.7);
  }
  
@@ -104,7 +105,7 @@
  
  .expanded-panel {
      position: fixed;
-     bottom: 30px;
+     bottom: 80px;
      right: 30px;
      width: 80vw;
      height: 40vh;
