@@ -26,7 +26,10 @@ $file = $base_dir. str_replace('\\','/',$relative_class).'.php';
 
 // Si el archivo existe, cargarlo  
 if(file_exists($file)){
-require$file;
+   
+    
+require $file;
+
 return true;
 }
  }

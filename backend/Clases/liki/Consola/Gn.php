@@ -3,13 +3,20 @@
 namespace Liki\Consola;
 
 
-class GeneradorCodigo{
+class Gn{
     
 public static function  generateModel($name,$file='') {
     print_r($name);
     $template = "<?php \n\n  return new class { \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
     \n\n};";
-    file_put_contents("./backend/Funciones/Manejadores/$file$name.php", $template);
+    file_put_contents("./backend/Clases/app/Modelos/$file$name.php", $template);
+    echo "Modelo '$name' creado.\n";
+}
+public static function  generateManejador($name,$file='') {
+    print_r($name);
+    $template = "<?php \n\n  return new class { \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
+    \n\n};";
+    file_put_contents("./backend/Clases/app/Manejadores/$file$name.php", $template);
     echo "Modelo '$name' creado.\n";
 }
 
@@ -20,7 +27,7 @@ public static function generateController($name,$file ='') {
  namespace App\\$name;
     
     \n\nclass $name {\n\n    // Métodos del controlador\n\n}";
-    file_put_contents("./backend/Clases/app/$file$name.php", $template);
+    file_put_contents("./backend/Clases/app/Controladores/$file$name.php", $template);
     echo "Controlador '${name}Controller' creado.\n";
 }
 
@@ -36,7 +43,7 @@ public static function generateClassLiki($name,$file ='') {
 
 public static function generateGrupoApp($name,$extras) {
 
-   mkdir("./backend/Clases/app/$name");
+   mkdir("./backend/Clases/app/Controladores/$name");
    foreach($extras as $extra){
     self::generateController($extra,$name.'/');
    }
@@ -45,7 +52,7 @@ public static function generateGrupoApp($name,$extras) {
 
 public static function generateGrupoFunc($name,$extras) {
 
-   mkdir("./backend/Funciones/Manejadores/$name");
+   mkdir("./backend/Clases/app/Manejadores/$name");
    foreach($extras as $extra){
     self::generateModel($extra,$name.'/');
    }

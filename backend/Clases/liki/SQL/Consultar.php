@@ -37,10 +37,10 @@ public static function setJoin(array $joins) {
 
     public static function setUnion(string $type, mixed $query): self {
         if (!in_array(strtoupper($type), ['UNION', 'UNION ALL'])) {
-            throw new Exception("Tipo de UNION no válido. Use 'UNION' o 'UNION ALL'.");
+            throw new \Exception("Tipo de UNION no válido. Use 'UNION' o 'UNION ALL'.");
         }
         if (!($query instanceof iSql) && !is_string($query)) {
-            throw new Exception("La consulta de UNION debe ser una instancia de iSql o una cadena SQL.");
+            throw new \Exception("La consulta de UNION debe ser una instancia de iSql o una cadena SQL.");
         }
         self::$unionClause = ['type' => strtoupper($type), 'query' => $query];
         return self::class;
@@ -59,7 +59,7 @@ public static function setJoin(array $joins) {
         }
 
         if (empty($propiedades['tabla'])) {
-            throw new Exception('Seleccione una tabla');
+            throw new \Exception('Seleccione una tabla');
         }
 
         self::$sql .= " FROM ";
@@ -95,7 +95,6 @@ public static function setJoin(array $joins) {
             $direccion = isset($propiedades['orderBy']['direccion']) ? strtoupper($propiedades['orderBy']['direccion']) : 'ASC';
             self::$sql .= "`$campo` $direccion";
         }
-
         // Cláusula LIMIT
         if (isset($propiedades['limit'])) {
             $limit = (int)$propiedades['limit'];
@@ -107,17 +106,14 @@ public static function setJoin(array $joins) {
                 self::$sql .= " OFFSET $offset";
             }
         }
-
         // Añadir UNION
         if (self::$unionClause !== null) {
             $unionQuerySql = self::obtenerSqlSubconsulta(self::$unionClause['query']);
             self::$sql .= " " . self::$unionClause['type'] . " ($unionQuerySql)";
         }
-
         // Pasa los parámetros generados por referencia al array de parámetros global
         $parametros = self::$parametros;
            //echo $this->sql;
         return trim(self::$sql);
     }
 }
-

@@ -1,14 +1,6 @@
 <?php
-
-use Liki\Testing\TestingRutas;
 use Liki\Routing\Ruta;
-
 use Liki\Plantillas\Flow;
-use Funciones\BdSQLWeb;
-
-use Liki\DelegateFunction;
-
-
 
 function comandoExec(callable $comando,$nombre,$extras){
    
@@ -20,16 +12,16 @@ function comandoExec(callable $comando,$nombre,$extras){
 return  function (){
        Ruta::prefix('/testing',function(){
            Ruta::get('/rutas',function(){
-                  TestingRutas::procesar_testing();
+                  \Liki\Testing\TestingRutas::procesar_testing();
                    
                    // Mostrar interfaz de testing
-                   TestingRutas::mostrar_rutas_disponibles();
+                   \Liki\Testing\TestingRutas::mostrar_rutas_disponibles();
               });
            Ruta::get('/rutas/formulario',function($p){
                   //TestingRutas::procesar_testing();
                    extract($p);
                    // Mostrar interfaz de testing
-                   TestingRutas::generar_formulario_ruta($ruta_index);
+                   \Liki\Testing\TestingRutas::generar_formulario_ruta($ruta_index);
               },['accion','ruta_index']);
            
        }); 
@@ -37,7 +29,7 @@ return  function (){
     
     
  Ruta::prefix('/bdSQLWeb',function(){
-   Ruta::get('/tablas',[BdSQLWeb::class,'bdSQLWeb']);          
+   Ruta::get('/tablas',[\Funciones\BdSQLWeb::class,'bdSQLWeb']);          
                    
  });      
       
@@ -120,7 +112,7 @@ return  function (){
         } else {  
         
         
-        $comandos = DelegateFunction::loadData('Tools/Terminal');
+        $comandos = \Liki\DelegateFunction::loadData('Tools/Terminal');
         
         
         

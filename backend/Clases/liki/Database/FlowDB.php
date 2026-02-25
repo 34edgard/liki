@@ -3,13 +3,9 @@
 namespace Liki\Database;
 
 use Liki\Database\ConsultasBD;
-use Liki\SQL\Registrar;
-use Liki\SQL\Editar;
-use Liki\SQL\Eliminar;
-use Liki\SQL\Consultar;
 use Liki\DelegateFunction;
 use Liki\Validar;
-use Exception;
+
 class FlowDB{
       protected  $tabla ;
       public $Consultas_BD;
@@ -42,66 +38,66 @@ class FlowDB{
    }
     
     public function registrar(array $datos){
-      $datos['tabla'] = $this->tabla;
+      $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;
       $parametrosRegistro = [];
-      $sql = Registrar::generar_sql($datos,$parametrosRegistro);
+      $sql = \Liki\SQL\Registrar::generar_sql($datos,$parametrosRegistro);
      try{
          
       $this->Consultas_BD->ejecutarConsulta($sql,$parametrosRegistro);
-     }catch(Exception $e){
+     }catch(\Exception $e){
          echo "Error: ". $e->getMessage();
      }
     
     }
     
     public function consultar(array $datos){
-      $datos['tabla'] = $this->tabla;
+      $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;
       $parametrosConsulta = [];
     
       try{
-       Consultar::setJoin($this->joins);
-      $sql = Consultar::generar_sql($datos,$parametrosConsulta);
+       \Liki\SQL\Consultar::setJoin($this->joins);
+      $sql = \Liki\SQL\Consultar::generar_sql($datos,$parametrosConsulta);
     
       return  $this->Consultas_BD->consultarRegistro($sql,$parametrosConsulta);
-           }catch(Exception $e){
+           }catch(\Exception $e){
                echo "Error: ". $e->getMessage();
            }
     }
     
     public function consultarId(array $datos){
-      $datos['tabla'] = $this->tabla;
+      $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;
       $datos['orderBy'] = ["campo"=>$datos['campos'][0],"direccion"=>'DESC'];
       $datos['limit'] = 1;
       $parametrosConsultaId = [];
       try{
         
-      $sql = Consultar::generar_sql($datos,$parametrosConsultaId);
+      $sql = \Liki\SQL\Consultar::generar_sql($datos,$parametrosConsultaId);
       return $this->Consultas_BD->consultarRegistro($sql,$parametrosConsultaId);
-          }catch(Exception $e){
+          }catch(\Exception $e){
               echo "Error: ". $e->getMessage();
           }
     }
     
     public function editar(array $datos){
-      $datos['tabla'] = $this->tabla;   
+      $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;   
       $parametrosEdicion = [];        
       
     try{
-      $sql = Editar::generar_sql($datos,$parametrosEdicion);
+      $sql = \Liki\SQL\Editar::generar_sql($datos,$parametrosEdicion);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEdicion);
-       }catch(Exception $e){
+       }catch(\Exception $e){
            echo "Error: ". $e->getMessage();
        }
     }
     
     
     public function eliminar(array $datos){
-      $datos['tabla'] = $this->tabla; 
+      $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla; 
       $parametrosEliminar = [];
     try{
-      $sql = Eliminar::generar_sql($datos, $parametrosEliminar);
+      $sql = \Liki\SQL\Eliminar::generar_sql($datos, $parametrosEliminar);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEliminar);
-      }catch(Exception $e){
+      }catch(\Exception $e){
           echo "Error: ". $e->getMessage();
       }
 
@@ -188,7 +184,7 @@ public function where(array $where){
 public function get(array $where = []){
   $Nwhere = $this->where($where);
     $this->consultaArray['where'] = $Nwhere;
-   // print_r($this->consultaArray);
+  //  print_r($this->consultaArray);
   $resul =  $this->consultar($this->consultaArray);
 $this->reset();
 return $resul;
