@@ -20,11 +20,8 @@ return function(){
     Ruta::post('/admin/paginas/{nombre}/guardar', function($p) {  
         $nombrePagina = $p[0];  
         $config = json_decode($_POST['config'], true);  
-        ConfigManager::guardarConfig($nombrePagina, $config);  
-          
+        ConfigManager::guardarConfig($nombrePagina, $config);        
         // Redirigir con mensaje de éxito  
         header('Location: /admin/paginas?success=1');  
-    });
-    
-    
+    });    
 };

@@ -1,7 +1,5 @@
 <?php
-
 namespace Liki\Database;
-
 use Liki\Files\File;
 use Liki\Database\ConsultasBD;  
 //use glob;
@@ -113,9 +111,6 @@ private function getExecutedMigrations() {
             $stmt->execute([$migration]);  
         }  
     }  
-      
-
-
 private function getNextBatchNumber() {  
         $stmt = $this->connection->query(  
             "SELECT MAX(batch) as max_batch FROM {$this->migrationTable}"  

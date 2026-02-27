@@ -1,11 +1,11 @@
 {
     "tituloPagina": "APP Liki",
     "estilos": ["bootstrap.min","estilos"],
-    "scriptsDinamocos": ["LoadComponets"],
-    "scripts": ["color-modes","script","htmx","bootstrap.bundle.min"],
+    "scriptsD": ["LoadComponets","htmx","repuestas"],
+    "scripts": ["color-modes","script","bootstrap.bundle.min"],
     "contenidos": [
         {"componente": "estructura/Header","configuracion": {"op": "APP Liki"}},
         {"componente": "sesiones/Inicio_sesion","configuracion": {"op": "APP Liki"}}
-        
+
     ]
 }

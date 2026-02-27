@@ -19,7 +19,6 @@ return function(){
     });
     
     Ruta::get('/{css}/css',function($p){
-        //echo 'fff';
         $url = str_replace('_','/',$p[0]);
        Flow::css($url);
     

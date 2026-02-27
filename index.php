@@ -1,10 +1,6 @@
 <?php
-
-
  $startMem = memory_get_usage();
- $inicio = microtime(true); // Guarda el tiempo actual como un número flotante
- 
-     
+ $inicio = microtime(true); // Guarda el tiempo actual como un número flotante    
       
 
 include "./conf.php";

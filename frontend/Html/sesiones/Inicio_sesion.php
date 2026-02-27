@@ -1,4 +1,4 @@
-    <div class="container">
+    <div class="container" >
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6 col-xl-5">
                     <div class="card p-4 p-md-5 shadow-lg custom-card">
@@ -7,9 +7,13 @@
                             <p class="mb-4 text-muted">Ingrese sus credenciales para continuar</p>
     
                             <form
+                            
+                            
                             hx-post="/iniciar/sesion"
                             hx-trigger="submit"
-                            hx-target="#caja"
+                            
+                            hx-target="#caja2"
+                            hx-target-401="#caja"
                             >
                                 <div class="mb-3 text-start">
                                     <label for="emailInput" class="form-label">Correo Electrónico</label>
@@ -47,9 +51,7 @@
                     </div>
                 </div>
             </div>
+<div id="caja2"></div>
+<div id="caja"></div>
         </div>
     
-         
-        
-      <div id="caja"></div>
-

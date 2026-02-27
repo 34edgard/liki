@@ -1,22 +1,14 @@
 <?php
-
 namespace Liki\Plantillas;
 
-class Flow {
-    
+class Flow {    
     // Configuración de rutas base
     private static $basePaths = [
         'html' => './frontend/Html/',
         'js' => './frontend/js/',
         'page' => './frontend/Paginas/',
         'css' => './frontend/css/'
-    ];
-    
-    
-    
-    
-    
-    
+    ];    
     // Extensión por defecto
     private static $defaultExtension = '.php';
     
@@ -25,11 +17,7 @@ class Flow {
      */
     public static function html(string $nombre, array $datos = []): void {
         self::render('html', $nombre, $datos);
-    }
-    
-    
-    
-    
+    }   
      public static function json(array $datos, int $httpCode = 200): void {  
             header('Content-Type: application/json');  
             http_response_code($httpCode);  
@@ -146,8 +134,7 @@ class Flow {
             // Asegurar que la ruta termine con /
             self::$basePaths[$tipo] = rtrim($nuevaRuta, '/') . '/';
         }
-    }
-    
+    }    
     /**
      * Obtener todas las rutas configuradas
      */

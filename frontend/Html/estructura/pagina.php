@@ -23,43 +23,28 @@ use Liki\Plantillas\Flow;
 <?php endforeach; ?>
 
  <?php 
-
    
 foreach($estilosD ?? [] as $estiloD): ?>
-       
-
+   
     <link rel="stylesheet" href="/<?= $estiloD ?>/css">
     <?php endforeach; ?>
-
-
-
 
 <?php
  
 foreach($scriptsD ?? [] as $scriptD): ?>
 <script src='/<?= $scriptD ?>/js'></script>
 <?php endforeach; ?>
-
-
 </head>
-<body>
+<body hx-ext="response-targets">
 
-
-
-<?php foreach($contenidos as $contenido){
+<?php foreach($contenidos ?? [] as $contenido){
 
 Flow::html($contenido['componente'],$contenido['configuracion']);
 
  } ?>
 
-
-
-
-
-
-<?php foreach($scripts as $script): ?>
+<?php foreach($scripts ?? [] as $script): ?>
 <script src="/frontend/js/<?= $script ?>.js"></script>
 <?php endforeach; ?>
 </body>
-
 </html>

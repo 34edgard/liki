@@ -1,5 +1,4 @@
 <?php
-
 namespace Liki\Database;
 use Liki\ErrorHandler;
 use PDO;
@@ -52,13 +51,9 @@ class ConsultasBD {
     }
     public function prepare(string $query){
        return  $this->conexion->prepare($query);
-    }
-    
-    
+    }    
     public function ejecutarConsulta(string $sql, array $parametros = []): int {
-       // $conexion = $this->crearConexion();
-        
-     
+       // $conexion = $this->crearConexion();     
         
         try {
             $stmt = $this->conexion->prepare($sql); // Prepara la consulta

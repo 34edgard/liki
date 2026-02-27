@@ -6,7 +6,6 @@ use Liki\Routing\ControlInterfaz;
 use Liki\Plantillas\Flow;
 use Liki\ErrorHandler;
 use Liki\Database\FlowDB;
-//use Liki\Database\ConsultasBD;
 
 class Sesion {
   public static function init() {
@@ -22,29 +21,12 @@ class Sesion {
   }
   public static function iniciar_sesion($p) {
 
-
-
-
-    // $extras = func_get_args();
     extract($p);
     self::init();
-
-
     $arreglo = self::validar_datosDB($correo, $contraseña);
-
-
-
     if ($arreglo[0]) {
       foreach ($arreglo[1][0] as $id => $campo) {
-
-
-
-
-
         $_SESSION[$id] = $campo;
-
-
-
       }
     }
 
@@ -53,9 +35,6 @@ class Sesion {
 
     $id_correo = FlowDB::conf('Correo')->campos(["email", "id_correo"])
     ->get(['email' => $correo]);
-
-
-
 
     if (!isset($id_correo[0]['id_correo'])) {
       ErrorHandler::getInstance()->handle(
@@ -71,13 +50,9 @@ class Sesion {
     ->get(['id_correo' => $id_correo]);
     if (!isset($arreglo[0])) {
       Flow::html('sesiones/alert', [
-        'mensaje' => 'el usuario o la contraseña son incorrectas '
-      ]);
+        'mensaje' => 'el usuario o la contraseña son incorrectas ' ]);
       return [false];
     }
-
-
-
 
     if (!password_verify($contraseña, $arreglo[0]['contrasena'])) {
       Flow::html('sesiones/alert', [
@@ -86,12 +61,6 @@ class Sesion {
     }
     ControlInterfaz::cambiarPagina("inicio");
 
-
-
-
-    return [true,
-      $arreglo];
-
-
+    return [true, $arreglo];
   }
 }

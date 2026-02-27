@@ -1,9 +1,6 @@
 <?php
-
 namespace Liki\Database;
 use Liki\SQL\TableBuilder;
-
-
 
 class SchemaBuilder {
     private $driver;
@@ -32,13 +29,3 @@ class SchemaBuilder {
       return $sql;  
    }  
 }  
-
-
-
-
-
-
-
-
-
-  

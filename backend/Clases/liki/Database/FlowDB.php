@@ -1,11 +1,14 @@
 <?php
-
 namespace Liki\Database;
 
 use Liki\Database\ConsultasBD;
 use Liki\DelegateFunction;
 use Liki\Validar;
-
+use Liki\SQL\Registrar;
+use Liki\SQL\Consultar;
+use Liki\SQL\Editar;
+use Liki\SQL\Eliminar;
+use Exception;
 class FlowDB{
       protected  $tabla ;
       public $Consultas_BD;
@@ -40,11 +43,11 @@ class FlowDB{
     public function registrar(array $datos){
       $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;
       $parametrosRegistro = [];
-      $sql = \Liki\SQL\Registrar::generar_sql($datos,$parametrosRegistro);
+      $sql = Registrar::generar_sql($datos,$parametrosRegistro);
      try{
          
       $this->Consultas_BD->ejecutarConsulta($sql,$parametrosRegistro);
-     }catch(\Exception $e){
+     }catch(Exception $e){
          echo "Error: ". $e->getMessage();
      }
     
@@ -55,11 +58,11 @@ class FlowDB{
       $parametrosConsulta = [];
     
       try{
-       \Liki\SQL\Consultar::setJoin($this->joins);
-      $sql = \Liki\SQL\Consultar::generar_sql($datos,$parametrosConsulta);
+       Consultar::setJoin($this->joins);
+      $sql = Consultar::generar_sql($datos,$parametrosConsulta);
     
       return  $this->Consultas_BD->consultarRegistro($sql,$parametrosConsulta);
-           }catch(\Exception $e){
+           }catch(Exception $e){
                echo "Error: ". $e->getMessage();
            }
     }
@@ -71,9 +74,9 @@ class FlowDB{
       $parametrosConsultaId = [];
       try{
         
-      $sql = \Liki\SQL\Consultar::generar_sql($datos,$parametrosConsultaId);
+      $sql = Consultar::generar_sql($datos,$parametrosConsultaId);
       return $this->Consultas_BD->consultarRegistro($sql,$parametrosConsultaId);
-          }catch(\Exception $e){
+          }catch(Exception $e){
               echo "Error: ". $e->getMessage();
           }
     }
@@ -83,9 +86,9 @@ class FlowDB{
       $parametrosEdicion = [];        
       
     try{
-      $sql = \Liki\SQL\Editar::generar_sql($datos,$parametrosEdicion);
+      $sql = Editar::generar_sql($datos,$parametrosEdicion);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEdicion);
-       }catch(\Exception $e){
+       }catch(Exception $e){
            echo "Error: ". $e->getMessage();
        }
     }
@@ -95,9 +98,9 @@ class FlowDB{
       $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla; 
       $parametrosEliminar = [];
     try{
-      $sql = \Liki\SQL\Eliminar::generar_sql($datos, $parametrosEliminar);
+      $sql = Eliminar::generar_sql($datos, $parametrosEliminar);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEliminar);
-      }catch(\Exception $e){
+      }catch(Exception $e){
           echo "Error: ". $e->getMessage();
       }
 

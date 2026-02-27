@@ -1,5 +1,4 @@
 <?php
-
 namespace Liki\SQL;
 use Exception;
 

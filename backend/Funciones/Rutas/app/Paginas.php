@@ -1,15 +1,11 @@
 <?php
-
-
 use Liki\Routing\Ruta;
 use Liki\Plantillas\Flow;
 
 
 
 return  function (){
-        
- 
-   
+           
    Ruta::get('/',function(){
       
      Flow::page('Gestion_Sesion');

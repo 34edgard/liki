@@ -1,7 +1,9 @@
 <?php
 use Liki\Routing\Ruta;
 use Liki\Plantillas\Flow;
-
+use Liki\Testing\TestingRutas;
+use Funciones\BdSQLWeb;
+use Liki\DelegateFunction;
 function comandoExec(callable $comando,$nombre,$extras){
    
  if(count($extras) == 0)  $comando($nombre);
@@ -12,16 +14,16 @@ function comandoExec(callable $comando,$nombre,$extras){
 return  function (){
        Ruta::prefix('/testing',function(){
            Ruta::get('/rutas',function(){
-                  \Liki\Testing\TestingRutas::procesar_testing();
+                  TestingRutas::procesar_testing();
                    
                    // Mostrar interfaz de testing
-                   \Liki\Testing\TestingRutas::mostrar_rutas_disponibles();
+                TestingRutas::mostrar_rutas_disponibles();
               });
            Ruta::get('/rutas/formulario',function($p){
                   //TestingRutas::procesar_testing();
                    extract($p);
                    // Mostrar interfaz de testing
-                   \Liki\Testing\TestingRutas::generar_formulario_ruta($ruta_index);
+                   TestingRutas::generar_formulario_ruta($ruta_index);
               },['accion','ruta_index']);
            
        }); 
@@ -29,7 +31,7 @@ return  function (){
     
     
  Ruta::prefix('/bdSQLWeb',function(){
-   Ruta::get('/tablas',[\Funciones\BdSQLWeb::class,'bdSQLWeb']);          
+   Ruta::get('/tablas',[BdSQLWeb::class,'bdSQLWeb']);          
                    
  });      
       
@@ -85,12 +87,7 @@ return  function (){
            
           echo $logs."no hay metricas";
         });  
-       
-       
-       
-       
-       
-    
+           
     
     });
     
@@ -112,10 +109,7 @@ return  function (){
         } else {  
         
         
-        $comandos = \Liki\DelegateFunction::loadData('Tools/Terminal');
-        
-        
-        
+        $comandos = DelegateFunction::loadData('Tools/Terminal');        
             // Comando de Liki: parsear y ejecutar desde $comandos  
             $parts = explode(' ', $comando);  
             $tipoAccion = explode(':',$parts[0]);  
