@@ -1,5 +1,8 @@
-<div class="alert alert-danger m-2 d-flex align-items-center" role="alert"> 
- <div class="text-center m-2"> 
+
+
+ <div class="error-message"> 
+<i class="fas fa-exclamation-triangle"></i> 
 <?= $mensaje ?> 
+
+
 </div> 
-</div>
