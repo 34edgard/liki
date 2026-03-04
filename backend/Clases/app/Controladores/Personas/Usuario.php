@@ -1,9 +1,8 @@
 <?php
 namespace App\Controladores\Personas;
-use Liki\Modelo;
 use Liki\DelegateFunction;
 
-class Usuario extends Modelo{
+class Usuario {
   
   public static function consultar_usuario(){
       DelegateFunction::exec('ManejoUsuarios/ConsultarUsuario');
