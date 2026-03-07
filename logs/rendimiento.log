@@ -298,3 +298,43 @@ url: /repuestas/js
 El proceso tomó: 0.036567 segundos.
 Memoria usada: 0.16 MB
 
+------------------------------------
+url: /index.php
+El proceso tomó: 0.098423 segundos.
+Memoria usada: 0.18 MB
+
+------------------------------------
+url: /LoadComponets/js
+El proceso tomó: 0.039274 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.050093 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /repuestas/js
+El proceso tomó: 0.037484 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /index.php
+El proceso tomó: 0.039743 segundos.
+Memoria usada: 0.18 MB
+
+------------------------------------
+url: /LoadComponets/js
+El proceso tomó: 0.0584 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.041459 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /repuestas/js
+El proceso tomó: 0.031738 segundos.
+Memoria usada: 0.16 MB
+

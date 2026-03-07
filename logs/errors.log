@@ -1,0 +1,2 @@
+[2026-03-07 12:18:26] Code: 5000 | Message: Error: interno del servidor | Details: {"exception":"Error interno del servidor.La plantilla 'inde' no existe en el directorio 'html'"} | User: guest | IP: 127.0.0.1
+[2026-03-07 12:25:40] Code: 5000 | Message: Error: interno del servidor | Details: {"exception":"Error interno del servidor.La plantilla 'inde' no existe en el directorio 'html'"} | User: guest | IP: 127.0.0.1
