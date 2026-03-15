@@ -1,340 +1,105 @@
 ------------------------------------
-url: /index.php
-El proceso tomó: 0.21275 segundos.
-Memoria usada: 0.17 MB
+url: /rendimiento/borrar
+El proceso tomó: 0.021293 segundos.
+Memoria usada: 0.14 MB
 
 ------------------------------------
-url: /index.php
-El proceso tomó: 0.035759 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.086557 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.044853 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.040185 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.092062 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.032334 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.031581 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.329074 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.053212 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.029993 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.112838 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.03823 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.056307 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.594231 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.03441 segundos.
+url: /testing/rutas/formulario?accion=mostrar_formulario&ruta_index=5
+El proceso tomó: 0.028816 segundos.
 Memoria usada: 0.16 MB
 
 ------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.070304 segundos.
+url: /testing/rutas
+El proceso tomó: 0.041181 segundos.
 Memoria usada: 0.16 MB
 
 ------------------------------------
-url: /index.php
-El proceso tomó: 0.057135 segundos.
+url: /testing/rutas/formulario?accion=mostrar_formulario&ruta_index=1
+El proceso tomó: 0.020432 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /testing/rutas
+El proceso tomó: 0.021027 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /testing/rutas/formulario?accion=mostrar_formulario&ruta_index=17
+El proceso tomó: 0.022285 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.018305 segundos.
+Memoria usada: 0.14 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.022665 segundos.
+Memoria usada: 0.14 MB
+
+------------------------------------
+url: /testing/rutas
+El proceso tomó: 0.01938 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /testing/rutas/formulario?accion=mostrar_formulario&ruta_index=10
+El proceso tomó: 0.022434 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /Administrar
+El proceso tomó: 0.037311 segundos.
 Memoria usada: 0.19 MB
 
 ------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.080335 segundos.
+url: /dep/css
+El proceso tomó: 0.040125 segundos.
 Memoria usada: 0.16 MB
 
 ------------------------------------
 url: /htmx/js
-El proceso tomó: 0.04902 segundos.
+El proceso tomó: 0.051071 segundos.
 Memoria usada: 0.25 MB
 
 ------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.030079 segundos.
+url: /dep/js
+El proceso tomó: 0.024407 segundos.
 Memoria usada: 0.16 MB
 
 ------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.081274 segundos.
+url: /usuario/rol?rol=
+El proceso tomó: 0.115727 segundos.
 Memoria usada: 0.26 MB
 
 ------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.050513 segundos.
-Memoria usada: 0.26 MB
+url: /usuario/list
+El proceso tomó: 0.073073 segundos.
+Memoria usada: 0.27 MB
 
 ------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.05467 segundos.
-Memoria usada: 0.26 MB
+url: /rs/
+El proceso tomó: 0.027555 segundos.
+Memoria usada: 0.14 MB
 
 ------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.053035 segundos.
-Memoria usada: 0.26 MB
+url: /rendimiento/
+El proceso tomó: 0.023914 segundos.
+Memoria usada: 0.14 MB
 
 ------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.053723 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.051241 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.051984 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.064584 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.043546 segundos.
+url: /testing/rutas
+El proceso tomó: 0.033715 segundos.
 Memoria usada: 0.16 MB
 
 ------------------------------------
-url: /htmx/js
-El proceso tomó: 0.031299 segundos.
-Memoria usada: 0.25 MB
+url: /bdSQLWeb/tablas
+El proceso tomó: 0.039595 segundos.
+Memoria usada: 0.15 MB
 
 ------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.027059 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 0.068171 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.098167 segundos.
-Memoria usada: 0.17 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.033109 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.049673 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.030719 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.029984 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.024334 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.02738 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.026589 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.027576 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.03063 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.024756 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.033374 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.033473 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.036128 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.036805 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.034452 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.054798 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.058662 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.025447 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.02922 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.035685 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.028199 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.021119 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.079618 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.043429 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.110486 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.036567 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.098423 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.039274 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.050093 segundos.
-Memoria usada: 0.25 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.037484 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /index.php
-El proceso tomó: 0.039743 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.0584 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.041459 segundos.
-Memoria usada: 0.25 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.031738 segundos.
+url: /Terminal/interfaz
+El proceso tomó: 0.044203 segundos.
 Memoria usada: 0.16 MB
 

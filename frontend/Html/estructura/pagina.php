@@ -29,11 +29,8 @@ foreach($estilosD ?? [] as $estiloD): ?>
     <link rel="stylesheet" href="/<?= $estiloD ?>/css">
     <?php endforeach; ?>
 
-<?php
- 
-foreach($scriptsD ?? [] as $scriptD): ?>
-<script src='/<?= $scriptD ?>/js'></script>
-<?php endforeach; ?>
+
+
 </head>
 <body hx-ext="response-targets">
 
@@ -42,6 +39,16 @@ foreach($scriptsD ?? [] as $scriptD): ?>
 Flow::html($contenido['componente'],$contenido['configuracion']);
 
  } ?>
+
+
+
+
+<?php
+ 
+foreach($scriptsD ?? [] as $scriptD): ?>
+<script src='/<?= $scriptD ?>/js'></script>
+<?php endforeach; ?>
+
 
 <?php foreach($scripts ?? [] as $script): ?>
 <script src="/frontend/js/<?= $script ?>.js"></script>

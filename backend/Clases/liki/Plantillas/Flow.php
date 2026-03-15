@@ -26,7 +26,7 @@ class Flow {
         }  
           
         public static function css(string $nombre, array $variables = []): void {  
-            header('Content-Type: text/css');  
+          //  header('Content-Type: text/css');  
             // Procesar CSS con variables dinámicas  
             self::render('css', $nombre, $variables);
             

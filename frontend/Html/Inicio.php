@@ -1,3 +1,9 @@
+// 4. ¡Úsalo!
+<tarjeta-usuario nombre="Juan" email="juan@email.com"></tarjeta-usuario>
+
+
+
+
 <div class="container mt-5">
   <div class="d-flex justify-content-end mb-4">
     <a class="btn btn-primary btn-lg" href="/Gestion_Sesion">
@@ -49,3 +55,5 @@
     </div>
   </div>
 </div>
+
+

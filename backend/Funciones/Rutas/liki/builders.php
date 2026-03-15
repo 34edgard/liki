@@ -17,7 +17,8 @@ return function(){
     });
     
     Ruta::get('/{css}/css',function($p){
-        $url = str_replace('_','/',$p[0]);
+      header('Content-Type: text/css');
+      $url = str_replace('_','/',$p[0]);
        Flow::css($url);
     
     });

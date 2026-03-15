@@ -1,4 +1,6 @@
 // Elementos del DOM
+
+
 const floatingBtn = document.getElementById('floatingBtn');
 const expandedPanel = document.getElementById('expandedPanel');
 const tabs = document.querySelectorAll('.tab');

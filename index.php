@@ -1,12 +1,15 @@
 <?php
- $startMem = memory_get_usage();
+/*$startMem = memory_get_usage();
  $inicio = microtime(true); // Guarda el tiempo actual como un número flotante    
-      
+  */   
 
 include "./conf.php";
 include "./backend/autoload.php";
 use Liki\Routing\Ruta;
 
+Ruta::get('/test',function(){
+    include 'gggg.php';
+});
 Ruta::group('liki/toolsDep');
 Ruta::group('liki/builders');
 Ruta::group('liki/admin');
@@ -18,7 +21,7 @@ Ruta::group('app/Usuario');
 Ruta::dispatch();
 //gc_collect_cycles();
 //gc_collect_cycles()
-
+/*
 $fin = microtime(true); // Guarda el tiempo final
 $tiempo_total = $fin - $inicio; // Calcula la diferencia     
 $sm = file_get_contents('./logs/rendimiento.log') ;
@@ -29,3 +32,4 @@ $sm .= "Memoria usada: " . round((memory_get_usage() - $startMem) / 1024 / 1024,
 
 file_put_contents('./logs/rendimiento.log',$sm);
 
+*/
