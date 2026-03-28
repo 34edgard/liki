@@ -11,6 +11,7 @@ use Liki\SQL\Eliminar;
 use Exception;
 class FlowDB{
       protected  $tabla ;
+      protected $modelo;
       public $Consultas_BD;
         public $consultaArray;
         public $camposValidar =[];
@@ -26,10 +27,10 @@ class FlowDB{
                 }  
                   
                 // Obtener nombre de tabla del modelo  
-                $model = DelegateFunction::loadModel($modelClass);  
-                self::$instance->camposValidar = $model->campos ?? [];  
-                self::$instance->tabla = $model->tabla ?? '';  
-                self::$instance->consultaArray['tabla'] = $model->tabla;  
+                self::$instance->modelo = DelegateFunction::loadModel($modelClass);  
+              
+                self::$instance->tabla = self::$instance->modelo->getTabla();  
+                self::$instance->consultaArray['tabla'] = self::$instance->modelo->getTabla();  
                   
                 return self::$instance;  
             }  
@@ -108,13 +109,16 @@ class FlowDB{
 
 
 public function campos(array $campos){
-   foreach ($campos as $id){
-    Validar::isInclude($this->camposValidar,$id);
-   }
+  if(isset($this->modelo))
+      $this->modelo->validarCampos($campos);
+  
     $this->consultaArray['campos'] = $campos;
     return $this;
 }
 public function valores(array $valores){
+   if(isset($this->modelo))
+       $this->modelo->validarValores($valores);  
+
     $this->consultaArray['valores'] = $valores;
     return $this;
 }

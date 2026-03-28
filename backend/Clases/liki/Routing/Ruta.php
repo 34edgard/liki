@@ -39,7 +39,19 @@ class Ruta implements Rutas_Server {
      * @return bool True si todos los parámetros esperados están presentes, false de lo contrario.
      */
     public static function validar_parametros(array $parametros_esperados, array $parametros_recibidos): bool {
-        foreach ($parametros_esperados as $parametro) {
+       if(count($parametros_recibidos) > count($parametros_esperados))
+    
+         
+                         ErrorHandler::getInstance()->handle(
+            ErrorHandler::VALIDATION_ERROR,
+            'Error: Faltan parametros requeridos en la ruta '.$route['url_pattern'],
+           ['exception' => 'error se mandaron parametros no declarados'],
+           400
+                         );
+     
+        
+    
+      foreach ($parametros_esperados as $parametro) {
             if (!isset($parametros_recibidos[$parametro])) {
                 return false;
             }
@@ -48,31 +60,6 @@ class Ruta implements Rutas_Server {
     }
 
 
-public static function validar_parametros2(array $reglas, array $parametros_recibidos): array {  
-    $errores = [];  
-      
-    foreach ($reglas as $campo => $regla) {  
-        $reglas_array = explode('|', $regla);  
-          
-        foreach ($reglas_array as $r) {  
-            if ($r === 'required' && !isset($parametros_recibidos[$campo])) {  
-                $errores[$campo][] = "El campo $campo es requerido";  
-            }  
-            if ($r === 'email' && isset($parametros_recibidos[$campo]) && !filter_var($parametros_recibidos[$campo], FILTER_VALIDATE_EMAIL)) {  
-                $errores[$campo][] = "El campo $campo debe ser un email válido";  
-            }  
-            if (strpos($r, 'min:') === 0 && isset($parametros_recibidos[$campo])) {  
-                $min = substr($r, 4);  
-                if (strlen($parametros_recibidos[$campo]) < $min) {  
-                    $errores[$campo][] = "El campo $campo debe tener al menos $min caracteres";  
-                }  
-            }  
-        }  
-    }  
-      
-    return $errores;  
-
-}
 
 
     /**
@@ -245,7 +232,7 @@ public static function head(string $url_pattern, callable $funcion, array $param
                 ErrorHandler::getInstance()->handle(
                      ErrorHandler::VALIDATION_ERROR,
                      'Error: Faltan parametros requeridos en la ruta '.$route['url_pattern'],
-                    ['exception' => 'Faltan parámetros requeridos'],
+                    ['exception' => 'Faltan parametros requeridos'],
                     400
                 );
                   

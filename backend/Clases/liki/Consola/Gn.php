@@ -7,8 +7,14 @@ class Gn{
     
 public static function  generateModel($name,$file='') {
     print_r($name);
-    $template = "<?php \n\n  return new class { \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
-    \n\n};";
+    $tablaName = strtolower($name);
+    $template = "<?php\n  use Liki\Modelo;\n return new class extends Modelo{\n
+      public \$tabla = '$tablaName';\n
+      public \$campos = [\n
+        '' => '',\n
+      '' => ''\n
+      ];\n
+    };";
     file_put_contents("./backend/Clases/app/Modelos/$file$name.php", $template);
     echo "Modelo '$name' creado.\n";
 }
@@ -25,7 +31,7 @@ public static function generateController($name,$file ='') {
     $template = "<?php
     \n
  namespace App\\$name;
-    
+ use Liki\DelegateFunction;   
     \n\nclass $name {\n\n    // Métodos del controlador\n\n}";
     file_put_contents("./backend/Clases/app/Controladores/$file$name.php", $template);
     echo "Controlador '${name}Controller' creado.\n";

@@ -45,7 +45,7 @@
                                     <a href="#" class="text-decoration-none custom-link">¿Olvidó su contraseña?</a>
                                 </div>
     
-                                <button type="submit" name="Inicio_secion" class="btn btn-success w-100 py-2 custom-btn">Ingresar</button>
+                                <button type="submit"  class="btn btn-success w-100 py-2 custom-btn">Ingresar</button>
                             </form>
                         </div>
                     </div>

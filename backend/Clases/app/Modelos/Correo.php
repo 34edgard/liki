@@ -1,8 +1,8 @@
 <?php
 use Liki\Modelo;
 return new class extends Modelo{
-  public $tabla = 'correo';
-  public $campos = [
+  public string $tabla = 'correo';
+  public array $campos = [
     'id_correo' => '',
   'email' => '' 
   ];

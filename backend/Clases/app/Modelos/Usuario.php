@@ -1,16 +1,20 @@
 <?php
 use Liki\Modelo;
 return new class extends Modelo{
-  public $tabla = 'usuario';
-  public $campos = [
-    'id_usuario' => '',
-  'cedula' => '' ,
-  'nombres' => '',
-  'apellidos' => '' ,
-  'id_rol'  => ''  ,
-  'usuario' => ''  ,
-  'id_correo'  => '' ,
-  'contrasena'  => '' ,
-  'estado'  => '' 
+  public string $tabla = 'usuario';
+  public array $campos = [
+    'id_usuario' => 'isInt',
+  'cedula' => 'isString' ,
+  'nombres' => 'isString',
+  'apellidos' => 'isString' ,
+  'id_rol'  => 'isInt'  ,
+  'usuario' => 'isString'  ,
+  'id_correo'  => 'isInt' ,
+  'contrasena'  => 'isString' ,
+  'estado'  => 'isArray' 
   ];
 };
+
+
+  
+  

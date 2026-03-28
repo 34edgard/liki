@@ -1,11 +1,10 @@
 <?php
 namespace Liki;
-use App\Controladores\Personas\Usuario;
-use App\Controladores\DatosExtra\Correo;
 use Liki\Routing\ControlInterfaz;
 use Liki\Plantillas\Flow;
 use Liki\ErrorHandler;
 use Liki\Database\FlowDB;
+use Liki\Validar;
 
 class Sesion {
   public static function init() {
@@ -20,7 +19,10 @@ class Sesion {
     ControlInterfaz::cambiarPagina("");
   }
   public static function iniciar_sesion($p) {
-
+Validar::ValidarArray($p, [
+  'correo' => 'isEmail',
+  'contraseña' => 'isString'
+]);
     extract($p);
     self::init();
     $arreglo = self::validar_datosDB($correo, $contraseña);
@@ -37,12 +39,9 @@ class Sesion {
     ->get(['email' => $correo]);
 
     if (!isset($id_correo[0]['id_correo'])) {
-      ErrorHandler::getInstance()->handle(
-        ErrorHandler::AUTH_EMAIL_NOT_FOUND,
-        'Credenciales inválidas',
-        ['email' => $correo],
-        401
-      );
+      Flow::html('sesiones/alert', [
+        'mensaje' => 'el usuario o la contraseña son incorrectas ' ]);
+      return [false];
     }
     $id_correo = $id_correo[0]['id_correo'];
     $arreglo = FlowDB::conf('Usuario')

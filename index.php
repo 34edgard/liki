@@ -7,9 +7,7 @@ include "./conf.php";
 include "./backend/autoload.php";
 use Liki\Routing\Ruta;
 
-Ruta::get('/test',function(){
-    include 'gggg.php';
-});
+
 Ruta::group('liki/toolsDep');
 Ruta::group('liki/builders');
 Ruta::group('liki/admin');
