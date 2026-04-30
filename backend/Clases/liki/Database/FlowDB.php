@@ -117,7 +117,7 @@ public function campos(array $campos){
 }
 public function valores(array $valores){
    if(isset($this->modelo))
-       $this->modelo->validarValores($valores);  
+       $this->modelo->validarValores($valores,$this->consultaArray['campos']);  
 
     $this->consultaArray['valores'] = $valores;
     return $this;
@@ -198,7 +198,10 @@ return $resul;
 }
 
 public function post(array $valores){
-     $this->consultaArray['valores'] = $valores;
+   if(isset($this->modelo))
+          $this->modelo->validarValores($valores,$this->consultaArray['campos']);  
+   
+  $this->consultaArray['valores'] = $valores;
      
     $this->registrar($this->consultaArray);
     

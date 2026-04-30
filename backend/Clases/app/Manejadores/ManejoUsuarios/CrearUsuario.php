@@ -12,7 +12,7 @@ return new class {
 
     $p['cedula'] = intval($p['cedula']);
     $p['rol'] = intval($p['rol']);
-
+   
     Validar::ValidarArray($p, [
       'cedula' => 'isInt',
       'nombre' => 'isString',
@@ -39,7 +39,8 @@ return new class {
 
 
 
-
+ $id_correo = intval($id_correo);
+ 
 
     FlowDB::conf('Usuario')->campos(["cedula", "nombres", "apellidos",
       "usuario", "id_rol", "id_correo", "contrasena",

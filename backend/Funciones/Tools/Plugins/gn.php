@@ -10,5 +10,8 @@ return [
     'likiClass'=>[Gn::class,'generateClassLiki'],
     'liki-grup'=>[Gn::class,'generateGrupoLiki'],
     'app-grup'=>[Gn::class,'generateGrupoApp'],
-    'func-grup'=>[Gn::class,'generateGrupoFunc']
-      ];
+    'func-grup'=>[Gn::class,'generateGrupoFunc'],
+    'model-grup-db'=>[Gn::class,'gnModelosDB']
+     
+    
+     ];

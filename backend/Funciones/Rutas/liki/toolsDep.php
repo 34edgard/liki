@@ -2,7 +2,7 @@
 use Liki\Routing\Ruta;
 use Liki\Plantillas\Flow;
 use Liki\Testing\TestingRutas;
-use Funciones\BdSQLWeb;
+use Liki\Database\BdSQLWeb;
 use Liki\DelegateFunction;
 function comandoExec(callable $comando,$nombre,$extras){
    

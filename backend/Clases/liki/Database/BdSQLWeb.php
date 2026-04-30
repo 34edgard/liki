@@ -1,9 +1,5 @@
 <?php
-
-
-
-
-namespace Funciones;
+namespace Liki\Database;
 
 use Liki\Database\ConsultasBD;
 

@@ -98,3 +98,13 @@ url: /pheditor.php
 metodo: GET
 parametros: 
 
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+

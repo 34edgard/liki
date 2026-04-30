@@ -1,17 +1,17 @@
 <?php
 use Liki\Modelo;
 return new class extends Modelo{
-  public string $tabla = 'usuario';
-  public array $campos = [
+  protected string $tabla = 'usuario';
+  protected array $campos = [
     'id_usuario' => 'isInt',
-  'cedula' => 'isString' ,
+  'cedula' => 'isInt' ,
   'nombres' => 'isString',
   'apellidos' => 'isString' ,
   'id_rol'  => 'isInt'  ,
   'usuario' => 'isString'  ,
   'id_correo'  => 'isInt' ,
   'contrasena'  => 'isString' ,
-  'estado'  => 'isArray' 
+  'estado'  => 'isString' 
   ];
 };
 

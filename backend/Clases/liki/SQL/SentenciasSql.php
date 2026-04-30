@@ -135,7 +135,7 @@ abstract class SentenciasSql {
                 }
                 $campo = $condicion['campo'];
                 $paramName = self::añadirParametro("op_" . str_replace('.', '_', $campo) . "_" . uniqid(), $condicion['valor']);
-                return "`$campo` " . $condicion['operador'] . " $paramName";
+                return "$campo " . $condicion['operador'] . " $paramName";
         }
     }
 
