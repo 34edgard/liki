@@ -1,5 +1,5 @@
 <form >
-  <input type="text" name="" value="<?=  ?>">
+  <input type="text" name="" value="">
   
   
 </form>

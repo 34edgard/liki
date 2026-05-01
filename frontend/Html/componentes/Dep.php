@@ -20,6 +20,9 @@
                 <div class="tab" data-tab="database">
                     <i class="fas fa-database"></i> Bases de Datos
                 </div>
+                  <div class="tab" data-tab="pages">
+                      <i class="fas fa-database"></i> constructor de interfas
+                  </div>
                 <div class="tab" data-tab="chat">
                     <i class="fas fa-robot"></i> Chat con IA
                 </div>
@@ -121,6 +124,13 @@
                 class="tab-pane" id="database">
                     
                 </div>
+                 <!-- paginas disponibles -->
+                 <div 
+                 hx-get="/pages"
+                 hx-trigger="load"
+                 class="tab-pane" id="pages">
+                     
+                 </div>
                 
                 <!-- Chat Tab -->
                 <div class="tab-pane" id="chat">
