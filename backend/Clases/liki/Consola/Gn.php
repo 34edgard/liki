@@ -24,21 +24,29 @@ class Gn{
         }
     return 'isString';
     }
-    
+    public static function hGM(){
+        echo 'este es un comando para generar modelos';
+    }
 public static function  generateModel($name,$campos = []) {
   //  print_r($name);
+    if( defined('CLI_h') || defined('CLI_help') ) {
+        self::hGM();
+        return;
+    }
+    
     $tablaName = strtolower($name);
     $template = "<?php\n  use Liki\Modelo;\n return new class extends Modelo{\n
       protected string \$tabla = '$tablaName';\n
       protected array \$campos = [\n";
    $i = 1;
 $ncampos = count($campos);
-//print_r($campos[0]);
-//return;
- foreach($campos as $id => $campo){
+//print_r($campos);
+if(!isset($campos[0]['name']) ) $campos = [];
+ foreach($campos  as $id => $campo){
     // print_r($campo);
     //continue;
-       $template .=  " '".$campo['name']."' => '".self::traducirTipos($campo['type'])."'";
+    $nombre = $campo['name'] ?? $name;
+       $template .=  " '". $nombre."' => '".self::traducirTipos($campo['type'])."'";
    if($i < $ncampos)  $template .=",";
 $i++;
      $template .="\n";

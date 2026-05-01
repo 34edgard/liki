@@ -26,13 +26,21 @@ if ($argc < 2) {
 $comando = explode(':',$argv[1]);
 $tipo = $comando[0];
 $accion = $comando[1];
+
 $nombre = $argv[2] ?? '';
 $extras = [];
 foreach($argv as $id => $arg){
-    if($id <= 2) continue;
+    if($id <= 1) continue;
+    if(str_contains($arg,'-') || str_contains($arg,'--')) {
+       define('CLI_'.str_replace('-','',$arg),'');
+    continue;
+    }
 $extras[] = $arg;
 }
 //print_r($estras);
+
+if(str_contains($argv[2],'-') ) $nombre = '';
+
 function comandoExec(callable $comando,$nombre,$extras){
   if(count($extras) == 0)  $comando($nombre);
   if(count($extras) > 0) $comando($nombre,$extras);
