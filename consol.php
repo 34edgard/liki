@@ -31,15 +31,25 @@ $nombre = $argv[2] ?? '';
 $extras = [];
 foreach($argv as $id => $arg){
     if($id <= 1) continue;
-    if(str_contains($arg,'-') || str_contains($arg,'--')) {
-       define('CLI_'.str_replace('-','',$arg),'');
+    if(str_starts_with($arg,'-') || str_starts_with($arg,'--')) {
+      $opt = str_replace('-','',$arg);
+       $option = '';
+    $value='';
+        $opts = explode('=',$opt);
+    if(isset($opts[1]))
+        $value = trim($opts[1]);
+        
+           $option = trim($opts[0]);
+          
+       
+     define('CLI_'.$option,$value);
     continue;
     }
 $extras[] = $arg;
 }
 //print_r($estras);
 
-if(str_contains($argv[2],'-') ) $nombre = '';
+if(str_starts_with($argv[2],'-') ) $nombre = '';
 
 function comandoExec(callable $comando,$nombre,$extras){
   if(count($extras) == 0)  $comando($nombre);
