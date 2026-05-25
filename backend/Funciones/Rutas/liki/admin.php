@@ -88,7 +88,7 @@ return function(){
             'paginas' => $paginas,
             'success' => $success,
         ]);
-    }, ['success']);
+    });
 
     // Editor de página individual
     Ruta::get('/admin/paginas/{nombre}', function($p) {
@@ -137,7 +137,7 @@ return function(){
 
         ConfigManager::guardarConfig($nombrePagina, $config);
         header('Location: /admin/paginas?success=1');
-    }, ['config']);
+    });
 
     // API: retornar componentes disponibles como JSON
     Ruta::get('/admin/componentes-disponibles', function() {
