@@ -7,7 +7,7 @@ $componentesDisponibles = $componentesDisponibles ?? [];
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="fas fa-edit me-2"></i>Editor de Página: <span class="text-primary"><?= htmlspecialchars($nombrePagina ?? '') ?></span></h2>
-    <a href="/admin/paginas" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i> Volver a páginas</a>
+    <a hx-get="/admin/paginas" hx-target="#pages" class="btn btn-outline-secondary"><i class="fas fa-arrow-left me-1"></i> Volver a páginas</a>
   </div>
 
   <div class="row">

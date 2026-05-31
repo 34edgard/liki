@@ -157,7 +157,7 @@ return function(){
         echo '<div class="container py-4">';
         echo '<div class="d-flex justify-content-between align-items-center mb-3">';
         echo '<h3><i class="fas fa-sitemap me-2"></i>Árbol de Páginas</h3>';
-        echo '<a href="/admin/paginas" class="btn btn-primary btn-sm"><i class="fas fa-list me-1"></i> Vista lista</a>';
+        echo '<a hx-get="/admin/paginas" hx-target="# " class="btn btn-primary btn-sm"><i class="fas fa-list me-1"></i> Vista lista</a>';
         echo '</div>';
         echo '<div class="card"><div class="card-body" style="font-family: monospace; white-space: pre;" id="pages">';
         echo htmlspecialchars(basename($directory)) . "<br />";
@@ -186,7 +186,7 @@ function generateTree($path, $prefix = "", $depth = 0, $maxDepth = -1) {
 
         $nombre = basename($item, '.json');
         echo $prefix . $connector;
-        echo "<a href='/admin/paginas/" . htmlspecialchars($nombre) . "' class='btn btn-sm btn-outline-primary mb-1'>";
+        echo "<a hx-target='#pages' hx-get='/admin/paginas/" . htmlspecialchars($nombre) . "' class='btn btn-sm btn-outline-primary mb-1'>";
         echo htmlspecialchars($item) . "</a>";
 
         $fullPath = $path . DIRECTORY_SEPARATOR . $item;

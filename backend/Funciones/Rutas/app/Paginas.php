@@ -18,6 +18,11 @@ return  function (){
      
    });
    
+   Ruta::get('/m',function(){
+       
+     Flow::page('index');
+     
+   });
    
    Ruta::get('/inicio',function(){
     Flow::page('inicio');

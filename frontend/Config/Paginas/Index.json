@@ -1,11 +1,41 @@
 {
-    "tituloPagina":"App liki index",
-    "estilos": ["bootstrap.min","estilos"],
-    "estilosD":["estilos"],
-    
-    "scripts": ["color-modes","htmx","bootstrap.bundle.min"],
-    "contenidos":[
-        {"componente": "estructura/Header","configuracion":{"op": "App liki index"} },
-        {"componente":"Inicio","configuracion":{"op": "App liki index"}}
-       ]
+    "tituloPagina": "App liki index",
+    "estilos": [
+        "bootstrap.min",
+        "estilos"
+    ],
+    "estilosD": [
+        "estilos"
+    ],
+    "scripts": [
+        "color-modes",
+        "htmx",
+        "bootstrap.bundle.min"
+    ],
+    "contenidos": [
+        {
+            "componente": "estructura\/Header",
+            "configuracion": {
+                "op": "App liki index"
+            }
+        },
+        {
+            "componente": "Inicio",
+            "configuracion": {
+                "op": "App liki index"
+            }
+        },
+        {
+            "componente": "componentes\/h1",
+            "configuracion": {
+                "contenido": "pepe"
+            }
+        },
+        {
+            "componente": "componentes\/h1",
+            "configuracion": {
+                "contenido": "pepe"
+            }
+        }
+    ]
 }

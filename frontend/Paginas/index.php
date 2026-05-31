@@ -5,7 +5,7 @@ use Liki\Config\ConfigManager;
 // Uso
 
 
-$config = cargarConfig::cargarConfig('Index');
+$config = ConfigManager::cargarConfig('Index');
 
 Flow::html('estructura/pagina',$config);
 

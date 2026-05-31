@@ -1,0 +1,32 @@
+[2026-05-31 13:13:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Administra"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:17:08] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Administra"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:19:37] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Administrarm"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:23:34] Code: 5000 | Message: Error: interno del servidor | Details: {"exception":"Error interno del servidor.La plantilla 'Index' no existe en el directorio 'page'"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:24:27] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Class \"cargarConfig\" not found"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:25:16] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/mn"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:27:47] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Gestion_Sesion"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/usuario\/rol"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/usuario\/list"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rs\/"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rendimiento\/"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/testing\/rutas"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/bdSQLWeb\/tablas"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/pages"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:39] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Terminal\/interfaz"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:40] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/usuario\/rol"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:40] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/usuario\/list"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:40] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rs\/"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:40] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rendimiento\/"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:40] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/testing\/rutas"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:40] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/bdSQLWeb\/tablas"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:40] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/pages"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:41] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Terminal\/interfaz"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:29:51] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Administra"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/usuario\/rol"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/usuario\/list"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rs\/"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rendimiento\/"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/testing\/rutas"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/bdSQLWeb\/tablas"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/pages"} | User: guest | IP: 127.0.0.1
+[2026-05-31 13:30:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Terminal\/interfaz"} | User: guest | IP: 127.0.0.1
