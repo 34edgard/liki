@@ -1,0 +1,14 @@
+{  
+    "nombre": "liki-charts",  
+    "version": "1.0.0",  
+    "descripcion": "Componentes de gráficas con Chart.js para Liki",  
+    "autor": "34edgard",  
+    "tipo": "componente",  
+    "archivos": [  
+        { "origen": "frontend/Html/componentes/grafica.php",   "tipo": "html" },  
+        { "origen": "frontend/css/grafica.css",                "tipo": "css" },  
+        { "origen": "frontend/js/chart.umd.js",               "tipo": "js" },  
+        { "origen": "frontend/js/WebComponentes/grafica.php",  "tipo": "js" },  
+        { "origen": "backend/Funciones/Rutas/app/graficas.php","tipo": "ruta" }  
+    ]  
+}
