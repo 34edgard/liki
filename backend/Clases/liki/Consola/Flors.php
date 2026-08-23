@@ -1,4 +1,5 @@
 <?php
+
 namespace Liki\Consola;  
   
 class Flors {  

@@ -6,7 +6,10 @@ $success = $success ?? false;
 <div class="container py-4">
   <div class="d-flex justify-content-between align-items-center mb-4">
     <h2><i class="fas fa-file-alt me-2"></i> Páginas del Sistema</h2>
-    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalNuevaPagina">
+    <button type="button" class="btn btn-success" 
+    data-bs-toggle='modal' 
+    data-bs-target='#firefoxModal'
+    >
       <i class="fas fa-plus me-1"></i> Nueva Página
     </button>
   </div>
@@ -36,7 +39,7 @@ $success = $success ?? false;
             <span class="badge bg-warning text-dark"><?= $pagina['numScripts'] ?? 0 ?> scripts</span>
           </p>
           <div class="mt-auto">
-            <a href="/admin/paginas/<?= htmlspecialchars($pagina['nombre']) ?>" class="btn btn-primary btn-sm w-100">
+            <a  hx-target="#pages"  hx-get="/admin/paginas/<?= htmlspecialchars($pagina['nombre']) ?>" class="btn btn-primary btn-sm w-100">
               <i class="fas fa-edit me-1"></i> Editar
             </a>
           </div>
@@ -55,7 +58,13 @@ $success = $success ?? false;
 </div>
 
 <!-- Modal para nueva página -->
-<div class="modal fade" id="modalNuevaPagina" tabindex="-1">
+<!--<div class="modal fade" id="firefoxModal" tabindex="-1" aria-labelledby="firefoxModalLabel" aria-hidden="true">
+-->
+¿
+
+
+
+<div class="modal fade" id="firefoxModal" tabindex="-1" aria-labelledby="firefoxModalLabel"  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header bg-success text-white">

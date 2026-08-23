@@ -25,9 +25,9 @@ public static function setJoin(array $joins) {
     self::$joins = $joins;
   //  return self::class;
 }
-    public static function setGroupBy(array $columns): self {
+    public static function setGroupBy(array $columns) {
         self::$groupBy = $columns;
-        return self::class;
+       // return self::class;
     }
 
     public static function setHaving(array $conditions): self {
@@ -77,7 +77,7 @@ public static function setJoin(array $joins) {
 
         // Añadir GROUP BY
         if (!empty(self::$groupBy)) {
-            self::$sql .= " GROUP BY " . implode(", ", array_map(fn($col) => "`$col`", self::$groupBy));
+            self::$sql .= " GROUP BY " . implode(", ", array_map(fn($col) => "$col", self::$groupBy));
         }
 
         // Añadir HAVING

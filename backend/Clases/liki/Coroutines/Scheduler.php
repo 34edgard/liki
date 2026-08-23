@@ -43,6 +43,28 @@ public function run(): void {
 /**
  * Ejecuta un solo paso de la tarea actual y la rota
  */
+
+
+// Modificación conceptual en Scheduler
+private array $timers = []; // [taskId => resumeTimestamp]
+
+public function tick(): bool {
+    // ...
+    // Si la tarea está durmiendo, no la ejecutes hasta que venza el tiempo
+    if (isset($this->timers[$taskId])) {
+        if (microtime(true) < $this->timers[$taskId]) {
+            // Re-encolar sin iterar
+            $this->tasks[$taskId] = $task;
+            return true;
+        }
+        unset($this->timers[$taskId]);
+    }
+    // ...
+}
+
+
+
+/*
 public function tick(): bool {
     if (empty($this->tasks)) {
         return false;
@@ -79,6 +101,9 @@ public function tick(): bool {
 
     return !empty($this->tasks);
 }  
+
+
+*/
     /**
      * Reanuda una tarea específica
      */
