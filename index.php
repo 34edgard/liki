@@ -6,9 +6,11 @@
 include "./conf.php";
 include "./backend/autoload.php";
 use Liki\Routing\Ruta;
+use Middleware\AuthMiddleware;
 
-
-Ruta::group('liki/toolsDep');
+Ruta::group('liki/toolsDep',false,[
+    [AuthMiddleware::class,'login']
+    ]);
 Ruta::group('liki/builders');
 Ruta::group('liki/admin');
 Ruta::group('app/Paginas');

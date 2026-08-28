@@ -41,6 +41,15 @@ class Str{
        return strlen($this->value);
     }
     
+    public function lower(){
+        
+        $this->value =  strtolower($this->value);
+        return $this;
+    }
+    public function startsWith(){
+            $this->value =  strtostartsWith($this->value);
+            return $this;
+    }
 }
 
 
@@ -51,16 +60,17 @@ class Str{
  * 
  * Día 1-2: Clase Str con 
  * 20 métodos 
- * (len, upper, lower, trim, contains, startsWith, endsWith, replace, split, substr, pad, slug, toCamel, toSnake, etc.)
+ * (   , endsWith, replace, split, substr, pad, slug, toCamel, toSnake, etc.)
  * 
  * 
  * 
  */
 
-$text = Str::of(" Hola Mundo ") 
-->trim()
- ->upper()
- ->replace(' ', '-') 
+$text = Str::of(" Hola MUuuuUUUndo ") 
 
- ->toString(); // "hola-mundo" 
+
+ ->startsWith(' ');
+ 
+
+ //->toString(); // "hola-mundo" 
 echo $text;

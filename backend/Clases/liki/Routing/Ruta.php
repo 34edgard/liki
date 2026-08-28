@@ -291,7 +291,7 @@ public static function group( string $ruta, bool $condicion = false, array $midd
         
         
         foreach($middlewares as $middleware){
-          if( $middleware()) return;
+          if( !$middleware()) return;
         }
         
         

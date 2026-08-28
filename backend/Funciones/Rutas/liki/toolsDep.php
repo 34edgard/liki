@@ -4,6 +4,10 @@ use Liki\Plantillas\Flow;
 use Liki\Testing\TestingRutas;
 use Liki\Database\BdSQLWeb;
 use Liki\DelegateFunction;
+
+
+
+
 function comandoExec(callable $comando,$nombre,$extras){
    
  if(count($extras) == 0)  $comando($nombre);

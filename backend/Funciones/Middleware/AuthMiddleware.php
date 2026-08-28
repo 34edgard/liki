@@ -1,9 +1,11 @@
 <?php
 namespace Middleware;
-use liki\Sesion;
+use Liki\Sesion;
 class AuthMiddleware {
-    public function handle() {
+    public static function login() {
         Sesion::init();
-        return isset($_SESSION['usuario_id']); // true si está autenticado  
+       // print_r($_SESSION);
+        return isset($_SESSION['id_rol']); // true si está autenticado  
         }
 }
+

@@ -20,7 +20,6 @@ abstract class Modelo {
      $campos[$campo] = $this->campos[$campo];
      $valoresArray[$campo] = $valores[$i];
     }
-   // print_r($valoresArray);
        Validar::ValidarArray($valoresArray, $campos);  
     }  
   

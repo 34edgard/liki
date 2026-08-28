@@ -60,7 +60,6 @@ $success = $success ?? false;
 <!-- Modal para nueva página -->
 <!--<div class="modal fade" id="firefoxModal" tabindex="-1" aria-labelledby="firefoxModalLabel" aria-hidden="true">
 -->
-¿
 
 
 

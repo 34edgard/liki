@@ -50,7 +50,7 @@ class FlowDB{
          
       $this->Consultas_BD->ejecutarConsulta($sql,$parametrosRegistro);
      }catch(Exception $e){
-         echo "Error: ". $e->getMessage();
+         throw new Exception("Error: ". $e->getMessage());
      }
     
     }
@@ -58,7 +58,6 @@ class FlowDB{
     public function consultar(array $datos){
       $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;
       $parametrosConsulta = [];
-   // print_r($this->groupBys);
       try{
        Consultar::setJoin($this->joins);
        Consultar::setGroupBy($this->groupBys);
@@ -66,7 +65,7 @@ class FlowDB{
     
       return  $this->Consultas_BD->consultarRegistro($sql,$parametrosConsulta);
            }catch(Exception $e){
-               echo "Error: ". $e->getMessage();
+               throw new Exception("Error: ". $e->getMessage());
            }
     }
     
@@ -80,7 +79,7 @@ class FlowDB{
       $sql = Consultar::generar_sql($datos,$parametrosConsultaId);
       return $this->Consultas_BD->consultarRegistro($sql,$parametrosConsultaId);
           }catch(Exception $e){
-              echo "Error: ". $e->getMessage();
+              throw new Exception("Error: ". $e->getMessage());
           }
     }
     
@@ -92,7 +91,7 @@ class FlowDB{
       $sql = Editar::generar_sql($datos,$parametrosEdicion);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEdicion);
        }catch(Exception $e){
-           echo "Error: ". $e->getMessage();
+           throw new Exception("Error: ". $e->getMessage());
        }
     }
     
@@ -104,7 +103,7 @@ class FlowDB{
       $sql = Eliminar::generar_sql($datos, $parametrosEliminar);
       $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEliminar);
       }catch(Exception $e){
-          echo "Error: ". $e->getMessage();
+          throw new Exception("Error: ". $e->getMessage());
       }
 
  }
@@ -147,7 +146,6 @@ public function orderBy(string $campo ,string $direccion ='DESC' ){
     
 }
 public function groupBy(string $campo){
-    echo '//';
     $this->groupBys[] = $campo;
     return $this;
 }
@@ -231,3 +229,6 @@ public function delete(array $where = []){
 }
     
 }
+
+
+
