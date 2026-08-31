@@ -147,3 +147,40 @@ hx-target="#usuarios"
 
 <div class="container" id="mesajesDelServidor"></div>
 
+
+
+
+
+
+
+
+<div class="modal fade" id="lll" tabindex="-1" aria-labelledby="firefoxModalLabel"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header bg-success text-white">
+        <h5 class="modal-title"><i class="fas fa-plus me-1"></i> Nueva Página</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <div class="mb-3">
+          <label class="form-label fw-bold">Nombre del archivo</label>
+          <div class="input-group">
+            <input type="text" class="form-control" id="nuevaPaginaNombre" placeholder="MiPagina">
+            <span class="input-group-text">.json</span>
+          </div>
+          <small class="text-muted">Sin espacios ni caracteres especiales.</small>
+        </div>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Título de la página</label>
+          <input type="text" class="form-control" id="nuevaPaginaTitulo" placeholder="Mi Nueva Página">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-success" onclick="crearNuevaPagina()">
+          <i class="fas fa-plus me-1"></i> Crear Página
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
