@@ -3,7 +3,8 @@
 ## ¿Que es LIKI?
 
 liki es un Framework de php, minimalista y ligero, creado para desarrollar aplicaciones web, crear api-rest, 
-proyectos academicos, desarrollo de NVP (producto minimo viable).
+proyectos academicos, desarrollo de NVP (producto minimo viable), puede combinarse con php desktop para crear
+aplicaciones de escritorio  .
 
 ## Enfoque de Liki
 
@@ -25,6 +26,16 @@ laravel, pero en un tamaño mas reducido y sin dependecias externas
 - Manejo de errores integrado ErrorHandler.php:8-26
 - Sistema de sesiones Sesion.php:61-103
 - ORM simple para base de datos Usuario.php:6-9
+
+## Caracteristicas experimentales:
+
+-corrutinas y asincronia en php puro
+-webSokets
+-likiCv: una clase de js para simplificar trabajar con canvas
+crear graficos simples
+-kitPhp: 
+
+
 
 ## Requisitos:
  PHP v8.2.0 o mayor (recomendada)

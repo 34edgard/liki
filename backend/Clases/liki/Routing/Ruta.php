@@ -39,9 +39,10 @@ class Ruta implements Rutas_Server {
      * @return bool True si todos los parámetros esperados están presentes, false de lo contrario.
      */
     public static function validar_parametros(array $parametros_esperados, array $parametros_recibidos): bool {
-       if(count($parametros_recibidos) > count($parametros_esperados))
-    
-         
+     
+    $pR = count($parametros_recibidos) ;
+    $pE = count($parametros_esperados);
+      if($pR > $pE || $pR < $pE )
                          ErrorHandler::getInstance()->handle(
             ErrorHandler::VALIDATION_ERROR,
             'Error: Faltan parametros requeridos en la ruta '.$route['url_pattern'],
@@ -49,7 +50,13 @@ class Ruta implements Rutas_Server {
            400
                          );
      
-        
+        if($pR < $pE )
+        ErrorHandler::getInstance()->handle(
+                    ErrorHandler::VALIDATION_ERROR,
+                    'Error: Demaciados parametros en la ruta '.$route['url_pattern'],
+                   ['exception' => 'error se mandaron parametros no declarados'],
+                   400
+        );
     
       foreach ($parametros_esperados as $parametro) {
             if (!isset($parametros_recibidos[$parametro])) {

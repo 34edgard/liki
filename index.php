@@ -18,6 +18,11 @@ Ruta::group('app/sesiones');
 Ruta::group('app/Usuario');
 // Run the router 
 
+
+Ruta::get('/{lo}/lo',function($p){
+    print_r($p);
+});
+
 Ruta::dispatch();
 //gc_collect_cycles();
 //gc_collect_cycles()
