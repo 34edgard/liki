@@ -1,0 +1,630 @@
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?pheditor_password=admin
+metodo: GET
+parametros: pheditor_password 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: pheditor_password 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: POST
+parametros: pheditor_password 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php?path=
+metodo: GET
+parametros: path 
+

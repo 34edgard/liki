@@ -406,7 +406,3 @@ class WebSocketServer {
         $this->stop();
     }
 }
-
-
-$f = new WebSocketServer();
-$f->start();

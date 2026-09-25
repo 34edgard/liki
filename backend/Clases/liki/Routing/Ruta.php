@@ -45,7 +45,7 @@ class Ruta implements Rutas_Server {
       if($pR > $pE || $pR < $pE )
                          ErrorHandler::getInstance()->handle(
             ErrorHandler::VALIDATION_ERROR,
-            'Error: Faltan parametros requeridos en la ruta '.$route['url_pattern'],
+            'Error: Faltan parametros requeridos en la ruta '.$_SERVER['REQUEST_URI'],
            ['exception' => 'error se mandaron parametros no declarados'],
            400
                          );
@@ -53,7 +53,7 @@ class Ruta implements Rutas_Server {
         if($pR < $pE )
         ErrorHandler::getInstance()->handle(
                     ErrorHandler::VALIDATION_ERROR,
-                    'Error: Demaciados parametros en la ruta '.$route['url_pattern'],
+                    'Error: Demaciados parametros en la ruta '.$_SERVER['REQUEST_URI'],
                    ['exception' => 'error se mandaron parametros no declarados'],
                    400
         );

@@ -211,7 +211,12 @@ public function post(array $valores){
     
     $this->reset();
 }
-
+public function head(array $where = []): bool {
+   $rest = $this->campos(['COUNT(*) as num'])
+    ->get($where);
+   
+  return  $rest[0]['num'] == 1 ? true : false;
+}
 public function put(array $where = []){
       $Nwhere = $this->where($where);
      $this->consultaArray['where'] = $Nwhere;

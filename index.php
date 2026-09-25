@@ -8,24 +8,29 @@ include "./backend/autoload.php";
 use Liki\Routing\Ruta;
 use Middleware\AuthMiddleware;
 
+use Liki\Database\FlowDB;
+
 Ruta::group('liki/toolsDep',false,[
     [AuthMiddleware::class,'login']
-    ]);
+ ]);
 Ruta::group('liki/builders');
-Ruta::group('liki/admin');
+Ruta::group('liki/admin',false,[
+   [AuthMiddleware::class,'login']
+]);
 Ruta::group('app/Paginas');
 Ruta::group('app/sesiones');
 Ruta::group('app/Usuario');
 // Run the router 
 
 
-Ruta::get('/{lo}/lo',function($p){
-    print_r($p);
-});
+
+$db = new FlowDB;
+if(!$db->tabla('usuario')->head(['cedula'=>30909])) echo 'no existe';
+
+
 
 Ruta::dispatch();
-//gc_collect_cycles();
-//gc_collect_cycles()
+
 /*
 $fin = microtime(true); // Guarda el tiempo final
 $tiempo_total = $fin - $inicio; // Calcula la diferencia     
