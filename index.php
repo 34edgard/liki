@@ -8,7 +8,6 @@ include "./backend/autoload.php";
 use Liki\Routing\Ruta;
 use Middleware\AuthMiddleware;
 
-use Liki\Database\FlowDB;
 
 Ruta::group('liki/toolsDep',false,[
     [AuthMiddleware::class,'login']
@@ -23,9 +22,6 @@ Ruta::group('app/Usuario');
 // Run the router 
 
 
-
-$db = new FlowDB;
-if(!$db->tabla('usuario')->head(['cedula'=>30909])) echo 'no existe';
 
 
 

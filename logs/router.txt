@@ -628,3 +628,13 @@ url: /pheditor.php?path=
 metodo: GET
 parametros: path 
 
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+
+-------------
+url: /pheditor.php
+metodo: GET
+parametros: 
+

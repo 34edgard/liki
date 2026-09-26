@@ -7,7 +7,10 @@ use Liki\Database\FlowDB;
 return new class {
   public static function run($p) {  
     extract($p);
- 
+    
+    
+    
+ $ci = (int)$ci;
     $estadoActual = FlowDB::conf('Usuario')->campos(["cedula", "estado"])
                               ->get(['cedula'=>$ci]);
    

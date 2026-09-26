@@ -224,16 +224,19 @@ public function put(array $where = []){
     $this->editar($this->consultaArray);
        $this->reset();
 }
+
+public function patch(array $where = [], array $campos = ['*']):array{
+  $consulta = $this->consultaArray;
+  $this->put($where);
+  return $this->tabla($consulta['tabla'])->campos($consulta['campos'])->get($where);
+    
+}
+
 public function delete(array $where = []){
       $Nwhere = $this->where($where);
     $this->consultaArray['where'] = $Nwhere;
-    
-    
     $this->eliminar($this->consultaArray);
        $this->reset();
 }
     
 }
-
-
-
