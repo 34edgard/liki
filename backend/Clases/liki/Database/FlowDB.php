@@ -151,8 +151,6 @@ public function groupBy(string $campo){
 }
 public function join($tipo,$campo,$where){
 
-
- 
    $this->joins[] = [
         'type' => strtoupper($tipo),
         'table' => $campo,
@@ -160,7 +158,6 @@ public function join($tipo,$campo,$where){
     ];
     return $this;
 }
-
 
 public function reset(){
      
@@ -215,7 +212,7 @@ public function head(array $where = []): bool {
    $rest = $this->campos(['COUNT(*) as num'])
     ->get($where);
    
-  return  $rest[0]['num'] == 1 ? true : false;
+  return  $rest[0]['num'] > 0;
 }
 public function put(array $where = []){
       $Nwhere = $this->where($where);
@@ -226,9 +223,9 @@ public function put(array $where = []){
 }
 
 public function patch(array $where = [], array $campos = ['*']):array{
-  $consulta = $this->consultaArray;
+  $consulta = $this->consultaArray ?? $this->tabla;
   $this->put($where);
-  return $this->tabla($consulta['tabla'])->campos($consulta['campos'])->get($where);
+  return $this->tabla($consulta['tabla'])->campos($campos)->get($where);
     
 }
 

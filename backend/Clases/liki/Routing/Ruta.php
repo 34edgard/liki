@@ -42,7 +42,7 @@ class Ruta implements Rutas_Server {
      
     $pR = count($parametros_recibidos) ;
     $pE = count($parametros_esperados);
-      if($pR > $pE || $pR < $pE )
+      if($pR < $pE )
                          ErrorHandler::getInstance()->handle(
             ErrorHandler::VALIDATION_ERROR,
             'Error: Faltan parametros requeridos en la ruta '.$_SERVER['REQUEST_URI'],
@@ -50,7 +50,7 @@ class Ruta implements Rutas_Server {
            400
                          );
      
-        if($pR < $pE )
+        if($pR > $pE )
         ErrorHandler::getInstance()->handle(
                     ErrorHandler::VALIDATION_ERROR,
                     'Error: Demaciados parametros en la ruta '.$_SERVER['REQUEST_URI'],
@@ -233,7 +233,7 @@ public static function head(string $url_pattern, callable $funcion, array $param
                 $all_params = array_merge($input_data, $dynamic_params);
 
                 // Validar parámetros esperados (si los hay)
-                if (!empty($route['parametros_esperados']) && !self::validar_parametros($route['parametros_esperados'], $all_params)) {
+                if (!empty($route['parametros_esperados']) && !self::validar_parametros($route['parametros_esperados'], $input_data)) {
                     // Si faltan parámetros esperados, se podría lanzar una excepción o devolver un error 400
                   
                 ErrorHandler::getInstance()->handle(

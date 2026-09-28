@@ -12,6 +12,7 @@ class Scheduler {
     private $taskIdCounter = 0;
     private $completedTasks = [];
     private $taskMap = [];
+    private array $timers = []; // [taskId => resumeTimestamp]
     
     /**
      * Agrega una tarea al planificador
@@ -45,26 +46,11 @@ public function run(): void {
  */
 
 
-// Modificación conceptual en Scheduler
-private array $timers = []; // [taskId => resumeTimestamp]
-
-public function tick(): bool {
-    // ...
-    // Si la tarea está durmiendo, no la ejecutes hasta que venza el tiempo
-    if (isset($this->timers[$taskId])) {
-        if (microtime(true) < $this->timers[$taskId]) {
-            // Re-encolar sin iterar
-            $this->tasks[$taskId] = $task;
-            return true;
-        }
-        unset($this->timers[$taskId]);
-    }
-    // ...
-}
 
 
 
-/*
+
+
 public function tick(): bool {
     if (empty($this->tasks)) {
         return false;
@@ -103,7 +89,7 @@ public function tick(): bool {
 }  
 
 
-*/
+
     /**
      * Reanuda una tarea específica
      */

@@ -2,15 +2,21 @@
 /*$startMem = memory_get_usage();
  $inicio = microtime(true); // Guarda el tiempo actual como un número flotante    
   */   
-
+include "./emulated.php";
 include "./conf.php";
 include "./backend/autoload.php";
 use Liki\Routing\Ruta;
 use Middleware\AuthMiddleware;
-
-
+use Liki\Database\FlowDB;
+Ruta::get('/do',function(){
+    $db = new FlowDB();
+    $res = $db->tabla('usuario')->get();
+   echo json_encode($res);
+});
 Ruta::group('liki/toolsDep',false,[
-    [AuthMiddleware::class,'login']
+    [AuthMiddleware::class,'login'],
+    [AuthMiddleware::class,'isAdmin']
+    
  ]);
 Ruta::group('liki/builders');
 Ruta::group('liki/admin',false,[
