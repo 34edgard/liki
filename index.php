@@ -2,7 +2,7 @@
 /*$startMem = memory_get_usage();
  $inicio = microtime(true); // Guarda el tiempo actual como un número flotante    
   */   
-include "./emulated.php";
+
 include "./conf.php";
 include "./backend/autoload.php";
 use Liki\Routing\Ruta;
