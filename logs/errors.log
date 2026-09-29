@@ -2,3 +2,23 @@
 [2026-09-27 22:12:10] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta "} | User: guest | IP: unknown
 [2026-09-27 22:13:18] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta "} | User: guest | IP: unknown
 [2026-09-27 22:13:26] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta "} | User: guest | IP: unknown
+[2026-09-28 10:01:35] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rs\/"} | User: 390390 | IP: 127.0.0.1
+[2026-09-28 10:01:35] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rendimiento\/"} | User: 390390 | IP: 127.0.0.1
+[2026-09-28 10:01:35] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/testing\/rutas"} | User: 390390 | IP: 127.0.0.1
+[2026-09-28 10:01:35] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/bdSQLWeb\/tablas"} | User: 390390 | IP: 127.0.0.1
+[2026-09-28 10:01:35] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Terminal\/interfaz"} | User: 390390 | IP: 127.0.0.1
+[2026-09-28 21:56:51] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Call to undefined method Liki\\Routing\\Ruta::gruop()"} | User: guest | IP: 127.0.0.1
+[2026-09-28 21:57:18] Code: 3001 | Message: Error: Faltan parametros requeridos en la ruta /sexo | Details: {"exception":"error se mandaron parametros no declarados"} | User: guest | IP: 127.0.0.1
+[2026-09-28 21:57:48] Code: 3001 | Message: Error: Faltan parametros requeridos en la ruta /sexo | Details: {"exception":"error se mandaron parametros no declarados"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:00:01] Code: 3001 | Message: Error: Faltan parametros requeridos en la ruta /sexo | Details: {"exception":"error se mandaron parametros no declarados"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:03:05] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Error: Faltan parametros requeridos en la ruta \/sexo\/anal"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:03:14] Code: 3001 | Message: Error: Faltan parametros requeridos en la ruta /sexo/anal | Details: {"exception":"Faltan parametros requeridos"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:03:27] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Value of type null is not callable"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:07:17] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Value of type null is not callable"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:07:19] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Value of type null is not callable"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:29:10] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Error: Faltan parametros requeridos en la ruta \/golo"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:39:28] Code: 3001 | Message: Error: Faltan parametros requeridos en la ruta /golo/{h} | Details: {"exception":"Faltan parametros requeridos"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:39:37] Code: 3001 | Message: Error: Faltan parametros requeridos en la ruta /golo/{h} | Details: {"exception":"Faltan parametros requeridos"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:45:43] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Error: Faltan parametros requeridos en la ruta \/golo\/ccc?app=i&"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:53:55] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Too few arguments to function {closure}(), 1 passed and exactly 2 expected"} | User: guest | IP: 127.0.0.1
+[2026-09-28 22:54:04] Code: 5000 | Message: Error interno del servidor | Details: {"exception":"Too few arguments to function {closure}(), 1 passed and exactly 2 expected"} | User: guest | IP: 127.0.0.1

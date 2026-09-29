@@ -38,7 +38,7 @@ crear graficos simples
 
 
 ## Requisitos:
- PHP v8.2.0 o mayor (recomendada)
+ PHP v8.0.1 o mayor (recomendada)
 
 ## Estructura del proyecto:
 Explicar brevemente frontend/ y backend/
@@ -79,14 +79,14 @@ La clase rutas posee metodos de agrupacion como gruop o prefix para agrupar ruta
 
 
 
-## group 
+## modul 
 
-group nos permite agrupar rutas pero en un archivo separado dentro de la carpeta funciones/rutas pertiendonos
-trabajar con un grupo de rutas como si fuera un modulo aparte ademos que podemlos desactivar un grupo de rutas 
+modul nos permite agrupar rutas pero en un archivo separado dentro de la carpeta funciones/rutas pertiendonos
+trabajar con un modul de rutas como si fuera un modulo aparte ademos que podemlos desactivar un modul de rutas 
 pasando como segundo parametro una condicion o valor booleano que si es true desactiva las rutas, esto reduce el tamaño del index
 ademas de reducir los conflictos en el control de versiones a la hora de trabajar con barios programadores 
 
->Ruta::group('nombre',condicion);
+>Ruta::modul('nombre',condicion);
 
 
 ## prefix

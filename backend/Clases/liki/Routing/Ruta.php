@@ -42,21 +42,22 @@ class Ruta implements Rutas_Server {
      
     $pR = count($parametros_recibidos) ;
     $pE = count($parametros_esperados);
-      if($pR < $pE )
-                         ErrorHandler::getInstance()->handle(
+      if($pR < $pE ) throw new Exception('Error: Faltan parametros requeridos en la ruta '.$_SERVER['REQUEST_URI']);
+                       /*  ErrorHandler::getInstance()->handle(
             ErrorHandler::VALIDATION_ERROR,
             'Error: Faltan parametros requeridos en la ruta '.$_SERVER['REQUEST_URI'],
            ['exception' => 'error se mandaron parametros no declarados'],
            400
-                         );
+                         )*/
      
-        if($pR > $pE )
-        ErrorHandler::getInstance()->handle(
+        if($pR > $pE ) throw new Exception('Error: Demaciados parametros en la ruta '.$_SERVER['REQUEST_URI']);
+        
+       /* ErrorHandler::getInstance()->handle(
                     ErrorHandler::VALIDATION_ERROR,
                     'Error: Demaciados parametros en la ruta '.$_SERVER['REQUEST_URI'],
                    ['exception' => 'error se mandaron parametros no declarados'],
                    400
-        );
+        );*/
     
       foreach ($parametros_esperados as $parametro) {
             if (!isset($parametros_recibidos[$parametro])) {
@@ -106,13 +107,23 @@ class Ruta implements Rutas_Server {
             'method' => $method,
             'url_pattern' => $url_pattern,
             'handler' => $handler,
-            'parametros_esperados' => $parametros_esperados,
+            'parametros_esperados' => self::clacificar_parametros_esperados($parametros_esperados),
             'funcion_extra' => $funcion_extra,
             'regex_pattern' => self::compile_route_pattern($url_pattern) // Compila el patrón para regex
         ];
     }
 
-
+private static function clacificar_parametros_esperados(array $parametros_esperados): array{
+    $todos_parametros_esperados = [];
+    foreach($parametros_esperados as $id => $parametro){
+        if(is_string($id)){
+            $todos_parametros_esperados[] = $id;
+        }else{
+            $todos_parametros_esperados[] = $parametro;
+        }
+    }
+    return $todos_parametros_esperados;
+}
 
 private static function sanitizar_entrada( array $datos =[]):array {
 if(MODO_SANITIZACION === 'NINGUNO'){
@@ -290,7 +301,7 @@ public static function head(string $url_pattern, callable $funcion, array $param
     
     
 
-public static function group( string $ruta, bool $condicion = false, array $middlewares = []){
+public static function modul( string $ruta, bool $condicion = false, array $middlewares = []){
         $urlFile = CONTOLLER_PATH.'backend/Funciones/Rutas/'.$ruta.'.php';
        if($condicion) return;
         if(!file_exists($urlFile))            
@@ -306,7 +317,43 @@ public static function group( string $ruta, bool $condicion = false, array $midd
     $f();
 }
 
+public static function group(callable $rutas,array $parametrosCompartidos = [], array $FuncionesCompartidas = [], array $middlewares = []){
+   
 
+foreach($middlewares as $middleware){
+  if( !$middleware()) return;
+}
+
+
+  $nRutas = count(self::$routes);
+     $rutas();
+  
+
+foreach(self::$routes as $index => $rutas ){
+   
+   if($index < $nRutas ) continue;
+   
+   
+//parametros_esperados
+
+foreach($parametrosCompartidos as $parametro) {
+   self::$routes[$index]['parametros_esperados'][] = $parametro;
+}
+
+      foreach($FuncionesCompartidas as $id => $Funcion) {
+        if(!is_string($id)){
+        self::$routes[$index]['funcion_extra'][] = $Funcion;
+        }else{
+        self::$routes[$index]['funcion_extra'][$id] = $Funcion;
+        }
+    }
+
+}
+
+
+ 
+
+}
 
 public static function prefix(string $prefijo, callable $agregarRutas, array $middlewares =[], array $Funciones = []){
     foreach($middlewares as $middleware){

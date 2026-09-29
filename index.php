@@ -7,26 +7,34 @@ include "./conf.php";
 include "./backend/autoload.php";
 use Liki\Routing\Ruta;
 use Middleware\AuthMiddleware;
-use Liki\Database\FlowDB;
-Ruta::get('/do',function(){
-    $db = new FlowDB();
-    $res = $db->tabla('usuario')->get();
-   echo json_encode($res);
-});
-Ruta::group('liki/toolsDep',false,[
+
+Ruta::modul('liki/toolsDep',false,[
     [AuthMiddleware::class,'login'],
     [AuthMiddleware::class,'isAdmin']
     
  ]);
-Ruta::group('liki/builders');
-Ruta::group('liki/admin',false,[
+Ruta::modul('liki/builders');
+Ruta::modul('liki/admin',false,[
    [AuthMiddleware::class,'login']
 ]);
-Ruta::group('app/Paginas');
-Ruta::group('app/sesiones');
-Ruta::group('app/Usuario');
+Ruta::modul('app/Paginas');
+Ruta::modul('app/sesiones');
+Ruta::modul('app/Usuario');
 // Run the router 
 
+Ruta::group(function(){
+Ruta::get('/golo/{h}/{jk}',function($p){
+    
+    print_r($p);
+    
+    
+},[
+    'app'=>'x',
+    'j'
+]);
+},[
+    'jj'
+]);
 
 
 
