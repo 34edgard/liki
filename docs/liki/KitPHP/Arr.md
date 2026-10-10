@@ -1,4 +1,8 @@
 
+## Ejemplo de uso (API fluida)
+
+```php
+use Liki\KitPHP\Arr;
 
 // Map + filter + sort
 $result = Arr::of([3, 1, 4, 1, 5, 9, 2, 6])
@@ -30,8 +34,17 @@ $arr->isEmpty();      // false
 
 // Interfaces: count(), foreach, $arr[0], echo
 count($arr);          // 3
-foreach ($arr as $v) { /.....
- }
+foreach ($arr as $v) { /* ... */ }
 echo $arr[0];         // 1
 echo $arr;            // "[1,2,3]"
+```
+
+## Reglas de diseño aplicadas
+
+| Tipo de método | Devuelve | Ejemplos |
+|---|---|---|
+| Transformación | `self` (encadenable) | `map`, `filter`, `sort`, `unique` |
+| Reducción | valor escalar | `reduce`, `sum`, `implode` |
+| Consulta | `bool`/`int`/`array`/`mixed` | `first`, `last`, `count`, `contains` |
+| Salida | `array`/`string` | `toArray`, `__toString` |
 

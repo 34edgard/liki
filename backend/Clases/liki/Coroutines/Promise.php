@@ -2,7 +2,7 @@
 
 namespace Liki\Coroutines;
 use Generator;
-
+use Exception;
 
 /**
  * Clase Promise - Implementación simple de promesas para corrutinas
@@ -14,7 +14,7 @@ class Promise {
     private $errorCallbacks = [];
     private $state = 'pending'; // pending, fulfilled, rejected
     
-    public function then(callable $onFulfilled = null, callable $onRejected = null): self {
+    public function then(callable $onFulfilled , callable $onRejected ): self {
         if ($this->state === 'fulfilled' && $onFulfilled) {
             try {
                 $result = $onFulfilled($this->value);
@@ -55,6 +55,11 @@ class Promise {
         $promise = new self();
         $promise->fail($error); // Antes decía ->reject() y causaba error
         return $promise;
+    }
+    
+    
+    public function __construct(callable $promise){
+        $promise();
     }
     
     public static function all(array $promises): self {

@@ -3,7 +3,7 @@
 namespace Liki\SQL;
 
 use Liki\SQL\SentenciasSql;
-
+use Exception;
 
 class Registrar extends SentenciasSql implements iSql {
     // Ahora recibe $parametros por referencia

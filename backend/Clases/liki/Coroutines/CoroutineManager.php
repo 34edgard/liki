@@ -2,6 +2,7 @@
 
 namespace Liki\Coroutines;
 use Generator;
+use Exception;
 /**
  * Clase CoroutineManager - Gestor avanzado de corrutinas en PHP
  * Implementa patrones de concurrencia cooperativa usando generadores
@@ -145,6 +146,10 @@ class CoroutineManager {
     /**
      * Programa una función para ejecución diferida
      */
+    
+   public static function sleep($delaySeconds){
+        
+    }
     public function schedule(callable $callback, $delaySeconds = 0): int {
         $taskId = ++$this->taskIdCounter;
         

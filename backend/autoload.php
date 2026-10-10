@@ -13,7 +13,6 @@ spl_autoload_register(function ($class) {
 // Buscar el prefijo que coincida  
 foreach($prefixes as $prefix => $base_dir) {
  $len = strlen($prefix);
-//print_r($prefix);
  if(strncmp($prefix, $class, $len) !== 0){
 continue;
 }
@@ -36,3 +35,7 @@ return true;
 
 return false;
 });
+
+
+
+

@@ -1,7 +1,7 @@
 <?php
-// backend/Clases/liki/Routing/CSRF.php
-namespace Liki\Routing;
 
+namespace Liki\Routing;
+use Liki\Sesion;
 class CSRF {
     
     public static function generarToken(): string {

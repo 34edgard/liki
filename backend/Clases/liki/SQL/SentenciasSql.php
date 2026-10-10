@@ -54,6 +54,7 @@ abstract class SentenciasSql {
 
     protected static function añadirCondiciones(array $condiciones, string $operadorLogico): void {
         $partes = [];
+   
         foreach ($condiciones as $condicion) {
             if (is_array($condicion) && isset($condicion['operador'])) {
                 $partes[] = self::generarCondicionEspecial($condicion);
@@ -166,4 +167,7 @@ abstract class SentenciasSql {
         return self::$parametros;
     }
 }
+
+
+
 

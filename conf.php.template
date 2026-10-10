@@ -6,7 +6,6 @@ const contraceña_BD = "root";
 const nombre_BD = "app";
 const MODO_SANITIZACION = "ESTRICTO";
 const DSN = "sqlite:./DataBase/bd/app.db";
-
 //const DSN = "sqlite:./DataBase/bd/test.db";
 
 
@@ -35,6 +34,11 @@ const MIGRATION_AUTO_RUN = false; // Ejecutar automáticamente en producción
 //configuracion para controladores dentro de app
 
 const CONTOLLER_PATH = __DIR__.'/';
+
+
+
+const FLORS_FILE = './docs/flors.json';  
+    const STRUCT_DIR = './docs/struct/';  
 
 
 

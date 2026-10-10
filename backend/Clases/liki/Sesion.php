@@ -19,11 +19,11 @@ class Sesion {
     ControlInterfaz::cambiarPagina("");
   }
   public static function iniciar_sesion($p) {
-Validar::ValidarArray($p, [
-  'correo' => 'isEmail',
+['correo'=>$correo, 'contraseña'=>$contraseña] = Validar::ValidarArray($p, [
+  'correo' => 'isString|isEmail',
   'contraseña' => 'isString'
 ]);
-    extract($p);
+    //extract($p);
     self::init();
     $arreglo = self::validar_datosDB($correo, $contraseña);
     if ($arreglo[0]) {

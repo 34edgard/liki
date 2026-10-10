@@ -10,6 +10,9 @@ class WebSocketServer {
     private $clients = [];
     private $origins = [];
     private $handshakeHeaders = [];
+    private $host;
+    private $port;
+    private $options;
     
     /**
      * Constructor del servidor WebSocket

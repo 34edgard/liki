@@ -3,7 +3,6 @@
 namespace Liki\Routing;
 use Liki\ErrorHandler;
 use Exception;
-
 set_exception_handler(function($exception){
       ErrorHandler::getInstance()->handle(
       ErrorHandler::SERVER_ERROR,
@@ -12,6 +11,7 @@ set_exception_handler(function($exception){
      500
  );
 });
+
 
 
 interface Rutas_Server {
@@ -43,31 +43,51 @@ class Ruta implements Rutas_Server {
     $pR = count($parametros_recibidos) ;
     $pE = count($parametros_esperados);
       if($pR < $pE ) throw new Exception('Error: Faltan parametros requeridos en la ruta '.$_SERVER['REQUEST_URI']);
-                       /*  ErrorHandler::getInstance()->handle(
-            ErrorHandler::VALIDATION_ERROR,
-            'Error: Faltan parametros requeridos en la ruta '.$_SERVER['REQUEST_URI'],
-           ['exception' => 'error se mandaron parametros no declarados'],
-           400
-                         )*/
+                       
      
         if($pR > $pE ) throw new Exception('Error: Demaciados parametros en la ruta '.$_SERVER['REQUEST_URI']);
         
-       /* ErrorHandler::getInstance()->handle(
-                    ErrorHandler::VALIDATION_ERROR,
-                    'Error: Demaciados parametros en la ruta '.$_SERVER['REQUEST_URI'],
-                   ['exception' => 'error se mandaron parametros no declarados'],
-                   400
-        );*/
+       
     
-      foreach ($parametros_esperados as $parametro) {
-            if (!isset($parametros_recibidos[$parametro])) {
+      foreach ($parametros_esperados as $id => $parametro) {
+        
+            if (is_int($id) && !isset($parametros_recibidos[$parametro])) 
                 return false;
-            }
+            if (is_string($id) && !isset($parametros_recibidos[$id]))
+            return false;
+            
+            if(is_string($id) && $parametro != '')
+            self::validar_reglas([$id=>$parametro],$parametros_recibidos);
         }
         return true;
     }
 
 
+public static function validar_reglas(array $reglas, array $parametros_recibidos): void {  
+
+      
+    foreach ($reglas as $campo => $regla) {  
+        $reglas_array = explode('|', $regla);  
+          
+        foreach ($reglas_array as $r) {  
+            if ($r === 'required' && !isset($parametros_recibidos[$campo])) {  
+                throw new Exception("El campo $campo es requerido");  
+            }  
+            if ($r === 'email' && isset($parametros_recibidos[$campo]) && !filter_var($parametros_recibidos[$campo], FILTER_VALIDATE_EMAIL)) {  
+                 throw new Exception("El campo $campo debe ser un email válido");  
+            }  
+            if (strpos($r, 'min:') === 0 && isset($parametros_recibidos[$campo])) {  
+                $min = substr($r, 4);  
+                if (strlen($parametros_recibidos[$campo]) < $min) {  
+                    throw new Exception("El campo $campo debe tener al menos $min caracteres");  
+                }
+            }  
+        }  
+    }  
+      
+    
+
+}
 
 
     /**
@@ -107,18 +127,21 @@ class Ruta implements Rutas_Server {
             'method' => $method,
             'url_pattern' => $url_pattern,
             'handler' => $handler,
-            'parametros_esperados' => self::clacificar_parametros_esperados($parametros_esperados),
+            'parametros_esperados' => self::clacificar_parametros_esperados($parametros_esperados,$url_pattern),
             'funcion_extra' => $funcion_extra,
             'regex_pattern' => self::compile_route_pattern($url_pattern) // Compila el patrón para regex
         ];
     }
 
-private static function clacificar_parametros_esperados(array $parametros_esperados): array{
+private static function clacificar_parametros_esperados(array $parametros_esperados, string $url_pattern = ''): array{
     $todos_parametros_esperados = [];
+    $parametros_esperados = array_merge($parametros_esperados,self::separar_parametros_url($url_pattern));
+  
+
     foreach($parametros_esperados as $id => $parametro){
         if(is_string($id)){
-            $todos_parametros_esperados[] = $id;
-        }else{
+            $todos_parametros_esperados[$id] = $parametro;
+        }else if(is_int($id)){
             $todos_parametros_esperados[] = $parametro;
         }
     }
@@ -214,6 +237,19 @@ public static function head(string $url_pattern, callable $funcion, array $param
     self::add_route('HEAD', $url_pattern, $funcion, $parametros_esperados, $funcion_extra);
 }
 
+public static function separar_parametros_url(string $url_pattern):array{
+    $f =explode('/',$url_pattern);
+    $dynamic_params = [];
+    foreach($f as  $a){
+    if(strpos($a,'{') === 0){
+      $a=  str_replace('{','',$a);
+      $a=  str_replace('}','',$a);
+      $dynamic_params[] = $a;
+    
+    }
+    }
+    return $dynamic_params;
+}
 
     /**
      * Procesa la solicitud entrante y despacha a la función de callback correspondiente.
@@ -238,13 +274,22 @@ public static function head(string $url_pattern, callable $funcion, array $param
             if ($route['method'] === $request_method && preg_match($route['regex_pattern'], $request_uri, $matches)) {
                 // Elimina el primer elemento de $matches (la cadena completa)
                 array_shift($matches);
-                $dynamic_params = $matches; // Parámetros extraídos de la URL dinámica
+                $dynamic_params = [];
+                
+                $parametros_url = self::separar_parametros_url($route['url_pattern']);
+                
+                foreach($matches as $id => $parametro){
+                   $dynamic_params[$parametros_url[$id]]= $parametro;
+                
+                }
+                
+                
+                
 
                 // Combina los parámetros dinámicos con los datos de entrada
                 $all_params = array_merge($input_data, $dynamic_params);
-
-                // Validar parámetros esperados (si los hay)
-                if (!empty($route['parametros_esperados']) && !self::validar_parametros($route['parametros_esperados'], $input_data)) {
+         // Validar parámetros esperados (si los hay)
+                if (!empty($route['parametros_esperados']) && !self::validar_parametros($route['parametros_esperados'], $all_params)) {
                     // Si faltan parámetros esperados, se podría lanzar una excepción o devolver un error 400
                   
                 ErrorHandler::getInstance()->handle(
@@ -259,7 +304,7 @@ public static function head(string $url_pattern, callable $funcion, array $param
                 
                 //sanitización
                 $all_params=self::sanitizar_entrada($all_params);
-
+                
                 try {
                     // Prepara los argumentos para la función de callback
                     $args = [];
@@ -301,9 +346,9 @@ public static function head(string $url_pattern, callable $funcion, array $param
     
     
 
-public static function modul( string $ruta, bool $condicion = false, array $middlewares = []){
+public static function modul( string $ruta, bool $condicion = true, array $middlewares = []){
         $urlFile = CONTOLLER_PATH.'backend/Funciones/Rutas/'.$ruta.'.php';
-       if($condicion) return;
+       if(!$condicion) return;
         if(!file_exists($urlFile))            
          throw new Exception('el archivo de rutas '.$urlFile.' no existe');
         
@@ -357,7 +402,7 @@ foreach($parametrosCompartidos as $parametro) {
 
 public static function prefix(string $prefijo, callable $agregarRutas, array $middlewares =[], array $Funciones = []){
     foreach($middlewares as $middleware){
-      if( $middleware()) return;
+      if(!$middleware()) return;
     }
     
    $nRutas = count(self::$routes);
@@ -386,4 +431,8 @@ public static function obtener_rutas(): array {
     
     
 }
+
+
+
+
 

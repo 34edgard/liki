@@ -1,0 +1,1 @@
+SELECT  email ,  id_correo  FROM  `correo`  WHERE email = :op_email_6ac960fea1c3d","error":"SQLSTATE[

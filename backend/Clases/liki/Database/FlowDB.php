@@ -13,7 +13,7 @@ class FlowDB{
       protected  $tabla ;
       protected $modelo;
       public $Consultas_BD;
-        public $consultaArray;
+        public $consultaArray = ['where'];
         public $camposValidar =[];
         
         public array $joins = [];
@@ -165,17 +165,22 @@ public function reset(){
     $this->joins =[];
      return $this;
 }
-
-
+ 
+public function orWhere(array $where){
+$this->consultaArray['where'][] = ['OR'=> $this->where($where)];
+return $this;
+}
 public function where(array $where){
       $Nwhere =[];
+    
       foreach($where as $name => $valor){
-        if(is_array($valor) && count($valor) == 2){
-            
+        
+        
+        if(is_array($valor) && count($valor) == 2 && !is_array($valor[0])){
             $Nwhere[] = [
                 "campo"=>$name,
-                "operador"=>$valor[0],
-                "valor"=>$valor[1]
+                "operador"=>$valor[0] ,
+                "valor"=>$valor[1] 
             ];
         }else{
              $Nwhere[] = [
@@ -184,15 +189,16 @@ public function where(array $where){
                  "valor"=>$valor
              ];
         }
-         
+        
+        
       }
     return $Nwhere;
 }
 
 public function get(array $where = []){
   $Nwhere = $this->where($where);
-    $this->consultaArray['where'] = $Nwhere;
-  //  print_r($this->consultaArray);
+    $this->consultaArray['where']= array_merge($this->consultaArray['where'],$Nwhere);
+    print_r($this->consultaArray);
   $resul =  $this->consultar($this->consultaArray);
 $this->reset();
 return $resul;
@@ -237,3 +243,8 @@ public function delete(array $where = []){
 }
     
 }
+
+
+
+
+

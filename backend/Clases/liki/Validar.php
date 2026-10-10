@@ -1,32 +1,38 @@
 <?php
 namespace Liki;
-
+use Exception;
 class Validar {
 
     public static function isInclude(array $campos, string $id = '') {
-        if(count($campos) == 0 || $id == '') return;
-        if (!isset($campos[$id])) {
+        if(count($campos) == 0) throw new \Exception("Error: no se a pasado los campos .");
+        
+       if($id == '' ) throw new \Exception("Error: no se a pasado id .");
+       
+     if (!isset($campos[$id])) {
             throw new \Exception("Error: El campo '$id' no está incluido en el arreglo .");
         }
     }
 
-    public static function validacionDinamica(callable $f, $parametro, $campo) {
-        return $f($parametro, $campo);
+    public static function validacionDinamica(callable $f, $parametro, $campo,array $valores = []) {
+        return $f($parametro, $campo, ...$valores);
     }
 
-    public static function ValidarArray(array $parametro, array $validaviones) {
+    public static function ValidarArray(array $parametro, array $validaviones):array {
         foreach ($validaviones as $campo => $validavio) {
             if (!isset($parametro[$campo]))
                 throw new \InvalidArgumentException("Expected no existe $campo");
-            self::validacionDinamica([Validar::class, $validavio], $parametro[$campo], $campo);
-        }
+               foreach(explode('|',$validavio) as $regla){
+                   $parametro[$campo] = self::validacionDinamica([Validar::class, $regla], $parametro[$campo], $campo);
+                   
+               }
+      }
+        return $parametro;
     }
 
  public static function ValidarArrayExistente(array $parametro, array $validaviones) {
      foreach ($validaviones as $campo => $validavio) {
          if (!isset($parametro[$campo]))
          continue;
-            // throw new \InvalidArgumentException("Expected no existe $campo");
          self::validacionDinamica([Validar::class, $validavio], $parametro[$campo], $campo);
      }
  }
@@ -130,14 +136,10 @@ class Validar {
      * @return int|float
      * @throws \InvalidArgumentException
      */
-    public static function isMin($dato, $campo, $min): int|float {
+    public static function isMin($dato, $campo, $min = 4): int|float {
         // Conversión: si es una cadena numérica, convertir a número
-        if (!is_numeric($dato)) {
-            if (is_string($dato) && is_numeric($dato)) {
+        if (!is_numeric($dato) && is_string($dato)) {
                 $dato = $dato + 0; // convierte a int o float según corresponda
-            } else {
-                throw new \InvalidArgumentException("Expected numeric value for min validation in $campo");
-            }
         }
         if ($dato < $min) {
             throw new \InvalidArgumentException("Value in $campo must be at least $min");
@@ -156,16 +158,14 @@ class Validar {
      * @throws \InvalidArgumentException
      */
     public static function isMax($dato, $campo, $max): int|float {
-        if (!is_numeric($dato)) {
-            if (is_string($dato) && is_numeric($dato)) {
-                $dato = $dato + 0;
-            } else {
-                throw new \InvalidArgumentException("Expected numeric value for max validation in $campo");
-            }
+        if (!is_numeric($dato) && is_string($dato)) {
+            $dato = $dato = $dato + 0;
         }
+        
         if ($dato > $max) {
             throw new \InvalidArgumentException("Value in $campo must be at most $max");
         }
         return $dato;
     }
 }
+

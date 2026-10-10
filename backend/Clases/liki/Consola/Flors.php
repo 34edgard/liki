@@ -3,11 +3,35 @@
 namespace Liki\Consola;  
   
 class Flors {  
-    const FLORS_FILE = './docs/struct/flors.json';  
-    const STRUCT_DIR = './docs/struct/';  
-  
+      public static function registrar($config,$struct){
+      $flors = json_decode(file_get_contents(FLORS_FILE),true);
+   
+     $nFlos= [
+             "nombre"=> $config["nombre"],  
+             "version"=>$config["version"],  
+            "struct"=> $struct,  
+           "instalado_en"=> date('Y-m-d')
+             ];
+            
+       foreach($flors['instalados'] as $id => $campo){
+         if($campo['nombre'] ==  $config['nombre'] ) {
+        $flors['instalados'][$id] = $nFlos;
+        break;
+       }else{
+        $flors['instalados'][] = $nFlos;
+        break;
+       }
+       }
+        
+         
+            
+            
+ file_put_contents(FLORS_FILE,json_encode($flors));
+
+
+ }
     public static function instalar(string $struct): void {  
-        $config = json_decode(file_get_contents($struct), true);  
+        $config = json_decode(file_get_contents(STRUCT_DIR.$struct.".json"), true);  
         // Copiar archivos a sus destinos  
         foreach ($config['archivos'] as $archivo) {  
             // crear directorios si no existen  
@@ -16,6 +40,19 @@ class Flors {
         // Registrar en flors.json  
         self::registrar($config, $struct);  
     }  
+    
+    public static function integrar(string $nombre){
+    
+    }
+    public static function cargarFlors(){
+        
+    }
+    public static function buscar($nombre){
+        
+    }
+    public static function desregistrar($nombre){
+        
+    }
   
     public static function remover(string $nombre): void {  
         $flors = self::cargarFlors();  
@@ -29,3 +66,5 @@ class Flors {
         self::desregistrar($nombre);  
     }  
 }
+
+

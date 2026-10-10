@@ -1,0 +1,16 @@
+{
+    "name": "liki/app",
+    "description": "es una prueva",
+    "type": "project",
+    "autoload": {
+        
+    },
+    "authors": [
+        {
+            "name": "edgard"
+        }
+    ],
+    "require-dev": {
+        "phpstan/phpstan": "^2.2"
+    }
+}

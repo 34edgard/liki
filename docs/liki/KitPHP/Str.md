@@ -1,4 +1,8 @@
 
+
+## Ejemplo de uso (API fluida)
+
+```php
 $slug = Str::of(" Hola MUuuuUUUndo ")
     ->trim()
     ->lower()
@@ -16,5 +20,13 @@ Str::of('Hola Mundo')->endsWith('Mundo');    // true
 echo Str::of('hola_mundo_test')->toCamel();  // "holaMundoTest"
 echo Str::of('holaMundoTest')->toSnake();    // "hola_mundo_test"
 echo Str::of('Mi Título Ñoño')->slug();      // "mi-titulo-nono"
+```
 
+## Notas clave del diseño
+
+| Tipo de método | Devuelve | Ejemplo |
+|---|---|---|
+| Transformación | `self` (para encadenar) | `trim`, `upper`, `slug` |
+| Consulta | `bool`/`int`/`array` | `contains`, `len`, `split` |
+| Salida | `string` | `toString`, `__toString` |
 

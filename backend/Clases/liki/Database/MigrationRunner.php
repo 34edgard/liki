@@ -1,8 +1,8 @@
 <?php
 namespace Liki\Database;
-use Liki\Files\File;
+
 use Liki\Database\ConsultasBD;  
-//use glob;
+
 class MigrationRunner {  
     private $connection;  
     private $migrationTable;  
@@ -134,3 +134,5 @@ private function getNextBatchNumber() {
         return $stmt->fetchAll(\PDO::FETCH_COLUMN);  
     }  
 }
+
+

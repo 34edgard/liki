@@ -1,5 +1,9 @@
 
-//use Liki\KitPHP\Num;
+
+## Ejemplo de uso (API fluida)
+
+```php
+use Liki\KitPHP\Num;
 
 // Aritmética encadenada
 echo Num::of(10)->add(5)->multiply(2)->subtract(3)->divide(9);
@@ -28,6 +32,17 @@ Num::of(50)->clamp(1, 10);                // 10
 echo Num::of(1234567.891)->toFormatted(2, '.', ','); // "1,234,567.89"
 
 // Validación
-//Num::of("abc"); // lanza InvalidArgumentException
-//Num::of(5)->divide(0); // lanza InvalidArgumentException
+Num::of("abc"); // lanza InvalidArgumentException
+Num::of(5)->divide(0); // lanza InvalidArgumentException
+```
+
+## Reglas de diseño aplicadas
+
+| Tipo de método | Devuelve | Ejemplos |
+|---|---|---|
+| Aritmética | `self` (encadenable) | `add`, `subtract`, `multiply`, `divide`, `pow` |
+| Redondeo | `self` | `round`, `floor`, `ceil`, `truncate` |
+| Comparación | `bool` | `isEven`, `greaterThan`, `between` |
+| Cálculo puro | `int`/`float` | `percentageOf`, `toFormatted` |
+| Salida | `int`/`float`/`string` | `toInt`, `toFloat`, `__toString` |
 

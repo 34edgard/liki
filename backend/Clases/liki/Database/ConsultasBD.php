@@ -52,13 +52,13 @@ class ConsultasBD {
     public function prepare(string $query){
        return  $this->conexion->prepare($query);
     }    
-    public function ejecutarConsulta(string $sql, array $parametros = []): int {
+    public function ejecutarConsulta(string $sql, array $parametros = []): void {
        // $conexion = $this->crearConexion();     
         
         try {
             $stmt = $this->conexion->prepare($sql); // Prepara la consulta
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
-            return $stmt->rowCount(); // Retorna el número de filas afectadas
+            // return $stmt->rowCount(); // Retorna el número de filas afectadas
         } catch (PDOException $e) {
             
             ErrorHandler::getInstance()->handle(
@@ -84,10 +84,13 @@ class ConsultasBD {
     public function consultarRegistro(string $sql, array $parametros = []): array {
       
         $arreglo = [];
+        
         try {
-            $stmt = $this->conexion->prepare($sql); // Prepara la consulta
+            foreach(explode(';',$sql) as $consulta){
+            $stmt = $this->conexion->prepare($consulta); // Prepara la consulta
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
             $arreglo = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtiene todos los resultados
+            }
         } catch (PDOException $e) {
             ErrorHandler::getInstance()->handle(
             ErrorHandler::DB_QUERY_ERROR,

@@ -2,7 +2,7 @@
 
 namespace Liki\Coroutines;
 use Generator;
-
+use Exception;
 
 /**
  * Clase Coroutine - Utilidades para trabajar con corrutinas

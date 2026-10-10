@@ -87,6 +87,12 @@ class ErrorHandler {
           
         exit;  
     }  
+    
+    
+    
+    public function arrayToXml($response){
+       return xmlrpc_encode($response);
+    }
     private function logError($errorCode, $message, $details) {  
         $logMessage = sprintf(  
             "[%s] Code: %d | Message: %s | Details: %s | User: %s | IP: %s\n",  
