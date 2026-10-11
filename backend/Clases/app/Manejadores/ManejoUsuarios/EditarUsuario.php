@@ -13,6 +13,10 @@ return new class {
       "apellidos",
       "id_rol",
       "usuario"];
+    $ci = (int)$ci;
+    $rol = (int)$rol;
+    
+    
     $valores = [$ci,
       $nombre,
       $apellido,

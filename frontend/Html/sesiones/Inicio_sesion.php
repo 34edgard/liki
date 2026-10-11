@@ -55,9 +55,4 @@
 <div id="caja"></div>
         </div>
         
-    <script type="module" >
-    import * as THREE from './frontend/js/three.module.js';
     
-    const scene = new THREE.Scene();
-    alert('seco')
-    </script>

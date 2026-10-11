@@ -170,12 +170,16 @@ public function orWhere(array $where){
 $this->consultaArray['where'][] = ['OR'=> $this->where($where)];
 return $this;
 }
+
+
+private function addWhere(array $Nwhere):void{
+    $whereActual = $this->consultaArray['where'] ?? [];
+    $this->consultaArray['where']= array_merge($whereActual,$Nwhere);
+}
 public function where(array $where){
       $Nwhere =[];
     
       foreach($where as $name => $valor){
-        
-        
         if(is_array($valor) && count($valor) == 2 && !is_array($valor[0])){
             $Nwhere[] = [
                 "campo"=>$name,
@@ -197,9 +201,8 @@ public function where(array $where){
 
 public function get(array $where = []){
   $Nwhere = $this->where($where);
-    $this->consultaArray['where']= array_merge($this->consultaArray['where'],$Nwhere);
-    print_r($this->consultaArray);
-  $resul =  $this->consultar($this->consultaArray);
+    $this->addWhere($Nwhere);
+  $resul = $this->consultar($this->consultaArray);
 $this->reset();
 return $resul;
 }
@@ -222,8 +225,7 @@ public function head(array $where = []): bool {
 }
 public function put(array $where = []){
       $Nwhere = $this->where($where);
-     $this->consultaArray['where'] = $Nwhere;
-     
+      $this->addWhere($Nwhere);
     $this->editar($this->consultaArray);
        $this->reset();
 }
@@ -237,14 +239,9 @@ public function patch(array $where = [], array $campos = ['*']):array{
 
 public function delete(array $where = []){
       $Nwhere = $this->where($where);
-    $this->consultaArray['where'] = $Nwhere;
-    $this->eliminar($this->consultaArray);
+  $this->addWhere($Nwhere);
+   $this->eliminar($this->consultaArray);
        $this->reset();
 }
     
 }
-
-
-
-
-

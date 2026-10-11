@@ -133,7 +133,7 @@ public static function validar_reglas(array $reglas, array $parametros_recibidos
         ];
     }
 
-private static function clacificar_parametros_esperados(array $parametros_esperados, string $url_pattern = ''): array{
+private static function clacificar_parametros_esperados(array $parametros_esperados = [], string $url_pattern = ''): array{
     $todos_parametros_esperados = [];
     $parametros_esperados = array_merge($parametros_esperados,self::separar_parametros_url($url_pattern));
   
@@ -178,12 +178,6 @@ default:
 return $valor;
 }
 }
-
-
-
-
-
-
 
 
     /**
@@ -261,9 +255,7 @@ public static function separar_parametros_url(string $url_pattern):array{
         // Manejar datos de entrada para PUT/DELETE
         $input_data = [];
         if (in_array($request_method, ['PUT','DELETE', 'PATCH', 'OPTIONS', 'HEAD']) ){
-            
             parse_str(file_get_contents("php://input"), $input_data);
-            
         } elseif ($request_method === 'POST') {
             $input_data = $_POST;
         } elseif ($request_method === 'GET') {
@@ -282,9 +274,6 @@ public static function separar_parametros_url(string $url_pattern):array{
                    $dynamic_params[$parametros_url[$id]]= $parametro;
                 
                 }
-                
-                
-                
 
                 // Combina los parámetros dinámicos con los datos de entrada
                 $all_params = array_merge($input_data, $dynamic_params);
@@ -343,8 +332,6 @@ public static function separar_parametros_url(string $url_pattern):array{
         
         
     }
-    
-    
 
 public static function modul( string $ruta, bool $condicion = true, array $middlewares = []){
         $urlFile = CONTOLLER_PATH.'backend/Funciones/Rutas/'.$ruta.'.php';
@@ -395,9 +382,6 @@ foreach($parametrosCompartidos as $parametro) {
 
 }
 
-
- 
-
 }
 
 public static function prefix(string $prefijo, callable $agregarRutas, array $middlewares =[], array $Funciones = []){
@@ -412,14 +396,11 @@ foreach(self::$routes as $index => $rutas ){
     
     if($index < $nRutas ) continue;
     
-    
     self::$routes[$index]['url_pattern'] = $prefijo.$rutas['url_pattern'];
     self::$routes[$index]['regex_pattern'] = self::compile_route_pattern($prefijo.$rutas['url_pattern']);// Compila el patrón para regex
      foreach($Funciones as $Funcion) {
     self::$routes[$index]['funcion_extra'][] = $Funcion;
      }
- 
-
 }
 }
 
@@ -428,11 +409,4 @@ public static function obtener_rutas(): array {
     return self::$routes;
 }
     
-    
-    
 }
-
-
-
-
-

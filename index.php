@@ -3,7 +3,7 @@
 $startMem = memory_get_usage();
  $inicio = microtime(true); // Guarda el tiempo actual como un número flotante    
   */
-
+//declare(strict_types=1);
 include "./conf.php";
 include "./backend/autoload.php";
 //include "./vendor/autoload.php";
