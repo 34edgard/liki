@@ -10,7 +10,8 @@ abstract class SentenciasSql {
     protected static function añadirCampo(string $campo): void {
         self::$sql .= " $campo ";
     }
-
+    
+    
     // Este método ya no es necesario para construir SQL directamente
     // Se usará para añadir los valores a los parámetros.
     protected static function añadirParametro(string $nombre, mixed $valor): string {

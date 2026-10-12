@@ -4,36 +4,9 @@ namespace Liki\SQL;
 use Liki\SQL\SentenciasSql;
 
 class Consultar extends SentenciasSql implements iSql {
-    protected static array $joins = [];
-    protected static array $groupBy = [];
-    protected static array $having = [];
+   
     protected static ?array $unionClause = null;
 
-    public static function addJoin(string $type, string $table, string $onCondition) {
-        // Los JOINS generalmente no necesitan parámetros en la condición ON si los campos son fijos.
-        // Si la condición ON puede variar por datos del usuario, necesitarías marcadores de posición aquí también.
-        self::$joins[] = [
-            'type' => strtoupper($type),
-            'table' => $table,
-            'on' => $onCondition
-        ];
-      //  return self::class;
-    }
-public static function setJoin(array $joins) {
-    // Los JOINS generalmente no necesitan parámetros en la condición ON si los campos son fijos.
-    // Si la condición ON puede variar por datos del usuario, necesitarías marcadores de posición aquí también.
-    self::$joins = $joins;
-  //  return self::class;
-}
-    public static function setGroupBy(array $columns) {
-        self::$groupBy = $columns;
-       // return self::class;
-    }
-
-    public static function setHaving(array $conditions): self {
-        self::$having = $conditions;
-        return self::class;
-    }
 
     public static function setUnion(string $type, mixed $query): self {
         if (!in_array(strtoupper($type), ['UNION', 'UNION ALL'])) {
@@ -66,9 +39,14 @@ public static function setJoin(array $joins) {
         self::añadirTabla($propiedades['tabla']);
 
         // Añadir JOINS
-        foreach (self::$joins as $join) {
-            self::$sql .= " " . $join['type'] . " JOIN `" . $join['table'] . "` ON " . $join['on'];
+        if(isset($propiedades['join'])){
+            foreach ($propiedades['join'] as $join) {
+                self::$sql .= " " . $join['type'] . " JOIN `" . $join['table'] . "` ON " . $join['on'];
+            }
         }
+        
+        
+        
 
         // Cláusula WHERE
         if (isset($propiedades['where']) && is_array($propiedades['where'])) {
@@ -76,14 +54,14 @@ public static function setJoin(array $joins) {
         }
 
         // Añadir GROUP BY
-        if (!empty(self::$groupBy)) {
-            self::$sql .= " GROUP BY " . implode(", ", array_map(fn($col) => "$col", self::$groupBy));
+        if (isset($propiedades['groupBy'])) {
+            self::$sql .= " GROUP BY " . implode(", ", array_map(fn($col) => "$col", $propiedades['groupBy']));
         }
 
         // Añadir HAVING
-        if (!empty(self::$having)) {
+        if (isset($propiedades['having'])) {
             self::$sql .= " HAVING ";
-            self::añadirCondiciones(self::$having, 'AND'); // Reutiliza la lógica de condiciones
+            self::añadirCondiciones($propiedades['having'], 'AND'); // Reutiliza la lógica de condiciones
         }
 
         // Cláusula ORDER BY
@@ -113,7 +91,9 @@ public static function setJoin(array $joins) {
         }
         // Pasa los parámetros generados por referencia al array de parámetros global
         $parametros = self::$parametros;
-           //echo $this->sql;
+           echo self::$sql;
+        
         return trim(self::$sql);
     }
+    
 }

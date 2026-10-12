@@ -793,3 +793,8 @@ url: /pheditor.php
 metodo: GET
 parametros: 
 
+-------------
+url: 
+metodo: 
+parametros: 
+

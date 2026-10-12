@@ -9,10 +9,16 @@ include "./backend/autoload.php";
 //include "./vendor/autoload.php";
 use Liki\Routing\Ruta;
 use Middleware\AuthMiddleware;
+use Liki\Database\FlowDB;
+$db = new FlowDB();
+print_r($db->tabla('correo')
+->groupBy('email')
+->having(['email'=>['!=','hvjj']])
+//->join('','correo','usuario.id_correo = correo.id_correo')
+->get());
 
 
-
-
+/*
 Ruta::modul('liki/toolsDep',true,[
     [AuthMiddleware::class,'login'],
     [AuthMiddleware::class,'isAdmin']
@@ -31,7 +37,7 @@ Ruta::modul('app/Usuario');
 
  
 Ruta::dispatch();
-
+*/
 /*
 $fin = microtime(true); // Guarda el tiempo final
 $tiempo_total = $fin - $inicio; // Calcula la diferencia     

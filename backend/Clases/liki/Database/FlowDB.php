@@ -13,11 +13,14 @@ class FlowDB{
       protected  $tabla ;
       protected $modelo;
       public $Consultas_BD;
-        public $consultaArray = ['where'];
+        public $consultaArray = [
+            'groupBy'=>[],
+            'having'=>[],
+            'join'=>[],
+            'where'=>[]];
         public $camposValidar =[];
         
-        public array $joins = [];
-        public array $groupBys = [];
+        
         private static $instance = null;  
             private static $connection = null;  
               
@@ -37,10 +40,14 @@ class FlowDB{
             }  
         
         
-    public function __construct(){
-      
-   $this->Consultas_BD = new ConsultasBD;
-   }
+    public function __construct(?string $modelClass = null){
+        $this->Consultas_BD = new ConsultasBD;
+        if ($modelClass !== null) {
+            $this->modelo = DelegateFunction::loadModel($modelClass);
+            $this->tabla  = $this->modelo->getTabla();
+            $this->consultaArray['tabla'] = $this->tabla;
+        }
+    }
     
     public function registrar(array $datos){
       $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;
@@ -59,8 +66,7 @@ class FlowDB{
       $datos['tabla'] = $this->consultaArray['tabla'] ?? $this->tabla;
       $parametrosConsulta = [];
       try{
-       Consultar::setJoin($this->joins);
-       Consultar::setGroupBy($this->groupBys);
+       
       $sql = Consultar::generar_sql($datos,$parametrosConsulta);
     
       return  $this->Consultas_BD->consultarRegistro($sql,$parametrosConsulta);
@@ -146,12 +152,17 @@ public function orderBy(string $campo ,string $direccion ='DESC' ){
     
 }
 public function groupBy(string $campo){
-    $this->groupBys[] = $campo;
+    $this->consultaArray['groupBy'][] = $campo;
     return $this;
 }
-public function join($tipo,$campo,$where){
 
-   $this->joins[] = [
+public function having(array $condiciones){
+    $this->consultaArray['having'] = [...$this->consultaArray['having'],...$this->where($condiciones)];
+    return $this;
+}
+
+public function join($tipo,$campo,$where){
+   $this->consultaArray['join'][] = [
         'type' => strtoupper($tipo),
         'table' => $campo,
         'on' => $where
@@ -160,9 +171,7 @@ public function join($tipo,$campo,$where){
 }
 
 public function reset(){
-     
      $this->consultaArray = [];
-    $this->joins =[];
      return $this;
 }
  
