@@ -1,10 +1,1 @@
-{"version":"1.0","instalados":[
-    {"nombre":"liki-charts",
-    "version":"1.0.0",
-    "struct":"liki-charts.struct",
-    "instalado_en":"2026-10-02"},
-    {"nombre":"liki-auth",
-    "version":"0.2.0",
-    "struct":"docs\/struct\/liki-auth.struct.json",
-    "instalado_en":"2026-05-31"}
-    ]}
+{"version":"1.0","instalados":[{"nombre":"liki-charts","version":"1.0.0","struct":"liki","instalado_en":"2026-10-13"},{"nombre":"liki-auth","version":"0.2.0","struct":"docs\/struct\/liki-auth.struct.json","instalado_en":"2026-05-31"}]}

@@ -12,22 +12,17 @@ use Exception;
 class FlowDB{
       protected  $tabla ;
       protected $modelo;
-      public $Consultas_BD;
-        public $consultaArray = [
-            'groupBy'=>[],
-            'having'=>[],
-            'join'=>[],
-            'where'=>[]];
+        public $consultaArray = [];
         public $camposValidar =[];
         
         
         private static $instance = null;  
-            private static $connection = null;  
+            private  $connection = null;  
               
             public static function conf(string $modelClass): self {  
                 if (self::$instance === null) {  
                     self::$instance = new self();  
-                    self::$connection = new ConsultasBD(); // Única conexión  
+                    self::$instance->connection = new ConsultasBD(); // Única conexión  
                 }  
                   
                 // Obtener nombre de tabla del modelo  
@@ -41,7 +36,7 @@ class FlowDB{
         
         
     public function __construct(?string $modelClass = null){
-        $this->Consultas_BD = new ConsultasBD;
+        $this->connection = new ConsultasBD;
         if ($modelClass !== null) {
             $this->modelo = DelegateFunction::loadModel($modelClass);
             $this->tabla  = $this->modelo->getTabla();
@@ -55,7 +50,7 @@ class FlowDB{
       $sql = Registrar::generar_sql($datos,$parametrosRegistro);
      try{
          
-      $this->Consultas_BD->ejecutarConsulta($sql,$parametrosRegistro);
+      $this->connection->ejecutarConsulta($sql,$parametrosRegistro);
      }catch(Exception $e){
          throw new Exception("Error: ". $e->getMessage());
      }
@@ -69,7 +64,7 @@ class FlowDB{
        
       $sql = Consultar::generar_sql($datos,$parametrosConsulta);
     
-      return  $this->Consultas_BD->consultarRegistro($sql,$parametrosConsulta);
+      return  $this->connection->consultarRegistro($sql,$parametrosConsulta);
            }catch(Exception $e){
                throw new Exception("Error: ". $e->getMessage());
            }
@@ -83,7 +78,7 @@ class FlowDB{
       try{
         
       $sql = Consultar::generar_sql($datos,$parametrosConsultaId);
-      return $this->Consultas_BD->consultarRegistro($sql,$parametrosConsultaId);
+      return $this->connection->consultarRegistro($sql,$parametrosConsultaId);
           }catch(Exception $e){
               throw new Exception("Error: ". $e->getMessage());
           }
@@ -95,7 +90,7 @@ class FlowDB{
       
     try{
       $sql = Editar::generar_sql($datos,$parametrosEdicion);
-      $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEdicion);
+      $this->connection->ejecutarConsulta($sql, $parametrosEdicion);
        }catch(Exception $e){
            throw new Exception("Error: ". $e->getMessage());
        }
@@ -107,7 +102,7 @@ class FlowDB{
       $parametrosEliminar = [];
     try{
       $sql = Eliminar::generar_sql($datos, $parametrosEliminar);
-      $this->Consultas_BD->ejecutarConsulta($sql, $parametrosEliminar);
+      $this->connection->ejecutarConsulta($sql, $parametrosEliminar);
       }catch(Exception $e){
           throw new Exception("Error: ". $e->getMessage());
       }
@@ -157,11 +152,35 @@ public function groupBy(string $campo){
 }
 
 public function having(array $condiciones){
-    $this->consultaArray['having'] = [...$this->consultaArray['having'],...$this->where($condiciones)];
+    $this->consultaArray['having'] =$this->consultaArray['having']  ?? $this->where($condiciones);
     return $this;
 }
 
-public function join($tipo,$campo,$where){
+
+public function innerJoin(string $campo,string $where){
+    $this->jion('INNER',$campo,$where);
+    return $this;
+}
+public function leftJoin(string $campo,string $where){
+    $this->jion('LEFT',$campo,$where);
+    return $this;
+}
+public function rightJoin(string $campo,string $where){
+    $this->jion('RIGHT',$campo,$where);
+    return $this;
+}
+public function fullJoin(string $campo,string $where){
+    $this->jion('FULL',$campo,$where);
+    return $this;
+}
+public function crossJoin(string $campo,string $where){
+    $this->jion('CROSS',$campo,$where);
+    return $this;
+}
+public function selfJoin(string $campo,string $where){
+    $this->jion('SELF',$campo,$where);
+}
+public function join(string $tipo,string $campo,string $where): object {
    $this->consultaArray['join'][] = [
         'type' => strtoupper($tipo),
         'table' => $campo,
@@ -171,7 +190,11 @@ public function join($tipo,$campo,$where){
 }
 
 public function reset(){
-     $this->consultaArray = [];
+     $this->consultaArray =[
+     'groupBy'=>[],
+     'having'=>[],
+     'join'=>[],
+     'where'=>[]];
      return $this;
 }
  
@@ -240,7 +263,7 @@ public function put(array $where = []){
 }
 
 public function patch(array $where = [], array $campos = ['*']):array{
-  $consulta = $this->consultaArray ?? $this->tabla;
+  $consulta = $this->consultaArray['tabla'] ?? $this->tabla;
   $this->put($where);
   return $this->tabla($consulta['tabla'])->campos($campos)->get($where);
     

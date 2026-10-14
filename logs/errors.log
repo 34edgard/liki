@@ -1,10 +1,7 @@
-[2026-10-10 23:27:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rs\/"} | User: 390390 | IP: 127.0.0.1
-[2026-10-10 23:27:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rendimiento\/"} | User: 390390 | IP: 127.0.0.1
-[2026-10-10 23:27:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/testing\/rutas"} | User: 390390 | IP: 127.0.0.1
-[2026-10-10 23:27:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/bdSQLWeb\/tablas"} | User: 390390 | IP: 127.0.0.1
-[2026-10-10 23:27:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/pages"} | User: 390390 | IP: 127.0.0.1
-[2026-10-10 23:27:36] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Terminal\/interfaz"} | User: 390390 | IP: 127.0.0.1
-[2026-10-12 05:42:56] Code: 2002 | Message: Error en la consulta | Details: {"sql":"SELECT  *  FROM  `correo`  GROUP BY","error":"SQLSTATE[HY000]: General error: 1 incomplete input"} | User: guest | IP: unknown
-[2026-10-12 05:46:13] Code: 2002 | Message: Error en la consulta | Details: {"sql":"SELECT  *  FROM  `correo`  GROUP BY  HAVING","error":"SQLSTATE[HY000]: General error: 1 near \"HAVING\": syntax error"} | User: guest | IP: unknown
-[2026-10-12 05:53:29] Code: 2002 | Message: Error en la consulta | Details: {"sql":"SELECT  *  FROM  `correo`  GROUP BY  HAVING `0` = :where_0_6acc75d94e78b","error":"SQLSTATE[HY000]: General error: 1 near \"HAVING\": syntax error"} | User: guest | IP: unknown
-[2026-10-12 05:56:42] Code: 2002 | Message: Error en la consulta | Details: {"sql":"SELECT  *  FROM  `correo`  GROUP BY  HAVING email != :op_email_6acc769ace29d","error":"SQLSTATE[HY000]: General error: 1 near \"HAVING\": syntax error"} | User: guest | IP: unknown
+[2026-10-14 06:46:38] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta "} | User: guest | IP: unknown
+[2026-10-14 06:48:14] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rs\/"} | User: 390390 | IP: 127.0.0.1
+[2026-10-14 06:48:14] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/rendimiento\/"} | User: 390390 | IP: 127.0.0.1
+[2026-10-14 06:48:14] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/testing\/rutas"} | User: 390390 | IP: 127.0.0.1
+[2026-10-14 06:48:14] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/bdSQLWeb\/tablas"} | User: 390390 | IP: 127.0.0.1
+[2026-10-14 06:48:14] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/pages"} | User: 390390 | IP: 127.0.0.1
+[2026-10-14 06:48:14] Code: 4001 | Message: Error: 404 Not Found | Details: {"exception":"404 Not Founden no se encontro la ruta \/Terminal\/interfaz"} | User: 390390 | IP: 127.0.0.1

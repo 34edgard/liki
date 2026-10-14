@@ -1,15 +1,25 @@
 {
     "name": "liki/app",
-    "description": "es una prueva",
+    "description": "aplicacion liki de ejemplo",
     "type": "project",
     "autoload": {
-        
+        "psr4": {
+            "Liki\\": "./backend/Clases/liki/",
+            "App\\": "./backend/Clases/app/",
+            "Funciones\\": "./backend/Funciones/",
+            "Middleware\\": "./backend/Funciones/Middleware/",
+            "Librerias\\": "./backend/Librerias/"
+
+        }
     },
     "authors": [
         {
             "name": "edgard"
         }
     ],
+    "scripts": {
+        "test-concurrencia": "bash ./docs/scripts/test.sh"
+    },
     "require-dev": {
         "phpstan/phpstan": "^2.2"
     }

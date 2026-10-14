@@ -54,18 +54,18 @@ class Consultar extends SentenciasSql implements iSql {
         }
 
         // Añadir GROUP BY
-        if (isset($propiedades['groupBy'])) {
+        if (isset($propiedades['groupBy']) && is_array($propiedades['groupBy']) && count($propiedades['groupBy']) > 0 ) {
             self::$sql .= " GROUP BY " . implode(", ", array_map(fn($col) => "$col", $propiedades['groupBy']));
         }
 
         // Añadir HAVING
-        if (isset($propiedades['having'])) {
+        if (isset($propiedades['having']) && is_array($propiedades['having']) && count($propiedades['having']) >0 ) {
             self::$sql .= " HAVING ";
             self::añadirCondiciones($propiedades['having'], 'AND'); // Reutiliza la lógica de condiciones
         }
 
         // Cláusula ORDER BY
-        if (isset($propiedades['orderBy']) && is_array($propiedades['orderBy'])) {
+        if (isset($propiedades['orderBy']) && is_array($propiedades['orderBy']) ) {
             self::$sql .= " ORDER BY ";
             // Aquí se asume que 'campo' y 'direccion' son nombres de columnas y no necesitan parámetros.
             // Si 'campo' o 'direccion' pudieran ser datos de usuario, necesitarías validación estricta (whitelist).
@@ -91,7 +91,7 @@ class Consultar extends SentenciasSql implements iSql {
         }
         // Pasa los parámetros generados por referencia al array de parámetros global
         $parametros = self::$parametros;
-           echo self::$sql;
+           //echo self::$sql;
         
         return trim(self::$sql);
     }

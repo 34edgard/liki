@@ -31,11 +31,23 @@ class Flors {
 
  }
     public static function instalar(string $struct): void {  
+    $zip = new \ZipArchive();
         $config = json_decode(file_get_contents(STRUCT_DIR.$struct.".json"), true);  
         // Copiar archivos a sus destinos  
+        if ($zip->open(STRUCT_DIR.'paketes/'.$struct.'.zip') === TRUE) {
+            $zip->extractTo(STRUCT_DIR.'/extraido'); // Extract to the current directory
+            $zip->close();
+            echo '¡Descompresión exitosa!<br>';
+        }else{
+            echo 'error';
+        }
         foreach ($config['archivos'] as $archivo) {  
             // crear directorios si no existen  
             // copiar archivo al destino  
+            $origen = STRUCT_DIR.'extraido/'.$archivo['origen'];
+            $destino = './'.$archivo['origen'];
+            rename($origen,$destino);
+            echo 'copiado a su destino '.$archivo['origen'];
         }  
         // Registrar en flors.json  
         self::registrar($config, $struct);  
