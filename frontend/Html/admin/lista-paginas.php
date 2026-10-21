@@ -58,11 +58,6 @@ $success = $success ?? false;
 </div>
 
 <!-- Modal para nueva página -->
-<!--<div class="modal fade" id="firefoxModal" tabindex="-1" aria-labelledby="firefoxModalLabel" aria-hidden="true">
--->
-
-
-
 
 <script>
 function crearNuevaPagina() {

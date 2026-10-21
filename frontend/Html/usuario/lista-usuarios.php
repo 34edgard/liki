@@ -1,5 +1,9 @@
 <?php
 use App\Controladores\DatosExtra\Correo;
+use Middleware\AuthMiddleware as Auth;
+
+
+
 $usuarioEstado = "activo";
 $estadoEstilo = "secondary";
   if ($estado == "activo") {
@@ -37,7 +41,7 @@ $estadoEstilo = "secondary";
   hx-target="#modal-form"
   >editar</button></td>
 
-<?php  if ($_SESSION["id_rol"] == 1): ?>
+<?php  if (Auth::isDev()): ?>
 <td><button class='btn btn-danger' 
     data-bs-toggle='modal' data-bs-target='#firefoxModal'
     name="confimarEliminacion"

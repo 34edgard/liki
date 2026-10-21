@@ -86,11 +86,11 @@ class ConsultasBD {
         $arreglo = [];
         
         try {
-            foreach(explode(';',$sql) as $consulta){
-            $stmt = $this->conexion->prepare($consulta); // Prepara la consulta
+            
+            $stmt = $this->conexion->prepare($sql); // Prepara la consulta
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
             $arreglo = $stmt->fetchAll(PDO::FETCH_ASSOC); // Obtiene todos los resultados
-            }
+            
         } catch (PDOException $e) {
             ErrorHandler::getInstance()->handle(
             ErrorHandler::DB_QUERY_ERROR,

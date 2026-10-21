@@ -1,8 +1,8 @@
 <?php
 use Liki\Routing\Ruta;
-use Liki\Sesion;
+use App\Controladores\Sesiones;
 
 return  function (){      
-    Ruta::get('/Cerrar_Sesion',[Sesion::class,'cerrar_sesion']);
-    Ruta::post('/iniciar/sesion',[Sesion::class,'iniciar_sesion'],['correo','contraseña']);    
+    Ruta::get('/cerrar/sesion',[Sesiones::class,'cerrarSesion']);
+    Ruta::post('/iniciar/sesion',[Sesiones::class,'iniciarSesion'],['correo','contraseña']);    
 };

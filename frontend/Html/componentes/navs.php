@@ -33,7 +33,7 @@ $menu = 'componentes/menu-desplegable';
                 <li><hr class="dropdown-divider"></li>
                 <li>
                     <a type="button" class="dropdown-item text-danger" id="cerrarSesion"
-                       hx-get="/Cerrar_Sesion"
+                       hx-get="/cerrar/sesion"
                        hx-trigger="click"
                        hx-target="#cerrarSecion"
                     >Cerrar Sesión</a>

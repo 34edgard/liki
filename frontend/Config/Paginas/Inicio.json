@@ -3,7 +3,7 @@
     "estilos": ["bootstrap.min","estilos"],
     "estilosD": ["estilos"],
     "scriptsD": ["LoadComponets","htmx"],
-    "scripts": ["NiñosPorSexo","color-modes","chart.umd","bootstrap.bundle.min","CambiarTitulo"],
+    "scripts": ["NiñosPorSexo","color-modes","chart.umd","bootstrap.bundle.min"],
     "contenidos": [
         {"componente": "estructura/Header","configuracion": {"op": "Inicio"}},
         {"componente": "Bienvenida","configuracion": {"op": "Inicio"}}

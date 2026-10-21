@@ -6,26 +6,26 @@ class AuthMiddleware {
         1=>'admin',
         2=>'dev',
         3=>'user',
-        4=>'clien'
+        4=>'client'
     ];
     public static function isAdmin():bool{
         Sesion::init();
-       return self::$roles[$_SESSION['id_rol']] == 'admin'; // true si está autenticado  
+       return self::login() && (self::$roles[$_SESSION['id_rol']] ?? null) == 'admin'; // true si está autenticado  
         
     }
     public static function isUser():bool{
         Sesion::init();
-       return self::$roles[$_SESSION['id_rol']] == 'user'; // true si está autenticado  
+       return self::login() && (self::$roles[$_SESSION['id_rol']] ?? null) == 'user'; // true si está autenticado  
         
     }
     public static function isDev():bool{
         Sesion::init();
-       return self::$roles[$_SESSION['id_rol']] == 'dev'; // true si está autenticado  
+       return self::login() && (self::$roles[$_SESSION['id_rol']] ?? null) == 'dev'; // true si está autenticado  
         
     }
-    public static function isClien():bool{
+    public static function isClient():bool{
         Sesion::init();
-       return self::$roles[$_SESSION['id_rol']] == 'clien'; // true si está autenticado  
+       return self::login() && (self::$roles[$_SESSION['id_rol']] ?? null) == 'client'; // true si está autenticado  
         
     }
     public static function login():bool {

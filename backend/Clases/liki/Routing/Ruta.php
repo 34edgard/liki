@@ -278,6 +278,7 @@ public static function separar_parametros_url(string $url_pattern):array{
                 // Combina los parámetros dinámicos con los datos de entrada
                 $all_params = array_merge($input_data, $dynamic_params);
          // Validar parámetros esperados (si los hay)
+        try {
                 if (!empty($route['parametros_esperados']) && !self::validar_parametros($route['parametros_esperados'], $all_params)) {
                     // Si faltan parámetros esperados, se podría lanzar una excepción o devolver un error 400
                   
@@ -294,7 +295,7 @@ public static function separar_parametros_url(string $url_pattern):array{
                 //sanitización
                 $all_params=self::sanitizar_entrada($all_params);
                 
-                try {
+                
                     // Prepara los argumentos para la función de callback
                     $args = [];
                     if (!empty($all_params)) {
@@ -346,7 +347,7 @@ public static function modul( string $ruta, bool $condicion = true, array $middl
         
         
        $f = include $urlFile;
-    $f();
+    is_callable($f) ? $f() : null;
 }
 
 public static function group(callable $rutas,array $parametrosCompartidos = [], array $FuncionesCompartidas = [], array $middlewares = []){

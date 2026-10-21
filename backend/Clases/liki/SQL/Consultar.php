@@ -91,7 +91,7 @@ class Consultar extends SentenciasSql implements iSql {
         }
         // Pasa los parámetros generados por referencia al array de parámetros global
         $parametros = self::$parametros;
-           //echo self::$sql;
+         //  echo self::$sql;
         
         return trim(self::$sql);
     }

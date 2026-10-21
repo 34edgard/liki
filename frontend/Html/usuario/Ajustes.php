@@ -1,9 +1,13 @@
+<?php
+use Middleware\AuthMiddleware as Auth;
+?>
+
 <div class="container mt-5">
   <ul class="nav nav-tabs" role="tablist">
     <li class="nav-item" role="presentation">
       <button type="button" class="nav-link active" data-bs-toggle="tab" data-bs-target="#tablaUsuarios" role="tab">usuarios</button>
     </li>
-    <?php if ($_SESSION['id_rol'] < 2):
+    <?php if (Auth::isAdmin() ||  Auth::isDev()):
       ?>
       <li class="nav-item" role="presentation">
         <button type="button" class="nav-link " data-bs-toggle="tab" data-bs-target="#general" role="tab" aria-selected="true">reguistro de usuarios</button>
@@ -13,7 +17,7 @@
   </ul>
 
   <div class="tab-content" role="tablist">
-    <?php if ($_SESSION['id_rol'] < 2):
+    <?php if (Auth::isAdmin() ||  Auth::isDev()):
       ?>
       <div class="tab-pane  table-responsive" id="general" role="tabpanel">
      <form 
@@ -53,7 +57,7 @@
              <input type="email" name="correo" id="correo" class="form-control" placeholder="Ingrese el correo electrónico">
            </div>
            <div class="col-md-6">
-             <?php if ($_SESSION["id_rol"] < 2) : ?>
+             <?php if (Auth::isAdmin() ||  Auth::isDev()): ?>
                <label for="crear_user_rol" class="form-label">Rol</label>
                <select name="rol" class="form-select"
                  hx-target="#crear_user_rol"

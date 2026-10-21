@@ -1,170 +1,30 @@
 ------------------------------------
 url: /rendimiento/borrar
-El proceso tomó: 0.030439 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /rendimiento/
-El proceso tomó: 0.042061 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /Administrar
-El proceso tomó: 0.046096 segundos.
-Memoria usada: 0.24 MB
-
-------------------------------------
-url: /dep/css
-El proceso tomó: 0.046665 segundos.
+El proceso tomó: 0.033507 segundos.
 Memoria usada: 0.21 MB
+
+------------------------------------
+url: /cerrar/sesion
+El proceso tomó: 0.032507 segundos.
+Memoria usada: 0.21 MB
+
+------------------------------------
+url: /
+El proceso tomó: 0.036872 segundos.
+Memoria usada: 0.16 MB
+
+------------------------------------
+url: /LoadComponets/js
+El proceso tomó: 0.025271 segundos.
+Memoria usada: 0.14 MB
 
 ------------------------------------
 url: /htmx/js
-El proceso tomó: 0.041447 segundos.
-Memoria usada: 0.3 MB
-
-------------------------------------
-url: /dep/js
-El proceso tomó: 0.089355 segundos.
-Memoria usada: 0.21 MB
-
-------------------------------------
-url: /usuario/rol?rol=
-El proceso tomó: 0.102231 segundos.
-Memoria usada: 0.34 MB
-
-------------------------------------
-url: /usuario/list
-El proceso tomó: 0.088492 segundos.
-Memoria usada: 0.35 MB
-
-------------------------------------
-url: /rs/
-El proceso tomó: 0.04219 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /rendimiento/
-El proceso tomó: 0.024385 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /testing/rutas
-El proceso tomó: 0.029119 segundos.
-Memoria usada: 0.21 MB
-
-------------------------------------
-url: /bdSQLWeb/tablas
-El proceso tomó: 0.036833 segundos.
+El proceso tomó: 0.038173 segundos.
 Memoria usada: 0.2 MB
 
 ------------------------------------
-url: /pages
-El proceso tomó: 0.02966 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /Terminal/interfaz
-El proceso tomó: 0.030259 segundos.
-Memoria usada: 0.21 MB
-
-------------------------------------
-url: /Cerrar_Sesion
-El proceso tomó: 0.029849 segundos.
-Memoria usada: 0.19 MB
-
-------------------------------------
-url: /
-El proceso tomó: 0.036305 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.026563 segundos.
-Memoria usada: 0.14 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.039082 segundos.
-Memoria usada: 0.24 MB
-
-------------------------------------
 url: /repuestas/js
-El proceso tomó: 0.0276 segundos.
+El proceso tomó: 0.038191 segundos.
 Memoria usada: 0.14 MB
-
-------------------------------------
-url: /iniciar/sesion
-El proceso tomó: 1.405444 segundos.
-Memoria usada: 0.26 MB
-
-------------------------------------
-url: /inicio
-El proceso tomó: 0.02067 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /estilos/css
-El proceso tomó: 0.017092 segundos.
-Memoria usada: 0.14 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.016116 segundos.
-Memoria usada: 0.14 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.020606 segundos.
-Memoria usada: 0.24 MB
-
-------------------------------------
-url: /Administrar
-El proceso tomó: 0.022274 segundos.
-Memoria usada: 0.18 MB
-
-------------------------------------
-url: /dep/css
-El proceso tomó: 0.023712 segundos.
-Memoria usada: 0.15 MB
-
-------------------------------------
-url: /dep/js
-El proceso tomó: 0.020689 segundos.
-Memoria usada: 0.15 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.022565 segundos.
-Memoria usada: 0.24 MB
-
-------------------------------------
-url: /usuario/list
-El proceso tomó: 0.051498 segundos.
-Memoria usada: 0.29 MB
-
-------------------------------------
-url: /Cerrar_Sesion
-El proceso tomó: 0.016059 segundos.
-Memoria usada: 0.13 MB
-
-------------------------------------
-url: /
-El proceso tomó: 0.020545 segundos.
-Memoria usada: 0.16 MB
-
-------------------------------------
-url: /LoadComponets/js
-El proceso tomó: 0.017984 segundos.
-Memoria usada: 0.14 MB
-
-------------------------------------
-url: /htmx/js
-El proceso tomó: 0.022047 segundos.
-Memoria usada: 0.24 MB
-
-------------------------------------
-url: /repuestas/js
-El proceso tomó: 0.0208 segundos.
-Memoria usada: 0.15 MB
 

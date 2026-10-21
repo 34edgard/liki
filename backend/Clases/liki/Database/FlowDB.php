@@ -152,33 +152,35 @@ public function groupBy(string $campo){
 }
 
 public function having(array $condiciones){
-    $this->consultaArray['having'] =$this->consultaArray['having']  ?? $this->where($condiciones);
+  //  empty($this->consultaArray['having']) ? $this->where($condiciones) : array_merge(...)
+   // $this->consultaArray['having'] =$this->consultaArray['having']  ?? $this->where($condiciones);
     return $this;
 }
 
 
 public function innerJoin(string $campo,string $where){
-    $this->jion('INNER',$campo,$where);
+    $this->join('INNER',$campo,$where);
     return $this;
 }
 public function leftJoin(string $campo,string $where){
-    $this->jion('LEFT',$campo,$where);
+    $this->join('LEFT',$campo,$where);
     return $this;
 }
 public function rightJoin(string $campo,string $where){
-    $this->jion('RIGHT',$campo,$where);
+    $this->join('RIGHT',$campo,$where);
     return $this;
 }
 public function fullJoin(string $campo,string $where){
-    $this->jion('FULL',$campo,$where);
+    $this->join('FULL',$campo,$where);
     return $this;
 }
 public function crossJoin(string $campo,string $where){
-    $this->jion('CROSS',$campo,$where);
+    $this->join('CROSS',$campo,$where);
     return $this;
 }
 public function selfJoin(string $campo,string $where){
-    $this->jion('SELF',$campo,$where);
+    $this->join('SELF',$campo,$where);
+    return $this;
 }
 public function join(string $tipo,string $campo,string $where): object {
    $this->consultaArray['join'][] = [
@@ -250,8 +252,9 @@ public function post(array $valores){
     $this->reset();
 }
 public function head(array $where = []): bool {
-   $rest = $this->campos(['COUNT(*) as num'])
-    ->get($where);
+  
+   $this->consultaArray['campos'][] ='COUNT(*) as num';
+   $rest = $this->get($where);
    
   return  $rest[0]['num'] > 0;
 }
@@ -265,7 +268,7 @@ public function put(array $where = []){
 public function patch(array $where = [], array $campos = ['*']):array{
   $consulta = $this->consultaArray['tabla'] ?? $this->tabla;
   $this->put($where);
-  return $this->tabla($consulta['tabla'])->campos($campos)->get($where);
+  return $this->tabla($consulta)->campos($campos)->get($where);
     
 }
 

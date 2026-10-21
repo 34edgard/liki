@@ -1,4 +1,9 @@
-       
+       <?php
+    
+    use Middleware\AuthMiddleware as Auth;
+    
+    
+    ?>
     
     
        <form 
@@ -47,7 +52,7 @@
               placeholder="este campo no es obligatorio"
               class="form-control w-75 ">
             </label>
-       <?php  if($_SESSION['id_rol'] < 2): ?>
+       <?php  if(Auth::isDev() || Auth::isAdmin()): ?>
               <label>id_rol
 
                 <select name="rol" class="form-control w-75 "
@@ -56,8 +61,6 @@
                 hx-target="#editar_rol"
                 hx-trigger="load"
                 >
-                  
-
 
                 </select>
               <?php else: ?>

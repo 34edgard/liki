@@ -36,7 +36,7 @@ return  function (){
     
  Ruta::prefix('/bdSQLWeb',function(){
    Ruta::get('/tablas',[BdSQLWeb::class,'bdSQLWeb']);          
-                   
+   Ruta::post('/tablas',[BdSQLWeb::class,'getTabla'],['tabla','campo','limit','pagina']);        
  });      
       
     
