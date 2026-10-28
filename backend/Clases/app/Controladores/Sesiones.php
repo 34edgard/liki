@@ -7,6 +7,8 @@ use Liki\ErrorHandler;
 use Liki\Database\FlowDB;
 use Liki\Validar;
 use Liki\Sesion;
+use Liki\Routing\CSRF;
+use Liki\Routing\LoginProtector;
 
 class Sesiones {
   
@@ -22,12 +24,44 @@ class Sesiones {
   'contraseña' => 'isString'
   ]);
     
+    
+    
+    
+        $protector = new LoginProtector(CONF_PROTECTOR);
+    
+    $ip       = $_SERVER['REMOTE_ADDR'] ?? 'unknown';
+    $username = $correo ?? '';
+    
+    // 1. Verificar si está bloqueado ANTES de procesar el login
+    if ($protector->isLocked($ip, $username)) {
+        $remaining = $protector->getRemainingLockout($ip);
+        http_response_code(429);
+        die("Demasiados intentos. Intenta de nuevo en {$remaining} segundos.");
+    }
+    
+    
+    
+    
+    
+    
+    
+    // 2. Procesar credenciales
+   
+    
     Sesion::init();
+    
     $arreglo = self::validarDatosDB($correo, $contraseña);
     if ($arreglo[0]) {
+        $protector->recordSuccess($ip, $username);
+        
       foreach ($arreglo[1][0] as $id => $campo) {
         $_SESSION[$id] = $campo;
       }
+    CSRF::generarToken();
+    }else{
+        $protector->recordFailure($ip, $username);
+        $restantes = $protector->getRemainingAttempts($ip);
+            
     }
   
   }
@@ -42,6 +76,9 @@ class Sesiones {
       return [false];
     }
     $id_correo = $id_correo[0]['id_correo'];
+    
+    session_regenerate_id(true);
+    
     $arreglo = FlowDB::conf('Usuario')
     ->campos(["cedula", "contrasena", "id_rol", "nombres", "id_correo"])
     ->get(['id_correo' => $id_correo]);

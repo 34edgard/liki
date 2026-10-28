@@ -3,8 +3,11 @@ use App\Controladores\Personas\Usuario;
 use App\Controladores\DatosExtra\Correo;
 use Liki\Database\FlowDB;
 
-return new class {
-  public static function run($p, $f) {
+use Liki\Manejadores\ManejadorBase;
+
+return new class extends  ManejadorBase {
+
+  public  function run($p, $f) {
 
     extract($p);
 

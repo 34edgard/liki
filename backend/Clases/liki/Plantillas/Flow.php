@@ -26,7 +26,7 @@ class Flow {
         }  
           
         public static function css(string $nombre, array $variables = []): void {  
-          //  header('Content-Type: text/css');  
+            header('Content-Type: text/css');  
             // Procesar CSS con variables dinámicas  
             self::render('css', $nombre, $variables);
             
@@ -48,6 +48,23 @@ class Flow {
         self::render('page', $nombre, $datos);
     }
     
+    private static function specialchars(array $datos):array{
+        
+        
+        foreach($datos as $id => $dato){
+            if(is_string($dato)){
+            $datos[$id] = self::escapar($dato);
+        }else if(is_array($dato)){
+            $datos[$id] = self::specialchars($dato);
+        }
+        
+        }
+        
+        
+        return $datos;
+    }
+    
+    
     /**
      * Método principal de renderizado
      */
@@ -62,9 +79,10 @@ class Flow {
         if (!self::verificarArchivo($rutaArchivo)) {
             throw new \Exception("La plantilla '{$nombre}' no existe en el directorio '{$tipo}'");
         }
-        
+        $variablesExtraidas = self::specialchars($datos);
+        //print_r($variablesExtraidas);
         // Extraer variables de forma segura
-        $variablesExtraidas = self::extraerVariables($datos);
+       // $variablesExtraidas = self::extraerVariables($variablesExtraidas);
        // extract($variablesExtraidas);
        extract($variablesExtraidas, EXTR_PREFIX_SAME, "data");
      // Incluir la plantilla
@@ -116,7 +134,7 @@ class Flow {
      * Método para escapar output de forma segura
      */
     public static function escapar(string $texto): string {
-        return htmlspecialchars($texto, ENT_QUOTES | ENT_HTML5, 'UTF-8');
+        return htmlspecialchars($texto,ENT_QUOTES | ENT_HTML5, 'UTF-8');
     }
     
     /**

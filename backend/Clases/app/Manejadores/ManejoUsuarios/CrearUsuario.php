@@ -5,15 +5,18 @@ use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
 use Liki\Validar;
 
-return new class {
-  public static function run($p) {
+use Liki\Manejadores\ManejadorBase;
+
+return new class extends  ManejadorBase {
+
+  public  function run($p) {
 
 
 
     $p['cedula'] = intval($p['cedula']);
     $p['rol'] = intval($p['rol']);
    
-    Validar::ValidarArray($p, [
+    $this->validar([
       'cedula' => 'isInt',
       'nombre' => 'isString',
       'apellido' => 'isString',

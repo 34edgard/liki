@@ -8,4 +8,14 @@ class Sesion {
       session_start();
     }
   }
+  public static function get(string $name, $defaul=null){
+      self::init();
+     if(!isset($_SESSION[$name]))
+         $_SESSION[$name] = $defaul;
+    return $_SESSION[$name];
+  }
+  public static function set(string $name, $defaul =null){
+      self::init();
+     $_SESSION[$name] = $defaul;
+  }
 }

@@ -1,6 +1,6 @@
 <?php
 namespace Liki\Database;
-
+use Liki\Database\File;
 use Liki\Database\ConsultasBD;  
 
 class MigrationRunner {  
@@ -34,11 +34,11 @@ class MigrationRunner {
             echo "Ejecutando migración: {$migration}\n";  
             $this->executeMigration($migration, $batch);  
         }  
-         $r = $this->getExecutedMigrations();
-        foreach($r as $m){
-            $this->executeMigration($m,$batch);
-        }
-        print_r($r);
+        // $r = $this->getExecutedMigrations();
+        //foreach($r as $m){
+          //  $this->executeMigration($m,$batch);
+        //}
+       // print_r($r);
         echo "Migraciones completadas.\n";  
     }  
       

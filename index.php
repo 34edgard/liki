@@ -1,29 +1,32 @@
 <?php
-
+declare(strict_types=1);
 $startMem = memory_get_usage();
  $inicio = microtime(true); // Guarda el tiempo actual como un número flotante    
   
-//declare(strict_types=1);
+
+
 include "./conf.php";
 include "./backend/autoload.php";
 use Liki\Routing\Ruta;
 use Middleware\AuthMiddleware;
 
+use Liki\Plantillas\Flow;
 
 
-Ruta::modul('liki/toolsDep',true,[
+
+Ruta::modulo('liki/toolsDep',MODO_DEV,[
     [AuthMiddleware::class,'login'],
     [AuthMiddleware::class,'isAdmin']
     
  ]);
-Ruta::modul('liki/builders');
-Ruta::modul('liki/admin',true,[
+Ruta::modulo('liki/builders');
+Ruta::modulo('liki/admin',MODO_DEV,[
    [AuthMiddleware::class,'login'],
     [AuthMiddleware::class,'isAdmin']
 ]);
-Ruta::modul('app/Paginas');
-Ruta::modul('app/sesiones');
-Ruta::modul('app/Usuario');
+Ruta::modulo('app/Paginas');
+Ruta::modulo('app/sesiones');
+Ruta::modulo('app/Usuario');
 // Run the router 
 
 

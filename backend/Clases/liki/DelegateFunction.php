@@ -8,7 +8,11 @@ class DelegateFunction{
          if(!is_file($urlFlie))
                  throw new Exception("Expection no existe el archivo $name.php en la ruta $urlFlie");
        $class = include $urlFlie;
-      return  $class::run($parametros,$funcionesExtra);    
+       $class($parametros,$funcionesExtra);
+         $class->antes($parametros,$funcionesExtra);
+         $resultado = $class->run($parametros,$funcionesExtra);    
+        $class->despues($parametros,$funcionesExtra);
+        return $resultado;
     } 
     public static function loadModel(string $name = ''): object {
        $urlFlie = CONTOLLER_PATH.'backend/Clases/app/Modelos/'.$name.'.php';

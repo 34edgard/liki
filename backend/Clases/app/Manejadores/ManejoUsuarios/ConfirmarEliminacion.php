@@ -1,8 +1,11 @@
 <?php
-use Liki\Plantillas\Flow;
-return new class {
-   public static function run($p){  
-Flow::html('usuario/ConfirmarEliminacion',$p);
+
+use Liki\Manejadores\ManejadorBase;
+
+return new class extends  ManejadorBase {
+
+   public  function run($p){  
+$this->render('usuario/ConfirmarEliminacion',$p);
 
 }
 };

@@ -128,12 +128,3 @@ class EventLoop
         $this->timers = array_values($this->timers);
     }
 }
-
-
-
-
-
-
-
-
-

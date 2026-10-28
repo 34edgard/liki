@@ -334,7 +334,7 @@ public static function separar_parametros_url(string $url_pattern):array{
         
     }
 
-public static function modul( string $ruta, bool $condicion = true, array $middlewares = []){
+public static function modulo( string $ruta, bool $condicion = true, array $middlewares = []){
         $urlFile = CONTOLLER_PATH.'backend/Funciones/Rutas/'.$ruta.'.php';
        if(!$condicion) return;
         if(!file_exists($urlFile))            

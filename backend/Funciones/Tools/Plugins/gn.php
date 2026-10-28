@@ -5,6 +5,7 @@ use Liki\Consola\Gn;
 
 return [
     'modelo'=>[Gn::class,'generateModel'],
+     'middleware'=>[Gn::class,'generateMiddleware'],
     'controlador'=>[Gn::class,'generateController'],
     'manejador'=>[Gn::class,'generateManejador'],
     'likiClass'=>[Gn::class,'generateClassLiki'],

@@ -4,9 +4,12 @@ use App\Controladores\DatosExtra\Correo;
 use Liki\Plantillas\Flow;
 use Liki\Database\FlowDB;
 use Liki\Sesion;
-return new class {
+use Liki\Manejadores\ManejadorBase;
 
- public static function run($p){
+return new class extends  ManejadorBase {
+
+
+ public  function run($p){
     extract($p);
 if(!isset($formularioEdicion)) return;
    Sesion::init();

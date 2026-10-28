@@ -49,13 +49,17 @@ $extras[] = $arg;
 }
 //print_r($estras);
 
-if(str_starts_with($argv[2],'-') ) $nombre = '';
+if(isset($argv[2]) && str_starts_with($argv[2],'-') ) $nombre = '';
 
-function comandoExec(callable $comando,$nombre,$extras){
-  if(count($extras) == 0)  $comando($nombre);
-  if(count($extras) > 0) $comando($nombre,$extras);
+function comandoExec(callable $comando, string $nombre = '', array $extras =[]){
+  if(count($extras) == 0) call_user_func($comando,$nombre);
+  if(count($extras) > 0) call_user_func($comando,$nombre,$extras);
 }
+
+
+
 if(isset($comandos[$tipo][$accion])){
+    //var_dump($comandos);
  comandoExec($comandos[$tipo][$accion],$nombre,$extras);
 }else{
     echo "el comando '$tipo:$accion' no existe";

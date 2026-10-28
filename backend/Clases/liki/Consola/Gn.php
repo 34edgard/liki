@@ -77,7 +77,7 @@ foreach($res as   $tabla){
  foreach($tabla as $t){
     
     $td['sqlite']= "PRAGMA table_info($t) ";
-    $td['mysql']='SHOW TABLES';
+    $td['mysql']='DESCRIBE '.$t;
     
     
    $Tablas = $con->consultarRegistro($td[DB_DRIVER]);

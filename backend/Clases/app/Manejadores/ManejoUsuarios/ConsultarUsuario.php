@@ -4,8 +4,11 @@ use Liki\Plantillas\Flow;
 use App\Controladores\Personas\Usuario;
 use Liki\Database\FlowDB;
 use Middleware\AuthMiddleware;
-return new class {
-  public static function run() {
+use Liki\Manejadores\ManejadorBase;
+
+return new class extends  ManejadorBase {
+
+  public  function run() {
     Sesion::init();
 
     $where = [];

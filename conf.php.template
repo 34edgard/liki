@@ -35,10 +35,10 @@ const MIGRATION_AUTO_RUN = false; // Ejecutar automáticamente en producción
 
 const CONTOLLER_PATH = __DIR__.'/';
 
-
+// flors configuracion
 
 const FLORS_FILE = './docs/flors.json';  
-    const STRUCT_DIR = './docs/struct/';  
+const STRUCT_DIR = './docs/struct/';  
 
 
 
@@ -52,3 +52,25 @@ const ERROR_LANGUAGE = 'es'; // 'es , 'en'
 const ERROR_SEND_EMAIL = false;  
 const ERROR_EMAIL_TO = 'admin@example.com';  
 const ERROR_HTTP_CODES = true; // 
+
+
+
+
+
+
+
+
+const MODO_DEV = false;
+
+
+const CONF_PROTECTOR = [
+    'max_attempts'        => 5,      // 5 intentos
+    'time_window'         => 900,    // en 15 minutos
+    'lockout_time'        => 900,    // bloqueo 15 min
+    'exponential_lockout' => true,   // bloqueo exponencial
+    'storage_dir'         => './logs'
+];
+
+
+if(file_exists('./vendor/autoload.php'))
+    include "./vendor/autoload.php";

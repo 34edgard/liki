@@ -1,9 +1,9 @@
 <?php
 namespace App\Controladores\DatosExtra;
-use Liki\DelegateFunction;
+use Liki\Controladores\ControladorBase;
 
-class Correo {
+class Correo extends ControladorBase{
   public static function optenerEmail($id){
-     echo DelegateFunction::exec('ManejoUsuarios/ConsultarCorreo',[$id]);
+     echo self::manejador('ManejoUsuarios/ConsultarCorreo',[$id]);
   }
 }
