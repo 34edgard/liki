@@ -18,14 +18,19 @@ class ConsultasBD {
               throw new Exception("Error conectando a la base de datos: " . $e->getMessage());
           }
       }
+    
+    public function __destruct(){
+            $this->cerrarConexion();
+        
+    }
       
       public function validarConexion(PDO $conexion): ?PDO {
           // En este caso, no se necesita validar la conexión adicionalmente.
           return $conexion;
       }
       
-      public function cerrarConexion(PDO $conexion): void {
-          $conexion = null;
+      public function cerrarConexion(): void {
+          $this->conexion = null;
       }
     
     
@@ -59,18 +64,17 @@ class ConsultasBD {
             $stmt = $this->conexion->prepare($sql); // Prepara la consulta
             $stmt->execute($parametros); // Ejecuta la consulta con los parámetros vinculados
             // return $stmt->rowCount(); // Retorna el número de filas afectadas
-        } catch (PDOException $e) {
+       // En ejecutarConsulta()
+       } catch (PDOException $e) {
+           ErrorHandler::getInstance()->handle(
+           ErrorHandler::DB_QUERY_ERROR,
+           'Error en la consulta',
+           ['sql'=>$sql,'error'=>$e->getMessage()],
+           500
+           ); //para que transaction() haga rollback
+       }
             
-            ErrorHandler::getInstance()->handle(
-            ErrorHandler::DB_QUERY_ERROR,
-            'Error en la consulta',
-            ['sql'=>$sql,'error'=>$e->getMessage()],
-            500
-            );
             
-             } finally {
-            $this->cerrarConexion($this->conexion);
-        }
     }
 
     /**
@@ -100,10 +104,41 @@ class ConsultasBD {
            
             );
             
-        } finally {
-            $this->cerrarConexion($this->conexion);
-        }
+        } 
 
         return $arreglo;
+    }
+    
+    
+    
+    
+    
+    /**
+     * Ejecuta un bloque de operaciones dentro de una transacción.
+     * Hace commit si el callable termina sin excepción, rollback si lanza.
+     *
+     * @template T
+     * @param callable(self):T $operaciones
+     * @return T
+     * @throws \Throwable
+     */
+    public function transaction(callable $operaciones) {
+        $this->conexion->beginTransaction();
+        try {
+            $resultado = $operaciones($this);
+            $this->conexion->commit();
+            return $resultado;
+        } catch (\Throwable $e) {
+            if ($this->conexion->inTransaction()) {
+                $this->conexion->rollBack();
+            }
+            ErrorHandler::getInstance()->handle(
+                ErrorHandler::DB_QUERY_ERROR,
+                'Transacción revertida',
+                ['error' => $e->getMessage()],
+                500
+            );
+            throw $e;
+        }
     }
 }

@@ -1,1 +1,1 @@
-    SELECT * FROM sqlite_master 
+ usuariog2

@@ -1,5 +1,440 @@
 ------------------------------------
-url: /rendimiento/borrar
-El proceso tomó: 0.038875 segundos.
+url: /index.php
+El proceso tomó: 0.085203 segundos.
+Memoria usada: 0.17 MB
+
+------------------------------------
+url: /LoadComponets/js
+El proceso tomó: 0.03598 segundos.
+Memoria usada: 0.15 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.031228 segundos.
 Memoria usada: 0.21 MB
+
+------------------------------------
+url: /repuestas/js
+El proceso tomó: 0.029714 segundos.
+Memoria usada: 0.15 MB
+
+------------------------------------
+url: /iniciar/sesion
+El proceso tomó: 1.37574 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /inicio
+El proceso tomó: 0.044986 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /estilos/css
+El proceso tomó: 0.027386 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /LoadComponets/js
+El proceso tomó: 0.027235 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.030569 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /Administrar
+El proceso tomó: 0.039049 segundos.
+Memoria usada: 0.26 MB
+
+------------------------------------
+url: /dep/css
+El proceso tomó: 0.028915 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.028174 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /dep/js
+El proceso tomó: 0.028648 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.03001 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.070681 segundos.
+Memoria usada: 0.37 MB
+
+------------------------------------
+url: /usuario/list
+El proceso tomó: 0.068755 segundos.
+Memoria usada: 0.49 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.033144 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.03413 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /testing/rutas
+El proceso tomó: 0.051897 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /bdSQLWeb/tablas
+El proceso tomó: 0.045385 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /pages
+El proceso tomó: 0.032996 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /Terminal/interfaz
+El proceso tomó: 0.03448 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci=309309
+El proceso tomó: 0.101186 segundos.
+Memoria usada: 0.49 MB
+
+------------------------------------
+url: /usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci=309309
+El proceso tomó: 0.106854 segundos.
+Memoria usada: 0.49 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.041647 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.042421 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.032331 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.053583 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rs/borrar
+El proceso tomó: 0.042887 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.028657 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.047854 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.041423 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /Administrar
+El proceso tomó: 0.078954 segundos.
+Memoria usada: 0.27 MB
+
+------------------------------------
+url: /dep/css
+El proceso tomó: 0.046525 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.04544 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /dep/js
+El proceso tomó: 0.058857 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.079408 segundos.
+Memoria usada: 0.38 MB
+
+------------------------------------
+url: /usuario/list
+El proceso tomó: 0.076587 segundos.
+Memoria usada: 0.49 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.035067 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.028166 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /testing/rutas
+El proceso tomó: 0.034336 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /bdSQLWeb/tablas
+El proceso tomó: 0.040556 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /pages
+El proceso tomó: 0.032247 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /Terminal/interfaz
+El proceso tomó: 0.036338 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.042776 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.027528 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.025925 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci=309309
+El proceso tomó: 0.084307 segundos.
+Memoria usada: 0.5 MB
+
+------------------------------------
+url: /usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci=309309
+El proceso tomó: 0.077369 segundos.
+Memoria usada: 0.5 MB
+
+------------------------------------
+url: /usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci=309309
+El proceso tomó: 0.076449 segundos.
+Memoria usada: 0.5 MB
+
+------------------------------------
+url: /usuario/cambiarEstadoUsuario?cambiarEstadoUsuario&ci=309309
+El proceso tomó: 0.080139 segundos.
+Memoria usada: 0.5 MB
+
+------------------------------------
+url: /usuario/form/edicion?formularioEdicion=309309
+El proceso tomó: 0.062208 segundos.
+Memoria usada: 0.43 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.048297 segundos.
+Memoria usada: 0.38 MB
+
+------------------------------------
+url: /usuario/editar
+El proceso tomó: 0.078544 segundos.
+Memoria usada: 0.52 MB
+
+------------------------------------
+url: /usuario/form/edicion?formularioEdicion=309309
+El proceso tomó: 0.0516 segundos.
+Memoria usada: 0.43 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.049281 segundos.
+Memoria usada: 0.38 MB
+
+------------------------------------
+url: /Administrar
+El proceso tomó: 0.033155 segundos.
+Memoria usada: 0.27 MB
+
+------------------------------------
+url: /dep/css
+El proceso tomó: 0.028804 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.031132 segundos.
+Memoria usada: 0.3 MB
+
+------------------------------------
+url: /dep/js
+El proceso tomó: 0.027618 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.066467 segundos.
+Memoria usada: 0.38 MB
+
+------------------------------------
+url: /usuario/list
+El proceso tomó: 0.069708 segundos.
+Memoria usada: 0.49 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.032469 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.029577 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /testing/rutas
+El proceso tomó: 0.034553 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /bdSQLWeb/tablas
+El proceso tomó: 0.045391 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /pages
+El proceso tomó: 0.032317 segundos.
+Memoria usada: 0.22 MB
+
+------------------------------------
+url: /Terminal/interfaz
+El proceso tomó: 0.037463 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.037196 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /usuario/form/edicion?formularioEdicion=309309
+El proceso tomó: 0.056699 segundos.
+Memoria usada: 0.43 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.055825 segundos.
+Memoria usada: 0.38 MB
+
+------------------------------------
+url: /usuario/form/edicion?formularioEdicion=309309
+El proceso tomó: 0.074341 segundos.
+Memoria usada: 0.43 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.070353 segundos.
+Memoria usada: 0.38 MB
+
+------------------------------------
+url: /Reportes_Planilla/html
+El proceso tomó: 0.042703 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /Reportes_Planilla/html
+El proceso tomó: 0.040857 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /Administrar
+El proceso tomó: 0.070832 segundos.
+Memoria usada: 0.27 MB
+
+------------------------------------
+url: /dep/css
+El proceso tomó: 0.04671 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.050663 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /dep/js
+El proceso tomó: 0.04889 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /htmx/js
+El proceso tomó: 0.058705 segundos.
+Memoria usada: 0.31 MB
+
+------------------------------------
+url: /usuario/rol?rol=
+El proceso tomó: 0.1042 segundos.
+Memoria usada: 0.38 MB
+
+------------------------------------
+url: /usuario/list
+El proceso tomó: 0.086407 segundos.
+Memoria usada: 0.5 MB
+
+------------------------------------
+url: /rs/
+El proceso tomó: 0.030039 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /rendimiento/
+El proceso tomó: 0.030916 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /testing/rutas
+El proceso tomó: 0.033124 segundos.
+Memoria usada: 0.25 MB
+
+------------------------------------
+url: /bdSQLWeb/tablas
+El proceso tomó: 0.040758 segundos.
+Memoria usada: 0.24 MB
+
+------------------------------------
+url: /pages
+El proceso tomó: 0.029819 segundos.
+Memoria usada: 0.23 MB
+
+------------------------------------
+url: /Terminal/interfaz
+El proceso tomó: 0.032226 segundos.
+Memoria usada: 0.24 MB
 

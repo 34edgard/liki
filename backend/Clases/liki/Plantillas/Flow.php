@@ -86,6 +86,7 @@ class Flow {
        // extract($variablesExtraidas);
        extract($variablesExtraidas, EXTR_PREFIX_SAME, "data");
      // Incluir la plantilla
+    ob_start();
         include $rutaArchivo;
     }
     
@@ -93,7 +94,9 @@ class Flow {
      * Normaliza el nombre del archivo
      */
     private static function normalizarNombreArchivo(string $nombre): string {
-        return str_replace('—', '/', $nombre);
+        $nombre = str_replace('—', '/', $nombre);
+        $nombre = str_replace(['..', "\0"], '', $nombre);
+        return ltrim($nombre, '/');
     }
     
     /**
@@ -159,4 +162,6 @@ class Flow {
     public static function obtenerRutas(): array {
         return self::$basePaths;
     }
+    public static function raw(string $texto): string { return $texto; }
+    
 }

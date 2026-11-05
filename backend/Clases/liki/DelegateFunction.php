@@ -9,9 +9,9 @@ class DelegateFunction{
                  throw new Exception("Expection no existe el archivo $name.php en la ruta $urlFlie");
        $class = include $urlFlie;
        $class($parametros,$funcionesExtra);
-         $class->antes($parametros,$funcionesExtra);
+       if(method_exists($class,'antes'))  $class->antes($parametros,$funcionesExtra);
          $resultado = $class->run($parametros,$funcionesExtra);    
-        $class->despues($parametros,$funcionesExtra);
+       if(method_exists($class,'despues')) $resultado = $class->despues($resultado,$parametros,$funcionesExtra);
         return $resultado;
     } 
     public static function loadModel(string $name = ''): object {

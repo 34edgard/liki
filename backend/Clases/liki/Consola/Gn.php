@@ -58,7 +58,7 @@ $i++;
 }
 public static function  generateManejador($name,$file='') {
     print_r($name);
-    $template = "<?php \n\n  return new class { \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
+    $template = "<?php \n use Liki\\Manejadores\\ManejadorBase; \n\n  return new class extends ManejadorBase { \n protected bool ".'$requireCsrf = false;'." \n\n  public static function run(){  // Propiedades\n\n    // Métodos}
     \n\n};";
     file_put_contents("./backend/Clases/app/Manejadores/$file$name.php", $template);
     echo "Modelo '$name' creado.\n";

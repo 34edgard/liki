@@ -4,10 +4,12 @@ use Liki\Database\FlowDB;
 use Liki\Plantillas\Flow;
 use Liki\Validar;
 use Liki\Routing\CSRF;
+use Liki\ErrorHandler;
 
 abstract class ManejadorBase{
     private array $parametros;
     private array $funciones;
+    protected bool $requireCsrf = false;
     public function __invoke(array $parametros =[],array $funciones =[]):void{
         $this->parametros = $parametros;
         $this->funciones =$funciones;
@@ -42,17 +44,33 @@ abstract class ManejadorBase{
     public function transaccion(callable $fn){
         
     }
-    public function csrf(){
-       CSRF::validarToken($this->parametros['csrf_token']);
-    }
-  //  public function run(array $p =[],array $f =[]){
+    public function csrf():void {
+        $token = $this->parametros['csrf_token']
+        ?? $_SERVER['HTTP_X_CSRF_TOKEN']
+        ?? null ;
         
-  //  }
-    public function antes(){
-        
+       if(!CSRF::validarToken($token)){
+           http_response_code(403);
+        ErrorHandler::getInstance()->halder(
+            ErrorHandler::VALIDATION_ERROR,
+            'token CSRF invalido',
+            [],
+            403
+        );
+        exit;
+       }
     }
-    public function despues(){
+
+    abstract public function run(array $p,array $f){
         
     }
     
+    
+    public function antes(array $p,array $f){
+        if($this->requireCsrf) $this->csrf();
+        
+    }
+    public function despues($res,array $p,array $f){
+        
+    }
 }

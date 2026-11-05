@@ -2,7 +2,7 @@
 
 namespace Liki\Coroutines;
 use Generator;
-
+use Exception;
 
 /**
  * Clase Scheduler - Planificador de tareas cooperativas

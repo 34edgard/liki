@@ -8,7 +8,8 @@ public function up() {
     $schema = new SchemaBuilder();  
       
     $sql = $schema->createTable('usuariog2', function($table) {  
-        $table->integer('id_usuario',true)->primary('id_usuario');  
+        $table->integer('id_usuario',true);
+        $table->primary('id_usuario');  
         $table->integer('cedula')->notNull();  
         $table->string('nombres', 30)->notNull();  
         $table->string('apellidos',30)->notNull();  

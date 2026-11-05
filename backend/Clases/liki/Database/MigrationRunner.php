@@ -87,7 +87,11 @@ private function getExecutedMigrations() {
     private function executeMigration($migration, $batch) {  
         $file = $this->migrationPath . $migration . '.php';  
         $instance = require $file;  
-          
+      
+          if (!is_object($instance) || !method_exists($instance, 'up')) 
+              throw new \RuntimeException("Migración inválida: $migration");
+      
+         
         if (method_exists($instance, 'up')) {  
             $instance->up();  
               
@@ -101,6 +105,8 @@ private function getExecutedMigrations() {
     private function revertMigration($migration) {  
         $file = $this->migrationPath . $migration . '.php';  
         $instance = require $file;  
+          if (!is_object($instance) || !method_exists($instance, 'up')) 
+                  throw new \RuntimeException("Migración inválida: $migration");
           
         if (method_exists($instance, 'down')) {  
             $instance->down();  
@@ -134,5 +140,3 @@ private function getNextBatchNumber() {
         return $stmt->fetchAll(\PDO::FETCH_COLUMN);  
     }  
 }
-
-

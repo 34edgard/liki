@@ -152,9 +152,8 @@ public function groupBy(string $campo){
 }
 
 public function having(array $condiciones){
-  //  empty($this->consultaArray['having']) ? $this->where($condiciones) : array_merge(...)
-   // $this->consultaArray['having'] =$this->consultaArray['having']  ?? $this->where($condiciones);
-    return $this;
+   $this->consultaArray['having'] = empty($this->consultaArray['having']) ? $this->where($condiciones) : array_merge(... $this->consultaArray['having'],...$condiciones);
+     return $this;
 }
 
 
@@ -212,7 +211,7 @@ private function addWhere(array $Nwhere):void{
 }
 public function where(array $where){
       $Nwhere =[];
-    
+       $id = 0;
       foreach($where as $name => $valor){
         if(is_array($valor) && count($valor) == 2 && !is_array($valor[0])){
             $Nwhere[] = [
@@ -220,6 +219,33 @@ public function where(array $where){
                 "operador"=>$valor[0] ,
                 "valor"=>$valor[1] 
             ];
+            $N = $Nwhere[$id];
+            
+            switch($N['operador']){
+                case 'BETWEEN':
+                $N['valor1'] = $N['valor'][0];
+                $N['valor2'] = $N['valor'][1];
+                break;
+                
+                case 'IN':
+                $N['valores'] = $N['valor'];
+                break;
+                
+                case 'LIKE':
+                
+                break;
+                
+                case 'IN_SUBQUERY':
+                  $N['campo'] = $N['valor'][0];
+                  $N['subquery'] = $N['valor'][1];
+                break;
+                
+                case 'EXISTS':
+                  $N['subquery'] = $N['valor'];
+                break;
+            }
+             $Nwhere[$id] = $N;
+            
         }else{
              $Nwhere[] = [
                  "campo"=>$name,
@@ -228,7 +254,7 @@ public function where(array $where){
              ];
         }
         
-        
+        $id++;
       }
     return $Nwhere;
 }

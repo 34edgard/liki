@@ -175,7 +175,7 @@ public function toSQL() {
    private function getIntegerType($autoIncrement) {  
       switch ($this->driver) {  
          case 'sqlite':  
-            return $autoIncrement ? 'INTEGER PRIMARY KEY AUTOINCREMENT' : 'INTEGER';  
+            return $autoIncrement ? 'INTEGER ' : 'INTEGER';  
          case 'mysql':  
          case 'mariadb':  
             return 'INT';  
