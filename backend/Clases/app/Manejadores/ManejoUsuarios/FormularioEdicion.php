@@ -9,7 +9,7 @@ use Liki\Manejadores\ManejadorBase;
 return new class extends  ManejadorBase {
 
 
- public  function run($p){
+ public  function run(array $p =[], array $f = []){
     extract($p);
 if(!isset($formularioEdicion)) return;
    Sesion::init();

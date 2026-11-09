@@ -61,9 +61,9 @@ abstract class ManejadorBase{
        }
     }
 
-    abstract public function run(array $p,array $f){
+    abstract public function run(array $p = [], array $f = []);
         
-    }
+    
     
     
     public function antes(array $p,array $f){

@@ -6,9 +6,10 @@ use Liki\Manejadores\ManejadorBase;
 
 return new class extends  ManejadorBase {
 
-public  function run(array $id_correo){
-       
-  return  FlowDB::conf('Correo')->campos(["id_correo", "email"])
-          ->get(['id_correo'=>$id_correo[0]])[0]["email"];
+public  function run(array $p =[], array $f = []){
+       $id_correo = $p[0];
+    
+  return FlowDB::conf('Correo')->campos(["id_correo", "email"])
+          ->get(['id_correo'=>$id_correo])[0]["email"] ?? 'no tiene correo';
 }
 };

@@ -1,5 +1,5 @@
 <?php
-use App\Controladores\DatosExtra\Correo;
+
 use Middleware\AuthMiddleware as Auth;
 
 
@@ -22,7 +22,7 @@ $estadoEstilo = "secondary";
       <td><?= $cedula ?></td>
       <td><?= $nombres ?></td>
       <td><?= $apellidos ?></td>
-      <td><?= Correo::optenerEmail($id_correo) ?></td>
+      <td><?= $correo ?></td>
       <td
       id="estado<?= $cedula ?>" 
       ><button class="btn btn-<?= $estadoEstilo ?>" 

@@ -4,12 +4,7 @@
     "type": "project",
     "autoload": {
         "psr4": {
-            "Liki\\": "./backend/Clases/liki/",
-            "App\\": "./backend/Clases/app/",
-            "Funciones\\": "./backend/Funciones/",
-            "Middleware\\": "./backend/Funciones/Middleware/",
-            "Librerias\\": "./backend/Librerias/"
-
+            
         }
     },
     "authors": [

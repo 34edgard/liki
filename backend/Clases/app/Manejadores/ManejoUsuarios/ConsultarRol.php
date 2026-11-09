@@ -7,7 +7,7 @@ use Liki\Manejadores\ManejadorBase;
 
 return new class extends  ManejadorBase {
 
-  public  function run($p,$f){    
+  public  function run(array $p =[], array $f = []){    
     $roles = FlowDB::conf('Rol')->campos(['id_rol','nombre_rol'])->get();
      foreach ($roles as $dato){
         Flow::html("componentes/option",[

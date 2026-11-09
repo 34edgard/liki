@@ -8,6 +8,9 @@ abstract class Modelo {
   
     public function validarCampos(array $campos): void {  
         foreach ($campos as $campo) {  
+            containt()
+            [$tabla, $campo]
+            
             Validar::isInclude($this->campos ?? [], $campo);  
         }  
     }  
